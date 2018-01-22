@@ -92,11 +92,11 @@ class ClienteTable extends Table
             ->requirePresence('email', 'create')
             ->notEmpty('email');
 
-        $validator
+       /* $validator
             ->dateTime('creado')
             ->requirePresence('creado', 'create')
             ->notEmpty('creado');
-
+*/
         return $validator;
     }
 

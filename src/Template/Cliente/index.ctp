@@ -34,7 +34,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id]) ?>
-                    <?= $this->Form->postLink(__('borrar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres borrar al cliente # {0}?', $cliente->nombre)]) ?>
+                    <?= $this->Form->postLink(__('borrar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres borrar al cliente  {0}?', $cliente->nombre)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -45,9 +45,9 @@
             <?= $this->Paginator->first('<< ' . __('primero')) ?>
             <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('siguente') . ' >') ?>
+            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
             <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
