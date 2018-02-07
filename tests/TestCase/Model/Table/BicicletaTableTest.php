@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ClienteTable;
+use App\Model\Table\BicicletaTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ClienteTable Test Case
+ * App\Model\Table\BicicletaTable Test Case
  */
-class ClienteTableTest extends TestCase
+class BicicletaTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ClienteTable
+     * @var \App\Model\Table\BicicletaTable
      */
-    public $Cliente;
+    public $Bicicleta;
 
     /**
      * Fixtures
@@ -24,8 +24,9 @@ class ClienteTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.bicicleta',
         'app.cliente',
-        'app.bicicleta'
+        'app.marca'
     ];
 
     /**
@@ -36,8 +37,8 @@ class ClienteTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Cliente') ? [] : ['className' => ClienteTable::class];
-        $this->Cliente = TableRegistry::get('Cliente', $config);
+        $config = TableRegistry::exists('Bicicleta') ? [] : ['className' => BicicletaTable::class];
+        $this->Bicicleta = TableRegistry::get('Bicicleta', $config);
     }
 
     /**
@@ -47,7 +48,7 @@ class ClienteTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Cliente);
+        unset($this->Bicicleta);
 
         parent::tearDown();
     }

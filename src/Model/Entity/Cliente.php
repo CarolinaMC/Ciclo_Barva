@@ -15,7 +15,8 @@ use Cake\ORM\Entity;
  * @property string $direccion
  * @property int $telefono
  * @property string $email
- * @property \Cake\I18n\FrozenTime $creado
+ *
+ * @property \App\Model\Entity\Bicicletum[] $bicicleta
  */
 class Cliente extends Entity
 {
@@ -38,6 +39,7 @@ class Cliente extends Entity
         'direccion' => true,
         'telefono' => true,
         'email' => true,
-        'creado' => true
+        'bicicleta' => true
     ];
+
 }

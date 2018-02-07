@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Cliente Model
  *
+ * @property \App\Model\Table\BicicletaTable|\Cake\ORM\Association\HasMany $Bicicleta
+ *
  * @method \App\Model\Entity\Cliente get($primaryKey, $options = [])
  * @method \App\Model\Entity\Cliente newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Cliente[] newEntities(array $data, array $options = [])
@@ -33,6 +35,10 @@ class ClienteTable extends Table
         $this->setTable('cliente');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Bicicleta', [
+            'foreignKey' => 'cliente_id'
+        ]);
     }
 
     /**
@@ -92,11 +98,6 @@ class ClienteTable extends Table
             ->requirePresence('email', 'create')
             ->notEmpty('email');
 
-       /* $validator
-            ->dateTime('creado')
-            ->requirePresence('creado', 'create')
-            ->notEmpty('creado');
-*/
         return $validator;
     }
 
@@ -109,6 +110,7 @@ class ClienteTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['cedula']));
         $rules->add($rules->isUnique(['email']));
 
         return $rules;

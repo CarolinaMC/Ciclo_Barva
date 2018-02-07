@@ -8,7 +8,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Opciones Cliente') ?></li>
         <li><?= $this->Html->link(__('Editar Cliente'), ['action' => 'edit', $cliente->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Borrar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres borrar este Cliente # {0}?', $cliente->nombre)]) ?> </li>
+        <li><?= $this->Form->postLink(__('Eliminar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar el cliente # {0}?', $cliente->nombre)]) ?> </li>
         <li><?= $this->Html->link(__('Lista Clientes'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?> </li>
     </ul>
@@ -47,10 +47,6 @@
         <tr>
             <th scope="row"><?= __('Direccion física') ?></th>
             <td><?= h($cliente->direccion) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Creado') ?></th>
-            <td><?= h($cliente->creado) ?></td>
         </tr>
     </table>
     

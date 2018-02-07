@@ -1,4 +1,3 @@
-
 <script>
 function validaN(e){
     if(!document.getElementById('extranjero').checked){
@@ -16,12 +15,38 @@ function validaN(e){
 }
 return 0;
 }
+function validaN(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+
+function validaL(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8) return true;
+        
+    // Patron de entrada, en este caso solo acepta letras
+    patron =/[A-Za-zñÑáÁéÉíÍóÓúÚÜü ]/;
+    te = String.fromCharCode(tecla);
+    return patron.test(te);
+}
 
 </script>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
+    <ul class="side-nav">  
+        <li class="heading"><?= __('Opciones Cliente') ?></li>
         <li><?= $this->Html->link(__('Ver Cliente'), ['action' => 'view', $cliente->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Borrar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres borrar este Cliente # {0}?', $cliente->nombre)]) ?> </li>
+        <li><?= $this->Form->postLink(__('Eliminar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar el usuario # {0}?', $cliente->nombre)]) ?> </li>
         <li><?= $this->Html->link(__('Lista Clientes'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?> </li>
     </ul>
@@ -36,17 +61,17 @@ return 0;
     <tr>
           <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaN(event)')); ?> </td>
             
-          <td> <?php echo $this->Form->control('nombre',array('type'=>'text', )); ?> </td>
+          <td> <?php echo $this->Form->control('nombre',array('type'=>'text', 'onkeypress'=>'return validaL(event)')); ?> </td>
             </tr>
 <tr>
-        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text', )); ?> </td>
+        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text','onkeypress'=>'return validaL(event)' )); ?> </td>
 
-        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text', ));?> </td> 
+        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text', 'onkeypress'=>'return validaL(event)'));?> </td> 
     </tr>
         <tr>
-         <td> <?php echo $this->Form->control('alias',array('type'=>'text', ));?> </td>
+         <td> <?php echo $this->Form->control('alias',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td>
             
-           <td> <?php echo $this->Form->control('telefono',array('type'=>'text','minlength'=>'8','maxlength'=>'8')); ?> </td> 
+           <td> <?php echo $this->Form->control('telefono',array('type'=>'text','minlength'=>'8','maxlength'=>'8','onkeypress'=>'return validaN(event)')); ?> </td> 
        </tr>
             <tr>
                 <td> <?php echo $this->Form->control('email',array('type'=>'text', 'placeholder' => "@"));?> </td>

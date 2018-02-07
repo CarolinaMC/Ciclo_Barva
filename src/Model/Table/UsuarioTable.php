@@ -78,24 +78,18 @@ class UsuarioTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 20)
+            ->maxLength('password', 200)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
-
-        $validator
-            ->boolean('activo')
-            ->requirePresence('activo', 'create')
-            ->notEmpty('activo');
 
         return $validator;
     }
 
-     public function buildRules(RulesChecker $rules)
+    public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['cedula']));
-
         return $rules;
     }
+
+   
 }

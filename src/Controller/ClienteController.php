@@ -11,16 +11,16 @@ class ClienteController extends AppController
 {
 	public $helpers = array('Html', 'Form' );  
 
-	var $paginate = array('limit'=>5,'order'=>array('nombre'));
+    var $paginate = array('limit'=>5,'order'=>array('nombre'));
 
-	public function index()
-	{
-		$cliente = $this->paginate($this->Cliente);
-		$this->set('cliente',$this->Cliente->find('all'));
-	}
+    public function index()
+    {
+        $cliente = $this->paginate($this->Cliente);
+        $this->set('cliente',$this->Cliente->find('all'));
+    }
 
-	public function view($id = null){
-	
+    public function view($id = null){
+    
         $cliente = $this->Cliente->get($id, [
             'contain' => []
         ]);
@@ -42,7 +42,7 @@ class ClienteController extends AppController
             }
             else{
                 if(sizeof($cliente)>0)
-                    $this->Flash->error(__('El cliente se guardó .'));
+                    $this->Flash->error(__('El cliente ya existe .'));
                 else{
                     $this->Flash->error(__('El cliente no pudo ser guardado. Intente de nuevo.'));
                     }

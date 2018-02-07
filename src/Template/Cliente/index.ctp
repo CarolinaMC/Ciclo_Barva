@@ -6,35 +6,39 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
+        <li class="heading"><?= __('Opciones del cliente') ?></li>
         <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="cliente index large-9 medium-8 columns content">
-    <h3><?= __('Cliente') ?></h3>
+    <h3><?= __('Clientes') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('primer_ape') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('segundo_ape') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('alias') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('telefono') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
             <tr>
+                <td><?= h($cliente->cedula) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>
                 <td><?= h($cliente->segundo_ape) ?></td>
                 <td><?= h($cliente->alias) ?></td>
-                <td><?= $this->Number->format($cliente->telefono) ?></td>
+                <td><?= h($cliente->telefono) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id]) ?>
-                    <?= $this->Form->postLink(__('borrar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres borrar al cliente  {0}?', $cliente->nombre)]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre)]) ?>
+                    <?= $this->Html->link(__('+ Bicicleta'), ['action' => 'view', $cliente->id]) ?>
+                    <!-- poner aqui en accion una direccion al add de bicicleta  -->
                 </td>
             </tr>
             <?php endforeach; ?>

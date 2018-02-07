@@ -30,8 +30,7 @@ class UsuarioFixture extends TestFixture
         'primer_ape' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'segundo_ape' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'puesto' => ['type' => 'string', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'password' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'activo' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'password' => ['type' => 'string', 'length' => 200, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -55,8 +54,7 @@ class UsuarioFixture extends TestFixture
             'primer_ape' => 'Lorem ipsum dolor ',
             'segundo_ape' => 'Lorem ipsum dolor ',
             'puesto' => 'Lorem ipsum dolor sit amet',
-            'password' => 'Lorem ipsum dolor ',
-            'activo' => 1
+            'password' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

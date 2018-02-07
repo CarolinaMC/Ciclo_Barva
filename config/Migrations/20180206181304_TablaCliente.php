@@ -42,7 +42,7 @@ class TablaCliente extends AbstractMigration
             'default' => null ,
             'null' => false,
         ])
-        ->addColumn('telefono','integer', [
+        ->addColumn('telefono','string', [
             'default' => null ,
             'limit' => 10,
             'null' => false,
@@ -50,10 +50,6 @@ class TablaCliente extends AbstractMigration
         ->addColumn('email','string', [
             'default' => null ,
             'limit' => 50,
-            'null' => false,
-        ])
-        ->addColumn('creado','datetime', [
-            'default' => null ,
             'null' => false,
         ])
         ->create();

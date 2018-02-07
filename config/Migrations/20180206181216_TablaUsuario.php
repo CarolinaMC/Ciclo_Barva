@@ -18,8 +18,7 @@ class TablaUsuario extends AbstractMigration
               ->addColumn('primer_ape','string',array('limit'=>20))
               ->addColumn('segundo_ape','string',array('limit'=>20))
               ->addColumn('puesto','enum',array('values'=>'administrador, dependiente, mecanico'))
-              ->addColumn('password','string',array('limit'=>20))
-              ->addColumn('activo','boolean')
+              ->addColumn('password','string',array('limit'=>200))
               ->create();
     }
 }

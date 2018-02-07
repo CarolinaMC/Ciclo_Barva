@@ -6,41 +6,35 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Usuario'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Opciones del usuario') ?></li>
+        <li><?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usuario index large-9 medium-8 columns content">
-    <h3><?= __('Usuario') ?></h3>
+    <h3><?= __('Usuarios') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('primer_ape') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('segundo_ape') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('puesto') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('password') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('activo') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($usuario as $usuario): ?>
             <tr>
-                <td><?= $this->Number->format($usuario->id) ?></td>
                 <td><?= h($usuario->cedula) ?></td>
                 <td><?= h($usuario->nombre) ?></td>
                 <td><?= h($usuario->primer_ape) ?></td>
                 <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
-                <td><?= h($usuario->password) ?></td>
-                <td><?= h($usuario->activo) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usuario->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $usuario->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -48,12 +42,12 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('primero')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
+            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

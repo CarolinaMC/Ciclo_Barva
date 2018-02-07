@@ -49,7 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Usuario', 'action' =>'login']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -75,14 +75,30 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 });
 
+// Router::scope('/usuario', function (RouteBuilder $routes) { 
+//     $routes->connect('/login', ['controller' => 'Usuario', 'action' => 'login']);
+//     $routes->connect('/index', ['controller' => 'Usuario', 'action' => 'index']);
+//     $routes->connect('/view', ['controller' => 'Usuario', 'action' => 'view']);
+//     $routes->connect('/add', ['controller' => 'Usuario', 'action' => 'add']);
+//     $routes->connect('/edit', ['controller' => 'Usuario', 'action' => 'edit']);
+//     $routes->connect('/delete', ['controller' => 'Usuario', 'action' => 'delete']);
+//     $routes->fallbacks(DashedRoute::class);
+// });
+
+// Router::scope('/cliente', function (RouteBuilder $routes) { 
+//     $routes->connect('/index', ['controller' => 'Cliente', 'action' => 'index']);
+//     $routes->connect('/view', ['controller' => 'Cliente', 'action' => 'view']);
+//     $routes->connect('/add', ['controller' => 'Cliente', 'action' => 'add']);
+//     $routes->connect('/edit', ['controller' => 'Cliente', 'action' => 'edit']);
+//     $routes->connect('/delete', ['controller' => 'Cliente', 'action' => 'delete']);
+//     $routes->fallbacks(DashedRoute::class);
+// });
+
 //Ruta para usuario
-Router::connect('/usuario/index',['controller'=>'Usuario','action'=>'index']);
-
-Router::connect('/cliente/index',['controller'=>'Cliente','action'=>'index']);
-
-/*Router::scope('/usuario', function($routes)
-    {$routes=>connect('/index',['controller' =>'Usuario','action'=>'index']); 
-});*/
+// Router::connect('/usuario/login',['controller'=>'Usuario','action'=>'login']); 
+// Router::connect('/cliente/index',['controller'=>'Cliente','action'=>'index']);
+// Router::connect('/marca/index',['controller'=>'Marca','action'=>'index']);
+// Router::connect('/bicicleta/index',['controller'=>'Bicicleta','action'=>'index']);
 
 /**
  * Load all plugin routes. See the Plugin documentation on

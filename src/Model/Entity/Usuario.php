@@ -3,7 +3,6 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use Cake\Auth\DefaultPasswordHasher;
-use Cake\Auth\AbstractPasswordHasher;
 
 /**
  * Usuario Entity
@@ -15,7 +14,6 @@ use Cake\Auth\AbstractPasswordHasher;
  * @property string $segundo_ape
  * @property string $puesto
  * @property string $password
- * @property bool $activo
  */
 class Usuario extends Entity
 {
@@ -35,8 +33,7 @@ class Usuario extends Entity
         'primer_ape' => true,
         'segundo_ape' => true,
         'puesto' => true,
-        'password' => true,
-        'activo' => true
+        'password' => true
     ];
 
     /**
@@ -44,9 +41,14 @@ class Usuario extends Entity
      *
      * @var array
      */
-   protected function _setPassword($value){
+    protected $_hidden = [
+        'password'
+    ];
+
+    protected function _setPassword($value){
         $hasher = new DefaultPasswordHasher();
         return $hasher->hash($value);
 
     }
+
 }
