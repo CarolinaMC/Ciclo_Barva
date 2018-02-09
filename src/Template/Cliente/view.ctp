@@ -50,5 +50,5 @@
         </tr>
     </table>
     
-    <h3> Bicicletas </h3>
+    <h3> Bicicletas perteneciantes al cliente </h3>
 </div>

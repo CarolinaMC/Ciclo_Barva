@@ -40,9 +40,5 @@
             <th scope="row"><?= __('Password') ?></th>
             <td><?= h($usuario->password) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($usuario->id) ?></td>
-        </tr>
     </table>
 </div>

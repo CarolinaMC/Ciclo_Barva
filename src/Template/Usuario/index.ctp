@@ -6,7 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Opciones del usuario') ?></li>
+        <li class="heading"><?= __('Opciones Usuario') ?></li>
         <li><?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
