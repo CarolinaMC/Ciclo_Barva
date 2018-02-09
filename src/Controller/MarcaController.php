@@ -11,7 +11,9 @@ use App\Controller\AppController;
  */
 class MarcaController extends AppController
 {
+public $helpers = array('Html', 'Form' );  
 
+    var $paginate = array('limit'=>5,'order'=>array('nombre'));
     /**
      * Index method
      *
@@ -21,7 +23,7 @@ class MarcaController extends AppController
     {
         $marca = $this->paginate($this->Marca);
 
-        $this->set(compact('marca'));
+        $this->set('marca',$this->Marca->find('all'));
     }
 
     /**
@@ -38,6 +40,7 @@ class MarcaController extends AppController
         ]);
 
         $this->set('marca', $marca);
+        $this->set('_serialize', ['marca']);
     }
 
     /**
@@ -51,13 +54,20 @@ class MarcaController extends AppController
         if ($this->request->is('post')) {
             $marca = $this->Marca->patchEntity($marca, $this->request->getData());
             if ($this->Marca->save($marca)) {
-                $this->Flash->success(__('The marca has been saved.'));
+                $this->Flash->success(__('La marca se guardo correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The marca could not be saved. Please, try again.'));
+            else{
+                if(sizeof($marca)>0)
+                    $this->Flash->error(__('La marca ya existe.'));
+                else{
+                    $this->Flash->error(__('La marca no pudo ser guardada. Intente de nuevo.'));
+                    }
+            }
         }
         $this->set(compact('marca'));
+        $this->set('_serialize', ['marca']);
     }
 
     /**
@@ -75,13 +85,14 @@ class MarcaController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $marca = $this->Marca->patchEntity($marca, $this->request->getData());
             if ($this->Marca->save($marca)) {
-                $this->Flash->success(__('The marca has been saved.'));
+                $this->Flash->success(__('La marca se actualizó correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The marca could not be saved. Please, try again.'));
+            $this->Flash->error(__('La marca no pudo ser actualizada. Intente de nuevo.'));
         }
         $this->set(compact('marca'));
+        $this->set('_serialize', ['marca']);
     }
 
     /**
@@ -96,9 +107,9 @@ class MarcaController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $marca = $this->Marca->get($id);
         if ($this->Marca->delete($marca)) {
-            $this->Flash->success(__('The marca has been deleted.'));
+            $this->Flash->success(__('La marca se ha eliminado.'));
         } else {
-            $this->Flash->error(__('The marca could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La marca no pudo ser eliminada. Intente de nuevo.'));
         }
 
         return $this->redirect(['action' => 'index']);
