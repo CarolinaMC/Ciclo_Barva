@@ -4,6 +4,15 @@
  * @var \App\Model\Entity\Cliente[]|\Cake\Collection\CollectionInterface $cliente
  */
 ?>
+
+<script>
+    
+    $(document).ready(function(){
+    llenarAutoCompleteCliente('<?php echo $clientes ?>');
+});
+
+</script>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Opciones Cliente') ?></li>
@@ -12,6 +21,12 @@
 </nav>
 <div class="cliente index large-9 medium-8 columns content">
     <h3><?= __('Clientes') ?></h3>
+    <?= $this->Form->create('buscar', array('type' => 'GET', 'class' => 'navbar-form navbar-left', 'url' => ['action' => 'buscar'])) ?>
+    <div class="form-group"> 
+<?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente'))?>
+    </div>
+    <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
+    <?= $this->Form->end(); ?>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
