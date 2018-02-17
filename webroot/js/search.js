@@ -66,3 +66,30 @@ function llenarAutoCompleteCliente(data) {
     };
     $("#buscar").easyAutocomplete(opcions);
 }
+
+function llenarAutoCompleteUsuario(data) {
+	data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+	                return element.cedula.toString();
+                  },
+
+        list: {
+            match: {
+                enabled: true
+            }
+        },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+	                return element.nombre + " - " + element.primer_ape;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#buscar").easyAutocomplete(opcions);
+}

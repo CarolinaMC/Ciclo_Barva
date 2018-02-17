@@ -21,7 +21,7 @@
 </nav>
 <div class="cliente index large-9 medium-8 columns content">
     <h3><?= __('Clientes') ?></h3>
-    <?= $this->Form->create('buscar', array('type' => 'GET', 'class' => 'navbar-form navbar-left', 'url' => ['action' => 'buscar'])) ?>
+    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
     <div class="form-group"> 
 <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente'))?>
     </div>

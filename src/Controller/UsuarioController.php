@@ -36,7 +36,9 @@ class UsuarioController extends AppController
     public function index()
     {
         $usuario = $this->paginate($this->Usuario);
-        $this->set('usuario',$this->Usuario->find('all'));
+        $usuarios = $this->Usuario->find('all');
+        $this->set('usuario',$usuarios);
+         $this->set('usuarios', json_encode($usuarios));
     }
 
     public function add()
@@ -106,6 +108,18 @@ class UsuarioController extends AppController
         
     }
     
-
+    public function buscar(){
+        
+        $buscar = null;
+        if(!empty($this->request->query['buscar'])){
+            $buscar = $this->request->query['buscar'];
+            
+            $opciones=array('conditions' => array('Usuario.cedula' => $buscar));
+            $usuarios = $this->Usuario->find('all', $opciones);
+            
+        
+                return $this->redirect(array('action' => 'view', $usuarios->first()->id)); 
+    }
+}
 	
 }
