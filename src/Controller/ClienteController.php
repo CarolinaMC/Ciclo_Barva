@@ -88,14 +88,14 @@ class ClienteController extends AppController
 
 
     public function buscar(){
-        echo("si entro");
+        
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
-            echo($buscar);
+            
             $opciones=array('conditions' => array('Cliente.telefono' => $buscar));
             $clientes = $this->Cliente->find('all', $opciones);
-            echo(json_encode($clientes));
+            
         
                 return $this->redirect(array('action' => 'view', $clientes->first()->id)); 
     }
