@@ -32,17 +32,41 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->meta('icon') ?>
 
+<<<<<<< HEAD
     <?= $this->Html->css('bootstrap') ?>
     <?= $this->Html->css('style') ?>
     <?= $this->Html->script(['jquery-3.3.1.min','bootstrap'])?>
+=======
+    <?= $this->Html->css('base.css') ?>
+    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('bootstrap.min') ?>
+    <?= $this->Html->css('easy-autocomplete') ?>
+    <?= $this->Html->css('easy-autocomplete.themes') ?>
+
+    
+    <?= $this->Html->script('jquery-3.3.1.min') ?>
+    <?= $this->Html->script('bootstrap.min') ?>
+    <?= $this->Html->script('jquery.easy-autocomplete') ?>
+    <?= $this->Html->script('search') ?>
+>>>>>>> afcf1d5a782b2c177ae46e4e201226521cc7662b
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
+<<<<<<< HEAD
     <?= $this->element('menu')?>
 
+=======
+    <nav class="top-bar expanded" data-topbar role="navigation">
+        <ul class="title-area large-3 medium-4 columns">
+            <li class="name">
+                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+            </li>
+        </ul>
+    </nav>
+>>>>>>> afcf1d5a782b2c177ae46e4e201226521cc7662b
     <?= $this->Flash->render() ?>
     <div class="container">
         <?= $this->fetch('content') ?>
