@@ -4,15 +4,17 @@
  * @var \App\Model\Entity\Usuario[]|\Cake\Collection\CollectionInterface $usuario
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Usuario') ?></li>
-        <li><?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="usuario index large-9 medium-8 columns content">
-    <h3><?= __('Usuarios') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="row">
+    <div class="col-md-12">
+    <div class="page-header">
+        <h3>
+            <?= __('Usuarios') ?>
+            <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
+        </h3>
+        
+    </div>
+    <div class="">
+    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
@@ -32,22 +34,22 @@
                 <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $usuario->id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $usuario->id],['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id],['class'=>'btn btn-sm btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('primero')) ?>
-            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
-            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
-        </ul>
+        <div class="pagination">
+            <?= $this->Paginator->prev('< anterior') ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
+            <?= $this->Paginator->next('siguiente >') ?>
+        </div>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+</div>
 </div>

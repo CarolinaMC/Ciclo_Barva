@@ -4,16 +4,11 @@
  * @var \App\Model\Entity\Bicicletum[]|\Cake\Collection\CollectionInterface $bicicleta
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Bicicleta') ?></li>
-        <li><?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Lista Cliente'), ['controller' => 'Cliente', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Marca'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
 <div class="bicicleta index large-9 medium-8 columns content">
-    <h3><?= __('Bicicletas') ?></h3>
+    <h3>
+        <?= __('Bicicletas') ?>
+        <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add']) ?>    
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

@@ -4,15 +4,17 @@
  * @var \App\Model\Entity\Cliente[]|\Cake\Collection\CollectionInterface $cliente
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
-        <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="cliente index large-9 medium-8 columns content">
-    <h3><?= __('Clientes') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    
+<div class="row">
+    <div  class="col-md-12">
+    <div class="page-header">
+    <h3><?= __('Clientes') ?>
+        <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
+            
+        </h3>
+    </div>
+    <div class="">
+    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
@@ -34,24 +36,24 @@
                 <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre)]) ?>
-                    <?= $this->Html->link(__('+ Bicicleta'), ['action' => 'view', $cliente->id]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id],['class'=>'btn btn-sm btn-primary']) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
                     <!-- poner aqui en accion una direccion al add de bicicleta  -->
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('primero')) ?>
+        <div class="pagination">
             <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>''] ) ?>
             <?= $this->Paginator->next(__('siguiente') . ' >') ?>
-            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
-        </ul>
+        </div>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+</div>
 </div>
