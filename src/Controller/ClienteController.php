@@ -16,7 +16,9 @@ class ClienteController extends AppController
     public function index()
     {
         $cliente = $this->paginate($this->Cliente);
-        $this->set('cliente',$this->Cliente->find('all'));
+        $clientes = $this->Cliente->find('all');
+        $this->set('cliente',$clientes);
+         $this->set('clientes', json_encode($clientes));
     }
 
     public function view($id = null){
@@ -83,4 +85,20 @@ class ClienteController extends AppController
         return $this->redirect(['action' => 'index']);
         
     }
+
+
+    public function buscar(){
+        
+        $buscar = null;
+        if(!empty($this->request->query['buscar'])){
+            $buscar = $this->request->query['buscar'];
+            
+            $opciones=array('conditions' => array('Cliente.telefono' => $buscar));
+            $clientes = $this->Cliente->find('all', $opciones);
+            
+        
+                return $this->redirect(array('action' => 'view', $clientes->first()->id)); 
+    }
+}
+
 }

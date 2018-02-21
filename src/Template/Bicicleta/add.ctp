@@ -4,28 +4,68 @@
  * @var \App\Model\Entity\Bicicletum $bicicletum
  */
 ?>
+<script>
+function validaN(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+
+function validaL(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8) return true;
+        
+    // Patron de entrada, en este caso solo acepta letras
+    patron =/[A-Za-zñÑáÁéÉíÍóÓúÚÜü ]/;
+    te = String.fromCharCode(tecla);
+    return patron.test(te);
+}
+
+</script>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Bicicleta'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Cliente'), ['controller' => 'Cliente', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Cliente'), ['controller' => 'Cliente', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Marca'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Marca'), ['controller' => 'Marca', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Opciones Bicicleta') ?></li>
+        <li><?= $this->Html->link(__('Lista Bicicleta'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista Cliente'), ['controller' => 'Cliente', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Lista Marca'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="bicicleta form large-9 medium-8 columns content">
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
-        <legend><?= __('Add Bicicletum') ?></legend>
-        <?php
-            echo $this->Form->control('tamano');
-            echo $this->Form->control('color');
-            echo $this->Form->control('descripcion');
-            echo $this->Form->control('cliente_id', ['options' => $cliente]);
-            echo $this->Form->control('marca_id', ['options' => $marca]);
-        ?>
+        <legend><?= __('Agregar Bicicleta') ?></legend>
+        <?php?>
+        <table>
+            <tr>
+                <td> <?php echo $this->Form->control('cliente_id',['options' => $cliente]); ?> </td>
+            </tr>
+            <tr>
+                <td> <?php echo $this->Form->control('marca_id',['options' => $marca]);?> </td> 
+            </tr>
+
+            <tr>
+                <td> <?php echo $this->Form->control('tamano', ['options' => ['1' =>'1', '2' =>'2','3' =>'3','4' =>'4', '5' =>'5','6' =>'6','7' =>'7', '8' =>'8','9' =>'9']]);?> </td>
+            </tr>
+            <tr>
+                <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)' )); ?> </td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->control('descripcion',array('placeholder'=>"Ingrese caracteristicas de la bicicleta"));?></td>
+            </tr>
+        </table>
+
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Agregar')) ?>
     <?= $this->Form->end() ?>
 </div>
