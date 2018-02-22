@@ -3,20 +3,8 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Cliente[]|\Cake\Collection\CollectionInterface $cliente
  */
-?>
-<<<<<<< HEAD
-    
-<div class="row">
-    <div  class="col-md-12">
-    <div class="page-header">
-    <h3><?= __('Clientes') ?>
-        <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
-            
-        </h3>
-    </div>
-    <div class="">
+?>    <div class="">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
-=======
 
 <script>
     
@@ -26,22 +14,16 @@
 
 </script>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
-        <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="cliente index large-9 medium-8 columns content">
+<div class="cliente index large-9 medium-8 content">
     <h3><?= __('Clientes') ?></h3>
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
     <div class="form-group"> 
 <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente'))?>
     </div>
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
+    <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>
     <table cellpadding="0" cellspacing="0">
->>>>>>> afcf1d5a782b2c177ae46e4e201226521cc7662b
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
