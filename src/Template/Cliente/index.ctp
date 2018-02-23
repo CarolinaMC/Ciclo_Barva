@@ -17,7 +17,7 @@
     <h3><?= __('Clientes') ?></h3>
     <div class="form-group">
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
-<?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente'))?>
+<?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente', 'required'))?>
     </div>
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
     <?= $this->Form->end(); ?>
