@@ -32,15 +32,6 @@ function validaL(e){
 }
 </script>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Usuario') ?></li>
-        <li><?= $this->Html->link(__('Ver Usuario'), ['action' => 'view', $usuario->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Usuario'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar el usuario # {0}?', $usuario->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Usuarios'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
 
 <div class="usuario form large-9 medium-8 columns content">
     <?= $this->Form->create($usuario) ?>

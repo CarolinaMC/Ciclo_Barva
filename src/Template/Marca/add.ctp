@@ -17,12 +17,6 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Marca') ?></li>
-        <li><?= $this->Html->link(__('Lista Marcas'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
 <div class="marca form large-9 medium-8 columns content">
     <?= $this->Form->create($marca) ?>
     <fieldset>

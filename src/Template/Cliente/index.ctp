@@ -23,7 +23,7 @@
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
     <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>
-    <table cellpadding="0" cellspacing="0">
+    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>

@@ -4,15 +4,6 @@
  * @var \App\Model\Entity\Cliente $cliente
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
-        <li><?= $this->Html->link(__('Editar Cliente'), ['action' => 'edit', $cliente->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar el cliente # {0}?', $cliente->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Clientes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
 <div class="cliente view large-9 medium-8 columns content">
     <h3><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">

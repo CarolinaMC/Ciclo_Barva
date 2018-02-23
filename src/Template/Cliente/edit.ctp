@@ -42,15 +42,6 @@ function validaL(e){
 }
 
 </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">  
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
-        <li><?= $this->Html->link(__('Ver Cliente'), ['action' => 'view', $cliente->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Cliente'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar el usuario # {0}?', $cliente->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Clientes'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
 <div class="cliente form large-9 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>

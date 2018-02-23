@@ -4,23 +4,12 @@
  * @var \App\Model\Entity\Bicicletum[]|\Cake\Collection\CollectionInterface $bicicleta
  */
 ?>
-<<<<<<< HEAD
-=======
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Bicicleta') ?></li>
-        <li><?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Lista Clientes'), ['controller' => 'Cliente', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Lista Marcas'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
->>>>>>> afcf1d5a782b2c177ae46e4e201226521cc7662b
 <div class="bicicleta index large-9 medium-8 columns content">
     <h3>
         <?= __('Bicicletas') ?>
-        <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add']) ?>    
+        <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>    
     </h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cliente_id') ?></th>
@@ -38,9 +27,9 @@
                 <td><?= h($bicicletum->color) ?></td>             
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
                <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $bicicletum->id]) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $bicicletum->id]) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $bicicletum->id],['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $bicicletum->id],['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre),'class'=>'btn btn-sm btn-info']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -31,16 +31,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     <?= $this->Html->meta('icon') ?>
-
-
-    <?= $this->Html->css('bootstrap') ?>
-    <?= $this->Html->script(['jquery-3.3.1.min','bootstrap'])?>
-
+    
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('bootstrap.min') ?>
     <?= $this->Html->css('easy-autocomplete') ?>
     <?= $this->Html->css('easy-autocomplete.themes') ?>
+    <?= $this->Html->css('style.css')?>
 
     
     <?= $this->Html->script('jquery-3.3.1.min') ?>

@@ -48,13 +48,6 @@ function validaL(e){
 }
 
 </script>
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Cliente') ?></li>
-        <li><?= $this->Html->link(__('Lista Clientes'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
 <div class="cliente form large-9 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>

@@ -18,16 +18,6 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Marca') ?></li>
-        <li><?= $this->Html->link(__('Ver Marca'), ['action' => 'view', $marca->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Marca'), ['action' => 'delete', $marca->id], ['confirm' => __('Estas seguro que quieres eliminar la marca # {0}?', $marca->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Marcas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Marca'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
 <div class="marca form large-9 medium-8 columns content">
     <?= $this->Form->create($marca) ?>
     <fieldset>

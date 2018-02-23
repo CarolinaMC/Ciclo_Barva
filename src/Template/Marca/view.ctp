@@ -4,15 +4,6 @@
  * @var \App\Model\Entity\Marca $marca
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Marca') ?></li>
-        <li><?= $this->Html->link(__('Editar Marca'), ['action' => 'edit', $marca->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Marca'), ['action' => 'delete', $marca->id], ['confirm' => __('Estas seguro que quieres eliminar la marca # {0}?', $marca->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Marcas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Marca'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
 <div class="marca view large-9 medium-8 columns content">
     <h3><?= h($marca->nombre) ?></h3>
     <table class="vertical-table">
