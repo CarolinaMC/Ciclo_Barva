@@ -4,8 +4,6 @@
  * @var \App\Model\Entity\Usuario[]|\Cake\Collection\CollectionInterface $usuario
  */
 ?>
-    <div class="">
-
 <script>
     
     $(document).ready(function(){
@@ -18,10 +16,10 @@
     <h3><?= __('Usuarios') ?></h3>
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
     <div class="form-group"> 
-<?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Usuario'))?>
+        <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Usuario','required'))?>
     </div>
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
-            <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
+    <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
@@ -51,7 +49,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
     <div class="paginator">
         <div class="pagination">
             <?= $this->Paginator->prev('< anterior') ?>
@@ -60,5 +57,4 @@
         </div>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
-</div>
 </div>

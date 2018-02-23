@@ -27,20 +27,8 @@
 <h1><?= $this->Html->link("Menú de Bicicleta",['controller'=>'Bicicleta', 'action'=>'index'])?></h1>
 </div>
 
-<div class="contenedor" id="cuatro">
-<h1><?= $this->Html->link("Control de repuestos",['controller'=>'Repuesto', 'action'=>'index'])?></h1>
-</div>
-
 <div class="contenedor" id="cinco">
 <h1><?= $this->Html->link("Menú de Marca",['controller'=>'Marca', 'action'=>'index'])?></h1>
-</div>
-
-<div class="contenedor" id="seis">
-<h1><?= $this->Html->link("Menú de Boleta",['controller'=>'Boleta', 'action'=>'index'])?></h1>
-</div>
-
-<div class="contenedor" id="siete">
-<h1><?= $this->Html->link("Menú de mantenimiento",['controller'=>'Mantenimiento', 'action'=>'index'])?></h1>
 </div>
 
 <br><br>
