@@ -88,7 +88,7 @@ class ClienteController extends AppController
 
 
     public function buscar(){
-        
+
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
