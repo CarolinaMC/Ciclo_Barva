@@ -5,8 +5,6 @@
  */
 ?>
     <div class="">
-    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
-
 
 <script>
     
@@ -16,7 +14,7 @@
 
 </script>
 
-<div class="usuario index large-9 medium-8 content"> 
+<div class="usuario index large-12 medium-8 content"> 
     <h3><?= __('Usuarios') ?></h3>
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
     <div class="form-group"> 

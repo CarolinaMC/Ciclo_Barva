@@ -3,8 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Cliente[]|\Cake\Collection\CollectionInterface $cliente
  */
-?>    <div class="">
-    <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
+?> 
 
 <script>
     
@@ -12,9 +11,9 @@
     llenarAutoCompleteCliente('<?php echo $clientes ?>');
 });
 
-</script>
-
-<div class="cliente index large-9 medium-8 content">
+</script> 
+  <div class="">
+<div class="cliente index large-12 medium-8 content">
     <h3><?= __('Clientes') ?></h3>
     <div class="form-group">
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
@@ -55,7 +54,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
+
     <div class="paginator">
         <div class="pagination">
             <?= $this->Paginator->prev('< ' . __('anterior')) ?>
