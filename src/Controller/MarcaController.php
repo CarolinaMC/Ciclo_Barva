@@ -114,4 +114,19 @@ public $helpers = array('Html', 'Form' );
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function buscar(){
+        $buscar = null;
+        if(!empty($this->request->query['buscar'])){
+            $buscar = $this->request->query['buscar'];
+            
+            $opciones=array('conditions' => array('Marca.nombre' => $buscar));
+            $marcas = $this->Marca->find('all', $opciones);
+            
+        
+                return $this->redirect(array('action' => 'view', $marcas->first()->id)); 
+
+    }
+  }
+
 }

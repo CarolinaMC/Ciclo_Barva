@@ -16,13 +16,13 @@
 
 <div class="cliente index large-9 medium-8 content">
     <h3><?= __('Clientes') ?></h3>
-    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
-    <div class="form-group"> 
+    <div class="form-group">
+    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
 <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente'))?>
     </div>
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
-    <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>
+    <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>

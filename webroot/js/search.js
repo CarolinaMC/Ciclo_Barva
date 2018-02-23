@@ -93,3 +93,5 @@ function llenarAutoCompleteUsuario(data) {
     };
     $("#buscar").easyAutocomplete(opcions);
 }
+
+

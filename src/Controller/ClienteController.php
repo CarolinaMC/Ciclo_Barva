@@ -98,6 +98,7 @@ class ClienteController extends AppController
             
         
                 return $this->redirect(array('action' => 'view', $clientes->first()->id)); 
+
     }
 }
 
