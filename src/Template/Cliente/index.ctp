@@ -25,6 +25,7 @@
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
@@ -37,6 +38,7 @@
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
             <tr>
+                <td><?= h($cliente->id) ?></td>
                 <td><?= h($cliente->cedula) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>

@@ -10,6 +10,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tipo') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
@@ -18,6 +19,7 @@
         <tbody>
             <?php foreach ($marca as $marca): ?>
             <tr>
+                <td><?= h($marca->id) ?></td>
                 <td><?= h($marca->nombre) ?></td>
                 <td><?= h($marca->tipo) ?></td>
                 <td class="actions">

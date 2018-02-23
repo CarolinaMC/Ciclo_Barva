@@ -16,7 +16,7 @@
             <td><?= h($marca->tipo) ?></td>
         </tr>
     </table>
-    <div class="related">
+<!--     <div class="related">
         <h3><?= __('Bicicletas con la marca') ?></h4>
         <?php if (!empty($marca->bicicleta)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -46,5 +46,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div> -->
 </div>

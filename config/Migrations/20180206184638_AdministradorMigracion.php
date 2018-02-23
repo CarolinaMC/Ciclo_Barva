@@ -89,5 +89,5 @@ class AdministradorMigracion extends AbstractMigration
 
 //         ]);
 //         $populator->execute();
-//     }*/
+     }
 }
