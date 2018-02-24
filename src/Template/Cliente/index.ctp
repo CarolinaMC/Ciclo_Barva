@@ -45,7 +45,7 @@
                 <td><?= h($cliente->segundo_ape) ?></td>
                 <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
-                <td class="actions">
+                <td class="actions" colspan="4">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-info']) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id],['class'=>'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>

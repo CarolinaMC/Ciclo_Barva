@@ -94,4 +94,58 @@ function llenarAutoCompleteUsuario(data) {
     $("#buscar").easyAutocomplete(opcions);
 }
 
+function llenarAutoCompleteClienteBici(data) {
+	data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+	                return element.id.toString();
+                  },
+
+        list: {
+            match: {
+                enabled: true
+            }
+        },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+	                return element.nombre + " - " + element.alias;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#cliente_id").easyAutocomplete(opcions);
+}
+
+function llenarAutoCompleteMarca(data) {
+	data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+	                return element.id.toString();
+                  },
+
+        list: {
+            match: {
+                enabled: true
+            }
+        },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+	                return element.nombre;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#marca_id").easyAutocomplete(opcions);
+}
+
 
