@@ -18,8 +18,12 @@
     </ul>
 </nav>
 <div class="bicicleta view large-9 medium-8 columns content">
-    <h3><?= h($bicicletum->id) ?></h3>
+    <h3><?= h($bicicletum->color) ?></h3>
     <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Descripcion') ?></th>
+            <td><?= h($bicicletum->descripcion) ?></td>
+        </tr>
         <tr>
             <th scope="row"><?= __('Tamano') ?></th>
             <td><?= h($bicicletum->tamano) ?></td>
@@ -30,19 +34,19 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Cliente') ?></th>
-            <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->id, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>
+            <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Marca') ?></th>
-            <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->id, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
+            <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($bicicletum->id) ?></td>
         </tr>
     </table>
-    <div class="row">
+    <!-- <div class="row">
         <h4><?= __('Descripcion') ?></h4>
         <?= $this->Text->autoParagraph(h($bicicletum->descripcion)); ?>
-    </div>
+    </div> -->
 </div>

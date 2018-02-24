@@ -46,7 +46,7 @@ function validaL(e){
             </tr>
 
             <tr>
-                <td> <?php echo $this->Form->control('tamano', ['options' => ['1' =>'1', '2' =>'2','3' =>'3','4' =>'4', '5' =>'5','6' =>'6','7' =>'7', '8' =>'8','9' =>'9']]);?> </td>
+                <td> <?php echo $this->Form->control('tamano', ['options' => ['12' =>'12', '16' =>'16','18' =>'18','20' =>'20', '24' =>'24','26' =>'26','27.5' =>'27.5', '28' =>'28','29' =>'29','700' =>'700']]);?> </td>
             </tr>
             <tr>
                 <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)' )); ?> </td>

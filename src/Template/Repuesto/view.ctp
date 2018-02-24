@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Marca') ?></th>
-            <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->id, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
+            <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
         </tr>
        <!--  <tr>
             <th scope="row"><?= __('Id') ?></th>

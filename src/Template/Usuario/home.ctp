@@ -26,9 +26,14 @@
 <div class="contenedor" id="tres">
 <h1><?= $this->Html->link("Menú de Bicicleta",['controller'=>'Bicicleta', 'action'=>'index'])?></h1>
 </div>
-
+<div class="contenedor" id="cuatro">
+<h1><?= $this->Html->link("Menú de Repuesto",['controller'=>'Repuesto', 'action'=>'index'])?></h1>
+</div>
 <div class="contenedor" id="cinco">
 <h1><?= $this->Html->link("Menú de Marca",['controller'=>'Marca', 'action'=>'index'])?></h1>
+</div>
+<div class="contenedor" id="seis">
+<h1><?= $this->Html->link("Menú de Servicio",['controller'=>'Servicio', 'action'=>'index'])?></h1>
 </div>
 
 <br><br>
