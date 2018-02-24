@@ -62,7 +62,7 @@ class BicicletaController extends AppController
             $this->Flash->error(__('The bicicletum could not be saved. Please, try again.'));
         }
         $cliente = $this->Bicicleta->Cliente->find('all');
-        $marca = $this->Bicicleta->Marca->find('all', ['limit' => 200]);
+        $marca = $this->Bicicleta->Marca->find('all');
         $this->set(compact('bicicletum', 'cliente', 'marca'));
         $this->set('clientes', json_encode($cliente));
         $this->set('marcas', json_encode($marca));

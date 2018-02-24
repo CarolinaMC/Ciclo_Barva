@@ -147,5 +147,3 @@ function llenarAutoCompleteMarca(data) {
     };
     $("#marca_id").easyAutocomplete(opcions);
 }
-
-

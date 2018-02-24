@@ -4,8 +4,6 @@
  * @var \App\Model\Entity\Bicicletum $bicicletum
  */
 ?>
-
-
 <div class="bicicleta form large-9 medium-8 columns content">
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
@@ -20,11 +18,9 @@
             </tr>
 
             <tr>
-<<<<<<< HEAD
-                <td> <?php echo $this->Form->control('tamano', ['options' => ['12' =>'12', '16' =>'16','18' =>'18','20' =>'20', '24' =>'24','26' =>'26','27.5' =>'27.5', '28' =>'28','29' =>'29','700' =>'700']]);?> </td>
-=======
+
                 <td> <?php echo $this->Form->control('tamano', ['options' => ['12' =>'12', '16' =>'16','20' =>'20','24' =>'24', '26' =>'26','27.5' =>'27.5','28' =>'28', '29' =>'29']]);?> </td>
->>>>>>> origin/master
+
             </tr>
             <tr>
                 <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)' )); ?> </td>
