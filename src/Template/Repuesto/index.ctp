@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             <?php foreach ($repuesto as $repuesto): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
                 <td><?= $this->Number->format($repuesto->id) ?></td>
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->categoria) ?></td>
@@ -35,7 +35,6 @@
                 <td><?= $this->Number->format($repuesto->precio) ?></td>
                 <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->id, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $repuesto->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $repuesto->id]) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $repuesto->id], ['confirm' => __('Estas seguro que quieres eliminar el repuesto  {0}?', $repuesto->descripcion)]) ?>
                 </td>

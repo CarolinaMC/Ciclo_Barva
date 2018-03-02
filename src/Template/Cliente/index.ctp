@@ -25,7 +25,6 @@
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
@@ -37,22 +36,20 @@
         </thead>
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
-            <tr>
-                <td><?= h($cliente->id) ?></td>
+            <tr onclick = "document.location = '/Ciclo_Barva/cliente/view/' +  <?= $cliente->id ?>;" >
                 <td><?= h($cliente->cedula) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>
                 <td><?= h($cliente->segundo_ape) ?></td>
                 <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
-                <td class="actions" colspan="4">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-info']) ?>
+                <td class="actions" colspan="3">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id],['class'=>'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                     <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
                     <!-- poner aqui en accion una direccion al add de bicicleta  -->
                 </td>
-            </tr>
+            </tr >
             <?php endforeach; ?>
         </tbody>
     </table>

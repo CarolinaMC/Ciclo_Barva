@@ -21,13 +21,12 @@
         </thead>
         <tbody>
             <?php foreach ($bicicleta as $bicicletum): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;" >
                 <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>
                 <td><?= h($bicicletum->tamano) ?></td>
                 <td><?= h($bicicletum->color) ?></td>             
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
                <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $bicicletum->id],['class'=>'btn btn-sm btn-info']) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $bicicletum->id],['class'=>'btn btn-sm btn-info']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre),'class'=>'btn btn-sm btn-info']) ?>
                 </td>

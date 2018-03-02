@@ -18,12 +18,11 @@
         </thead>
         <tbody>
             <?php foreach ($marca as $marca): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/marca/view/' +  <?= $marca->id ?>;">
                 <td><?= h($marca->id) ?></td>
                 <td><?= h($marca->nombre) ?></td>
                 <td><?= h($marca->tipo) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $marca->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $marca->id]) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $marca->id], ['confirm' => __('Estas seguro que quieres eliminar la marca  {0}?', $marca->nombre)]) ?>
                 </td>

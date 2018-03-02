@@ -23,7 +23,7 @@
     <?= $this->Form->end(); ?>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
-            <tr>
+            <tr >
                 <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
@@ -34,14 +34,13 @@
         </thead>
         <tbody>
             <?php foreach ($usuario as $usuario): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/usuario/view/' +  <?= $usuario->id ?>;">
                 <td><?= h($usuario->cedula) ?></td>
                 <td><?= h($usuario->nombre) ?></td>
                 <td><?= h($usuario->primer_ape) ?></td>
                 <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
-                <td class="actions"  colspan="2">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $usuario->id],['class'=>'btn btn-sm btn-info']) ?>
+                <td class="actions" >
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id],['class'=>'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
