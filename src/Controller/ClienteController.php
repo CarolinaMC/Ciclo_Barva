@@ -15,8 +15,7 @@ class ClienteController extends AppController
 
     public function index()
     {
-        $cliente = $this->paginate($this->Cliente);
-        $clientes = $this->Cliente->find('all');
+        $clientes = $this->paginate($this->Cliente);
         $this->set('cliente',$clientes);
          $this->set('clientes', json_encode($clientes));
     }
