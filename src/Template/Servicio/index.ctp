@@ -22,11 +22,10 @@
         </thead>
         <tbody>
             <?php foreach ($servicio as $servicio): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/servicio/view/' +  <?= $servicio->id ?>;">
                 <td><?= h($servicio->descripcion) ?></td>
                 <td><?= $this->Number->format($servicio->precio) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $servicio->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $servicio->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'Eliminar', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio  {0}?', $servicio->descripcion)]) ?>
                 </td>
