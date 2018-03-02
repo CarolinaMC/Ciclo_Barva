@@ -39,10 +39,8 @@ class UsuarioController extends AppController
 
     public function index()
     {
-        $usuario = $this->paginate($this->Usuario);
-        $usuarios = $this->Usuario->find('all');
+        $usuarios = $this->paginate($this->Usuario,['order'=>['Usuario.cedula'=>'asc']]);
         $this->set('usuario',$usuarios);
-         $this->set('usuarios', json_encode($usuarios));
     }
 
     public function add()

@@ -40,7 +40,7 @@
                 <td><?= h($usuario->primer_ape) ?></td>
                 <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
-                <td class="actions"  colspan="3">
+                <td class="actions"  colspan="2">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $usuario->id],['class'=>'btn btn-sm btn-info']) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id],['class'=>'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
