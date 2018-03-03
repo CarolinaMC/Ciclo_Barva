@@ -24,7 +24,7 @@ class RepuestoController extends AppController
         ];
         $repuesto = $this->paginate($this->Repuesto);
 
-        $this->set(compact('repuesto'));
+        $this->set(compact('repuesto'),$repuesto);
     }
 
     /**

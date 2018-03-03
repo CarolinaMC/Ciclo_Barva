@@ -23,7 +23,7 @@ public $helpers = array('Html', 'Form' );
     {
         $marca = $this->paginate($this->Marca);
 
-        $this->set('marca',$this->Marca->find('all'));
+        $this->set('marca',$marca);
     }
 
     /**

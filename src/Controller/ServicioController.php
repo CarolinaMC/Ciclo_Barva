@@ -20,7 +20,7 @@ class ServicioController extends AppController
     public function index()
     {
         $servicios = $this->paginate($this->Servicio);
-        $this->set('servicio',$servicios;
+        $this->set('servicio',$servicios);
     }
 
     /**
