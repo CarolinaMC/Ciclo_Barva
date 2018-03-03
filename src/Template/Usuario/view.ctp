@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Usuario $usuario
  */
 ?>
-<div class="usuario view large-9 medium-8 columns content">
+<div class="usuario view large-12 medium-8 columns content">
     <h3 class="heading"><?= h($usuario->nombre) ?></h3>
     <table class="vertical-table">
         <tr>

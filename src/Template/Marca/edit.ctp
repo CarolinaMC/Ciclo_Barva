@@ -18,7 +18,7 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<div class="marca form large-9 medium-8 columns content">
+<div class="marca form large-12 medium-8 columns content">
     <?= $this->Form->create($marca) ?>
     <fieldset>
         <legend><?= __('Editar Marca') ?></legend>

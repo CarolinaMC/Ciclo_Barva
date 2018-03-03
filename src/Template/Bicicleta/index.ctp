@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Bicicletum[]|\Cake\Collection\CollectionInterface $bicicleta
  */
 ?>
-<div class="bicicleta index large-9 medium-8 columns content">
+<div class="bicicleta index large-12 medium-8 columns content">
     <h3>
         <?= __('Bicicletas') ?>
         <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>    
@@ -28,20 +28,20 @@
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
                <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $bicicletum->id],['class'=>'btn btn-sm btn-info']) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre),'class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <<div class="paginator">
-        <ul class="pagination">
+    <div class="paginator">
+        <div class="pagination">
             <?= $this->Paginator->first('<< ' . __('primero')) ?>
             <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('siguiente') . ' >') ?>
             <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
-        </ul>
+        </div>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

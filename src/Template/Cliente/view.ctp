@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Cliente $cliente
  */
 ?>
-<div class="cliente view large-9 medium-8 columns content">
+<div class="cliente view large-12 medium-8 columns content">
     <h3><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">
         <tr>

@@ -35,3 +35,11 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+
+nav {
+  background: rgba(0,0,0,0.9);
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}

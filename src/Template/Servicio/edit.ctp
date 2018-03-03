@@ -31,16 +31,7 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Servicio') ?></li>
-        <li><?= $this->Html->link(__('Ver Servicio'), ['action' => 'view', $servicio->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Servicio'), ['action' => 'delete', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio {0}?', $servicio->descripcion)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Servicio'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Agregar Servicio'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="servicio form large-9 medium-8 columns content">
+<div class="servicio form large-12 medium-8 columns content">
     <?= $this->Form->create($servicio) ?>
     <fieldset>
         <legend><?= __('Editar Servicio') ?></legend>

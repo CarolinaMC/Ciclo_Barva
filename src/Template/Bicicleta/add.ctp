@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Bicicletum $bicicletum
  */
 ?>
-<div class="bicicleta form large-9 medium-8 columns content">
+<div class="bicicleta form large-12 medium-8 columns content">
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
         <legend><?= __('Agregar Bicicleta') ?></legend>

@@ -14,10 +14,13 @@
 
 <div class="usuario index large-12 medium-8 content"> 
     <h3><?= __('Usuarios') ?></h3>
+    
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
+
     <div class="form-group"> 
         <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Usuario','required'))?>
     </div>
+
     <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
     <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>

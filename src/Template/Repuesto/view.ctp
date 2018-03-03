@@ -4,16 +4,7 @@
  * @var \App\Model\Entity\Repuesto $repuesto
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones Repuesto') ?></li>
-        <li><?= $this->Html->link(__('Editar Repuesto'), ['action' => 'edit', $repuesto->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Eliminar Repuesto'), ['action' => 'delete', $repuesto->id], ['confirm' => __('Estas seguro que quieres eliminar el repuesto {0}?', $repuesto->nombre)]) ?> </li>
-        <li><?= $this->Html->link(__('Lista Repuesto'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('List Marca'), ['controller' => 'Marca', 'action' => 'index']) ?> </li>
-    </ul>
-</nav>
-<div class="repuesto view large-9 medium-8 columns content">
+<div class="repuesto view large-12 medium-8 columns content">
     <h3><?= h($repuesto->descripcion) ?></h3>
     <table class="vertical-table">
         <tr>

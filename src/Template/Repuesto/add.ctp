@@ -31,14 +31,7 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones de Repuesto') ?></li>
-        <li><?= $this->Html->link(__('Lista Repuesto'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Lista Marca'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="repuesto form large-9 medium-8 columns content">
+<div class="repuesto form large-12 medium-8 columns content">
     <?= $this->Form->create($repuesto) ?>
     <fieldset>
         <legend><?= __('Agregar Repuesto') ?></legend>

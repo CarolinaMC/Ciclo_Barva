@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Marca $marca
  */
 ?>
-<div class="marca view large-9 medium-8 columns content">
+<div class="marca view large-12 medium-8 columns content">
     <h3><?= h($marca->nombre) ?></h3>
     <table class="vertical-table">
         <tr>

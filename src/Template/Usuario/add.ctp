@@ -31,7 +31,7 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<div class="usuario form large-9 medium-8 columns content">
+<div class="usuario form large-12 medium-8 columns content">
     <?= $this->Form->create($usuario) ?>
     <fieldset>
         <legend><?= __('Agregar Usuario') ?></legend>

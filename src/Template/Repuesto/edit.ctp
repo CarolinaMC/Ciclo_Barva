@@ -31,20 +31,7 @@ function validaL(e){
     return patron.test(te);
 }
 </script>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones de servicio') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Eliminar Servicio'),
-                ['action' => 'delete', $repuesto->id],
-                ['confirm' => __('Estas seguro que quieres eliminar el repuesto {0}?', $repuesto->descripcion)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('Lista Repuesto'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Lista Marca'), ['controller' => 'Marca', 'action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="repuesto form large-9 medium-8 columns content">
+<div class="repuesto form large-12 medium-8 columns content">
     <?= $this->Form->create($repuesto) ?>
     <fieldset>
         <legend><?= __('Edit Repuesto') ?></legend>

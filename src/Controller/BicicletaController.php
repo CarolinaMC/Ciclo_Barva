@@ -25,7 +25,7 @@ class BicicletaController extends AppController
         ];
         $bicicleta = $this->paginate($this->Bicicleta);
 
-        $this->set(compact('bicicleta'));
+        $this->set(compact('bicicleta',$bicicleta));
     }
 
     /**

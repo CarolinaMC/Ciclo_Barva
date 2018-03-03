@@ -43,10 +43,9 @@
                 <td><?= h($cliente->segundo_ape) ?></td>
                 <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
-                <td class="actions" colspan="3">
+                <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id],['class'=>'btn btn-sm btn-primary']) ?>
                     <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>
-                    <?= $this->Html->link(__('Agregar Bicicleta'), ['action' => 'view', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
                     <!-- poner aqui en accion una direccion al add de bicicleta  -->
                 </td>
             </tr >

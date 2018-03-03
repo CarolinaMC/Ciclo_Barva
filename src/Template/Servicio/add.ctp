@@ -32,13 +32,7 @@ function validaL(e){
 }
 </script>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Opciones de Servicio') ?></li>
-        <li><?= $this->Html->link(__('Lista Servicio'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="servicio form large-9 medium-8 columns content">
+<div class="servicio form large-12 medium-8 columns content">
     <?= $this->Form->create($servicio) ?>
     <fieldset>
         <legend><?= __('Agregar Servicio') ?></legend>

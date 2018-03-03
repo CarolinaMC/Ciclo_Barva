@@ -42,7 +42,7 @@ function validaL(e){
 }
 
 </script>
-<div class="cliente form large-9 medium-8 columns content">
+<div class="cliente form large-12 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>
         <legend><?= __('Agregar Cliente') ?></legend>
