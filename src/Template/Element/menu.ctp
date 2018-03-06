@@ -65,6 +65,16 @@
           <?= $this->Html->link('Agregar Servicio',['controller'=>'Servicio', 'action'=>'add'],['class'=>'dropdown-item'])?>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        
+          <?= $this->Html->link('Salir',['controller'=>'Usuario', 'action'=>'logout'],['class'=>'dropdown-item'])?>
+         
+        
+      </li>
+    </ul>
+    <ul>
+     
     </ul>
   </div>
+
 </nav>

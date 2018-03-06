@@ -10,7 +10,7 @@
 				<h2>Ciclo Barva</h2>
 				<hr class="colorgraph">
 				<div class="form-group">
-                    <?= $this->Form->input('cedula', ['class'=>'form-control input-lg', 'placeholder'=>'cedula', 'label'=>false, 'required' ])?>
+                    <?= $this->Form->input('cedula', ['class'=>'form-control input-lg', 'placeholder'=>'Cedula', 'label'=>false, 'required' ])?>
 				</div>
 				<div class="form-group">
                     <?= $this->Form->input('password', ['class'=>'form-control input-lg', 'placeholder'=>'Contraseña', 'label'=>false, 'required' ])?>
