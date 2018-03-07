@@ -90,6 +90,10 @@ class AppController extends Controller
         }
     }
 
+    public function beforeFilter(Event $event){
+        $this->set('current_user', $this->Auth->user());
+
+    }
     public function isAuthorized($usuario)
     {
         return true;

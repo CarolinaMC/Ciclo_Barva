@@ -1,9 +1,9 @@
-<nav class="navbar navbar-toggleable-md navbar-dark bg-danger">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  	<?= $this->Html->link('Ciclo Barva',['controller'=>'Usuario', 'action'=>'home'],['class'=>'navbar-brand'])?>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+<?= $this->Html->css('menu') ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  
+  
+    
+  
     <ul class="navbar-nav">
 
       <li class="nav-item dropdown">
@@ -65,16 +65,24 @@
           <?= $this->Html->link('Agregar Servicio',['controller'=>'Servicio', 'action'=>'add'],['class'=>'dropdown-item'])?>
         </div>
       </li>
-      <li class="nav-item dropdown">
+
+    
+        
+    </ul>
+      <ul class="navbar-nav nav1">
+        <li>
+          <div>
+            <h4><?= $current_user['nombre']?>  <?= $current_user['puesto']?></h4>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
         
           <?= $this->Html->link('Salir',['controller'=>'Usuario', 'action'=>'logout'],['class'=>'dropdown-item'])?>
          
         
       </li>
-    </ul>
+      </ul>
     <ul>
      
     </ul>
-  </div>
-
-</nav>
+  </nav>
