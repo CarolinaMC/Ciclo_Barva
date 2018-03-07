@@ -12,8 +12,7 @@ class TablaMantenimiento extends AbstractMigration
      */
     public function change()
     {
-
-        $table = $this->table('Mantenimiento');
+    $table = $this->table('Mantenimiento');
     $table->addColumn('garantia','enum',[
             'values'=>'Aplica, No aplica'
             ])
@@ -21,10 +20,7 @@ class TablaMantenimiento extends AbstractMigration
             'values'=>'1,2,3,4'
             ])
             ->addColumn('estado','enum',[
-            'values'=>'entrante, espera, reparando, reparada,entregada'
-            ])
-            ->addColumn('faltante_rep','enum',[
-            'values'=>'Si, No'
+            'values'=>'espera, reparando, reparada, entregada'
             ])
             ->addColumn('descripcion','text', [
             'default' => null ,
@@ -36,13 +32,8 @@ class TablaMantenimiento extends AbstractMigration
     $refTable = $this->table('Mantenimiento');
     $refTable->addColumn('bicicleta_id', 'integer',array('signed' => 'disable'))
             ->addForeignKey('bicicleta_id','Bicicleta','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))  
-
-            /*->addColumn('servicio_id', 'array',array('signed' => 'disable'))
-            ->addForeignKey('servicio_id','Servicio','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
-
-            ->addColumn('repuesto_id', 'array',array('signed' => 'disable'))
-            ->addForeignKey('repuesto_id','Repuesto','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
-            */
+            ->addColumn('boleta_id', 'integer',array('signed' => 'disable'))
+            ->addForeignKey('boleta_id','Boleta','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
     ->update();
     }
 }

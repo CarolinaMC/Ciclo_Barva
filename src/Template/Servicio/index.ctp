@@ -23,7 +23,7 @@
                 <td><?= $this->Number->format($servicio->precio) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $servicio->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'Eliminar', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio  {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio  {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

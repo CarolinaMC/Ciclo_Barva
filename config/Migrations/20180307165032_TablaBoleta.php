@@ -12,12 +12,13 @@ class TablaBoleta extends AbstractMigration
      */
     public function change()
     {
-         $table = $this->table('Boleta');
+        $table = $this->table('Boleta');
     $table->addColumn('fecha_entrada','datetime', [
-            'default' => null ,
-            'null' => false,
+             'default' => null ,
+             'null' => false,
             ])
-    ->addColumn('fecha_salida','datetime', [
+    
+          ->addColumn('fecha_salida','datetime', [
             'default' => null ,
             'null' => false,
             ])
@@ -29,12 +30,6 @@ class TablaBoleta extends AbstractMigration
             ->addForeignKey('cliente_id','Cliente','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))  
             ->addColumn('usuario_id', 'integer',array('signed' => 'disable'))
             ->addForeignKey('usuario_id','Usuario','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
-
-            ->addColumn('mantenimiento_id', 'integer',array('signed' => 'disable'))
-            ->addForeignKey('mantenimiento_id','Mantenimiento','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
-
-            
-
     ->update();
     }
 }
