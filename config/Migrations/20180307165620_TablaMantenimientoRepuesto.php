@@ -12,5 +12,18 @@ class TablaMantenimientoRepuesto extends AbstractMigration
      */
     public function change()
     {
+        $table = $this->table('MantRepuesto');
+    $table->addColumn('fecha','datetime', [
+             'default' => null ,
+             'null' => false,
+            ])
+    ->create();
+
+    $refTable = $this->table('MantRepuesto');
+    $refTable->addColumn('repuesto_id', 'integer',array('signed' => 'disable'))
+            ->addForeignKey('repuesto_id','Repuesto','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))  
+            ->addColumn('mantenimiento_id', 'integer',array('signed' => 'disable'))
+            ->addForeignKey('mantenimiento_id','Mantenimiento','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
+    ->update();
     }
 }
