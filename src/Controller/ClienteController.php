@@ -73,7 +73,8 @@ class ClienteController extends AppController
 
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        echo ("si entro");
+        $this->request->allowMethod(['patch', 'post', 'put', 'get', 'delete']);
         $cliente = $this->Cliente->get($id);
         if ($this->Cliente->delete($cliente)) {
             $this->Flash->success(__('El cliente se ha eliminado.'));
