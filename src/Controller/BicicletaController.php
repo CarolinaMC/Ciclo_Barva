@@ -54,12 +54,23 @@ class BicicletaController extends AppController
         $bicicletum = $this->Bicicleta->newEntity();
         if ($this->request->is('post')) {
             $bicicletum = $this->Bicicleta->patchEntity($bicicletum, $this->request->getData());
+            $bici_json = json_decode(json_encode($this->request->getData()));
+
+            $opc = array('conditions' => array('Cliente.telefono' => $bici_json->cliente_id));
+            $clientes = $this->Bicicleta->Cliente->find('all', $opc);
+
+            $opciones = array('conditions' => array('Marca.nombre' => $bici_json->marca_id));
+            $marcas = $this->Bicicleta->Marca->find('all', $opciones);
+
+            $bicicletum->cliente_id = $clientes->first()->id;
+            $bicicletum->marca_id = $marcas->first()->id;
+            
             if ($this->Bicicleta->save($bicicletum)) {
-                $this->Flash->success(__('The bicicletum has been saved.'));
+                $this->Flash->success(__('La bicicleta a sido guardada exitosamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The bicicletum could not be saved. Please, try again.'));
+            $this->Flash->error(__('La bicicleta no pudo ser guardada. Por favor intente de nuevo.'));
         }
         $cliente = $this->Bicicleta->Cliente->find('all');
         $marca = $this->Bicicleta->Marca->find('all');
@@ -103,12 +114,12 @@ class BicicletaController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['patch', 'post', 'put', 'get', 'delete']);
         $bicicletum = $this->Bicicleta->get($id);
         if ($this->Bicicleta->delete($bicicletum)) {
-            $this->Flash->success(__('The bicicletum has been deleted.'));
+            $this->Flash->success(__('La bicicleta a sido borrada exitosamente'));
         } else {
-            $this->Flash->error(__('The bicicletum could not be deleted. Please, try again.'));
+            $this->Flash->error(__('No se a podido borrar la bicicleta. Por favor, intente de nuevo.'));
         }
 
         return $this->redirect(['action' => 'index']);

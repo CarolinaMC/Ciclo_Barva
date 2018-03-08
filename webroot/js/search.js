@@ -99,7 +99,7 @@ function llenarAutoCompleteClienteBici(data) {
     var opcions = {
         data ,
         getValue: function(element) {
-	                return element.id.toString();
+	                return element.telefono.toString();
                   },
 
         list: {
@@ -126,22 +126,14 @@ function llenarAutoCompleteMarca(data) {
     var opcions = {
         data ,
         getValue: function(element) {
-	                return element.id.toString();
+	                return element.nombre;
                   },
 
         list: {
             match: {
                 enabled: true
             }
-        },
-        template: {
-            type: "description",
-            fields: {
-                description: function(element) {
-	                return element.nombre;
-                  }
-            }
-        },
+         },
         theme: "dark-light"
 //gris oscuro
     };
