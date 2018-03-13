@@ -45,18 +45,38 @@ class BoletaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($cliente_id = null, $usuario_id = null)
     {
         $boletum = $this->Boleta->newEntity();
-        if ($this->request->is('post')) {
-            $boletum = $this->Boleta->patchEntity($boletum, $this->request->getData());
-            if ($this->Boleta->save($boletum)) {
-                $this->Flash->success(__('The boletum has been saved.'));
+        if(!($cliente_id == null && $usuario_id == null)){
+        if ($this->request->is(['post', 'get'])) {
 
-                return $this->redirect(['action' => 'index']);
+            if($this->request->is('get')){
+
+            $boletum->cliente_id = $cliente_id;
+            $boletum->usuario_id = $usuario_id;
+            
             }
-            $this->Flash->error(__('The boletum could not be saved. Please, try again.'));
+
+            else {
+                $boletum = $this->Boleta->patchEntity($boletum, $this->request->getData());
+            }
+
+            if ($this->Boleta->save($boletum)) {
+                $this->Flash->success(__('La boleta a sido creada.'));
+                $this->set('boleta', $boletum);
+
+                return $this->redirect( ['controller' => 'boleta', 'action' => 'view',  $boletum->id]);
+            }
+            $this->Flash->error(__('La boleta no pudo ser creada. Por favor, intente de nuevo.'));
         }
+
+    }
+    
+
+         $clientes = $this->Boleta->Cliente->find('all');
+        $this->set('cliente',$clientes);
+         $this->set('clientes', json_encode($clientes));
         $this->set(compact('boletum'));
     }
 
@@ -103,4 +123,20 @@ class BoletaController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+       public function buscar(){
+
+        $buscar = null;
+        if(!empty($this->request->query['buscar'])){
+            $buscar = $this->request->query['buscar'];
+            
+            $opciones=array('conditions' => array('Cliente.telefono' => $buscar));
+            $clientes = $this->Boleta->Cliente->find('all', $opciones);
+            echo($clientes->first()->id);
+            
+        
+                return $this->redirect(['controller' => 'cliente', 'action' => 'view', $clientes->first()->id]); 
+
+    }
+}
 }

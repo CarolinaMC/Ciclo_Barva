@@ -92,6 +92,7 @@ function llenarAutoCompleteUsuario(data) {
 //gris oscuro
     };
     $("#buscar").easyAutocomplete(opcions);
+    $("#usuario_id").easyAutocomplete(opcions);
 }
 
 function llenarAutoCompleteClienteBici(data) {
@@ -138,4 +139,13 @@ function llenarAutoCompleteMarca(data) {
 //gris oscuro
     };
     $("#marca_id").easyAutocomplete(opcions);
+}
+
+function comfirmar(nombre, cliente_id, usuario_id){
+	if(confirm("Estas seguro que quiere crear una boleta de reparacion al cliente " + nombre)){
+		return location.href = '/Ciclo_Barva/boleta/add/' + cliente_id + '/' + usuario_id ;
+	}
+	else{
+		return false;
+	}
 }

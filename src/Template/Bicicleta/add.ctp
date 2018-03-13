@@ -9,12 +9,12 @@
     <fieldset>
         <legend><?= __('Agregar Bicicleta') ?></legend>
         <?php?>
-        <table>
+        <table <table class="table">
             <tr>
-                <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => '# Cliente', 'required', 'type' => 'text')); ?> </td>
+                <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => 'tel Cliente', 'required', 'type' => 'text')); ?> </td>
             </tr>
             <tr>
-                <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => '# Marca', 'required', 'type' => 'text'));?> </td> 
+                <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => ' Marca', 'required', 'type' => 'text'));?> </td> 
             </tr>
 
             <tr>
