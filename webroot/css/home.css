@@ -21,54 +21,18 @@ margin-left: 55px;
 width: 250px;
 height: 50px;
 float: left;
-
 }
 
-div#uno{
+div #uno{
 
-    background-color: rgb(255,198,169);
-    text-align: center;
-}
-
-div#dos{
-
-    background-color: rgb(255,198,169);
-    text-align: center;
-}
-
-div#tres{
-
-    background-color: rgb(255,198,169);
-    text-align: center;
-}
-
-div#cuatro{
-
-    background-color:rgb(255,198,169);
-    text-align: center;
-}
-
-div#cinco{
-
-    background-color:rgb(255,198,169);
-    text-align: center;
-}
-
-div#seis{
-
-    background-color: rgb(255,198,169);
-    text-align: center;
-}
-
-div#siete{
-
-    background-color: rgb(255,198,169);
+    background-color: rgb(139,0,0);
     text-align: center;
 }
 
 h1 {
 
     font-size: 20px;
-    text-decoration-color: rgb(247,197,197);
+    text-decoration-color: rgb(139,0,0);
 
 }
+
