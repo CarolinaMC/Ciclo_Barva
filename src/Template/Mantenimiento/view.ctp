@@ -4,24 +4,7 @@
  * @var \App\Model\Entity\Mantenimiento $mantenimiento
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Mantenimiento'), ['action' => 'edit', $mantenimiento->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Mantenimiento'), ['action' => 'delete', $mantenimiento->id], ['confirm' => __('Are you sure you want to delete # {0}?', $mantenimiento->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Mantenimiento'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Mantenimiento'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Bicicleta'), ['controller' => 'Bicicleta', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Bicicletum'), ['controller' => 'Bicicleta', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Boleta'), ['controller' => 'Boleta', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Boletum'), ['controller' => 'Boleta', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Mantrepuesto'), ['controller' => 'Mantrepuesto', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Mantrepuesto'), ['controller' => 'Mantrepuesto', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Mantservicio'), ['controller' => 'Mantservicio', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Mantservicio'), ['controller' => 'Mantservicio', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="mantenimiento view large-9 medium-8 columns content">
+<div class="mantenimiento view large-12 medium-8 columns content">
     <h3><?= h($mantenimiento->id) ?></h3>
     <table class="vertical-table">
         <tr>
@@ -44,13 +27,9 @@
             <th scope="row"><?= __('Boletum') ?></th>
             <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($mantenimiento->id) ?></td>
-        </tr>
     </table>
     <div class="row">
-        <h4><?= __('Descripcion') ?></h4>
+        <h3><?= __('Descripcion:') ?></h3>
         <?= $this->Text->autoParagraph(h($mantenimiento->descripcion)); ?>
     </div>
     <div class="related">
