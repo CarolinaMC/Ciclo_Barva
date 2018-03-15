@@ -19,7 +19,7 @@ div.contenedor{
 margin: 10px;
 margin-bottom: 40px;
 margin-left: 55px;
-width: 260px;
+width: 280px;
 height: 190px;
 float: left;
 
@@ -33,9 +33,9 @@ div#uno{
 
 }
 
-h3, h3.link{
+h3.home{
 	color:white;
-    font-size: 40px;
+    font-size: 30px;
     text-shadow:1px 2px white;
     font-style: bold;
     border-radius: 70px;
