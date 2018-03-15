@@ -3,6 +3,7 @@
     margin:0px;
     padding:0px;
     font-family: verdana;
+    
 }
 
 
@@ -11,28 +12,35 @@
 div#encabezado{
 text-align: center;
 
-
 }
 
 
 div.contenedor{
 margin: 10px;
+margin-bottom: 40px;
 margin-left: 55px;
-width: 250px;
-height: 50px;
+width: 260px;
+height: 190px;
 float: left;
+
 }
 
-div #uno{
-
-    background-color: rgb(139,0,0);
+div#uno{
+    background-color: #191970;
     text-align: center;
-}
-
-h1 {
-
-    font-size: 20px;
-    text-decoration-color: rgb(139,0,0);
+    box-shadow: -10px -10px;
+    text-decoration-color: #FF0000;
 
 }
+
+h3, h3.link{
+	color:white;
+    font-size: 40px;
+    text-shadow:1px 2px white;
+    font-style: bold;
+    border-radius: 70px;
+    box-shadow: inset 0 0px 20px 13px #000000;
+}
+
+
 
