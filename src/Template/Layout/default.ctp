@@ -33,6 +33,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('home.css') ?>
+    <?= $this->Html->css('red.css') ?>
+    <?= $this->Html->css('login.css') ?>
     <?= $this->Html->css('bootstrap.min') ?>
     <?= $this->Html->css('easy-autocomplete') ?>
     <?= $this->Html->css('easy-autocomplete.themes') ?>
