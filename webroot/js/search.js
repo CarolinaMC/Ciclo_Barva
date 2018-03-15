@@ -149,3 +149,30 @@ function comfirmar(nombre, cliente_id, usuario_id){
 		return false;
 	}
 }
+
+function llenarAutoCompleteBici(data) {
+  data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+                  return element.id.toString();
+                  },
+
+        all: {
+            match: {
+                enabled: true
+            }
+         },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+                  return element.color + " - " + element.tamano;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#bicicleta_id").easyAutocomplete(opcions);
+}

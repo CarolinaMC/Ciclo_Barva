@@ -69,8 +69,7 @@ class MantenimientoTable extends Table
 
         $validator
             ->scalar('garantia')
-            ->requirePresence('garantia', 'create')
-            ->notEmpty('garantia');
+            ->allowEmpty('garantia', 'create');
 
         $validator
             ->scalar('prioridad')

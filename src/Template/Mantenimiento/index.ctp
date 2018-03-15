@@ -4,22 +4,11 @@
  * @var \App\Model\Entity\Mantenimiento[]|\Cake\Collection\CollectionInterface $mantenimiento
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+<div class="mantenimiento index large-12 medium-8 columns content">
+    <h3>
+        <?= __('Mantenimiento') ?>
         <li><?= $this->Html->link(__('New Mantenimiento'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Bicicleta'), ['controller' => 'Bicicleta', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Bicicletum'), ['controller' => 'Bicicleta', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Boleta'), ['controller' => 'Boleta', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Boletum'), ['controller' => 'Boleta', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Mantrepuesto'), ['controller' => 'Mantrepuesto', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Mantrepuesto'), ['controller' => 'Mantrepuesto', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Mantservicio'), ['controller' => 'Mantservicio', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Mantservicio'), ['controller' => 'Mantservicio', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="mantenimiento index large-9 medium-8 columns content">
-    <h3><?= __('Mantenimiento') ?></h3>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -34,7 +23,7 @@
         </thead>
         <tbody>
             <?php foreach ($mantenimiento as $mantenimiento): ?>
-            <tr>
+            <tr onclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
                 <td><?= $this->Number->format($mantenimiento->id) ?></td>
                 <td><?= h($mantenimiento->garantia) ?></td>
                 <td><?= h($mantenimiento->prioridad) ?></td>

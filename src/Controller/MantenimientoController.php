@@ -19,9 +19,12 @@ class MantenimientoController extends AppController
      */
     public function index()
     {
-        $mantenimiento = $this->paginate($this->Mantenimiento);
+        $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta']
+        ];
+        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
 
-        $this->set(compact('mantenimiento'));
+        $this->set(compact('mantenimiento',$mantenimiento));
     }
 
     /**
@@ -50,14 +53,21 @@ class MantenimientoController extends AppController
         $mantenimiento = $this->Mantenimiento->newEntity();
         if ($this->request->is('post')) {
             $mantenimiento = $this->Mantenimiento->patchEntity($mantenimiento, $this->request->getData());
+            $mante_json = json_decode(json_encode($this->request->getData()));
+
+            $opc = array('conditions' => array('Bicicleta.id' => $mante_json->bicicleta_id));
+            $bicicletas= $this->Mantenimiento->Bicicleta->find('all',$opc);
+
             if ($this->Mantenimiento->save($mantenimiento)) {
-                $this->Flash->success(__('The mantenimiento has been saved.'));
+                $this->Flash->success(__('El mantenimiento ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The mantenimiento could not be saved. Please, try again.'));
+            $this->Flash->error(__('El mantenimiento no ha sido guardado, revise los datos e intente de  nuevo.'));
         }
+        $bicicleta=$this->Mantenimiento->Bicicleta->find('all');
         $this->set(compact('mantenimiento'));
+        $this->set('bicicletas', json_encode($bicicleta));
     }
 
     /**
