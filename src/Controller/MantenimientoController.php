@@ -107,7 +107,7 @@ class MantenimientoController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['patch','post','put', 'get','delete']);
         $mantenimiento = $this->Mantenimiento->get($id);
         if ($this->Mantenimiento->delete($mantenimiento)) {
             $this->Flash->success(__('The mantenimiento has been deleted.'));
