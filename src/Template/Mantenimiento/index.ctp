@@ -24,9 +24,9 @@
             <?php foreach ($mantenimiento as $mantenimiento): ?>
             <tr onclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
                 <td><?= h($mantenimiento->garantia) ?></td>
-                <td><?= h($mantenimiento->prioridad) ?></td>
+                <td><?= h(prioridad($mantenimiento->prioridad)) ?></td>
                 <td><?= h($mantenimiento->estado) ?></td>
-                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->id, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
+                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->color, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>
@@ -46,3 +46,19 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+
+<?php function prioridad($pri){
+    if($pri==1){
+        return 'Urgente';
+    }
+    elseif ($pri==2) {
+        return 'Alta';
+    }
+    elseif ($pri==3){ 
+        return 'Media';
+    }
+    else{
+        return 'Baja';
+    }
+}
+?>

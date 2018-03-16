@@ -8,7 +8,19 @@
     <?= $this->Form->create($mantenimiento) ?>
     <fieldset>
         <legend><?= __('Agregar Mantenimiento') ?></legend>
+        <br>
         <?php
+
+         if($boleta_id==null){
+            echo $this->Form->control('boleta_id',['type'=>'text', 'id'=>'boleta_id', 'placeholder' => 'id boleta']);
+        }
+        else{
+             echo $this->Form->control('boleta_id',['type'=>'text', 'value' => $boleta_id]);
+        }
+
+         echo $this->Form->control('bicicleta_id', array( 'div' => false, 'id' => 'bicicleta_id', 'placeholder' => 'id bicicletra', 'required', 'type' => 'text')); 
+
+
             echo $this->Form->control('garantia',array('options'=>array(
                 'No aplica'=>'No',
                 'Aplica'=>'Si'
@@ -29,16 +41,19 @@
 
                 )));
             echo $this->Form->control('descripcion');
-            echo $this->Form->control('bicicleta_id', array( 'div' => false, 'id' => 'bicicleta_id', 'placeholder' => 'id bicicletra', 'required', 'type' => 'text')); 
-            echo $this->Form->control('boleta_id',['type'=>'text', 'placeholder' => 'id boleta']);
+             
+
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Agregar')) ?>
+    <br>
+    <?= $this->Form->button('Agregar', array('div' => false, 'class' => 'btn btn-success')); ?>
     <?= $this->Form->end() ?>
 </div>
 
 <script>
         $(document).ready(function(){
-    llenarAutoCompleteBici('<?php echo $bicicleta ?>');});
+    llenarAutoCompleteBici('<?php echo $bicicletas ?>');
+    llenarAutoCompleteBoleta('<?php echo $clientes ?>');
+});
 
 </script>

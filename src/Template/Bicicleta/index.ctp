@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Bicicletum[]|\Cake\Collection\CollectionInterface $bicicleta
  */
 ?>
+
 <div class="bicicleta index large-12 medium-8 columns content">
     <h3>
         <?= __('Bicicletas') ?>

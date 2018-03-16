@@ -48,15 +48,10 @@ class MantenimientoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($boleta_id = null, $cliente_id=null)
     {
         $mantenimiento = $this->Mantenimiento->newEntity();
         if ($this->request->is('post')) {
-            $mantenimiento = $this->Mantenimiento->patchEntity($mantenimiento, $this->request->getData());
-            $mante_json = json_decode(json_encode($this->request->getData()));
-
-            $opc = array('conditions' => array('Bicicleta.id' => $mante_json->bicicleta_id));
-            $bicicletas= $this->Mantenimiento->Bicicleta->find('all',$opc);
 
             if ($this->Mantenimiento->save($mantenimiento)) {
                 $this->Flash->success(__('El mantenimiento ha sido guardado.'));
@@ -65,9 +60,18 @@ class MantenimientoController extends AppController
             }
             $this->Flash->error(__('El mantenimiento no ha sido guardado, revise los datos e intente de  nuevo.'));
         }
-        $bicicleta=$this->Mantenimiento->Bicicleta->find('all');
+        if(!$cliente_id==null){
+        $opci = array('conditions' => array('Bicicleta.cliente_id' => $cliente_id));
+        $bicicleta=$this->Mantenimiento->Bicicleta->find('all',array('contain' => 'Marca'),$opci);
+    }
+    else{
+        $bicicleta=$this->Mantenimiento->Bicicleta->find('all',array('contain' => 'Marca'));
+        $clientes=$this->Mantenimiento->Boleta->find('all',array('contain' => 'Cliente'));
+    }
         $this->set(compact('mantenimiento'));
         $this->set('bicicletas', json_encode($bicicleta));
+        $this->set('clientes', json_encode($clientes));
+        $this->set('boleta_id',$boleta_id);
     }
 
     /**

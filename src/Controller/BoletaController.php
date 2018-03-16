@@ -34,7 +34,7 @@ class BoletaController extends AppController
     public function view($id = null)
     {
         $boletum = $this->Boleta->get($id, [
-            'contain' => []
+            'contain' => ['Cliente', 'Usuario']
         ]);
 
         $this->set('boletum', $boletum);
