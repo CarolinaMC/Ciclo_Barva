@@ -52,6 +52,7 @@ class MantenimientoController extends AppController
     {
         $mantenimiento = $this->Mantenimiento->newEntity();
         if ($this->request->is('post')) {
+           $mantenimiento = $this->Mantenimiento->patchEntity($mantenimiento, $this->request->getData());
 
             if ($this->Mantenimiento->save($mantenimiento)) {
                 $this->Flash->success(__('El mantenimiento ha sido guardado.'));
@@ -66,11 +67,13 @@ class MantenimientoController extends AppController
     }
     else{
         $bicicleta=$this->Mantenimiento->Bicicleta->find('all',array('contain' => 'Marca'));
-        $clientes=$this->Mantenimiento->Boleta->find('all',array('contain' => 'Cliente'));
+       
     }
+
+    $clientes=$this->Mantenimiento->Boleta->find('all',array('contain' => 'Cliente'));
+        $this->set('clientes', json_encode($clientes));
         $this->set(compact('mantenimiento'));
         $this->set('bicicletas', json_encode($bicicleta));
-        $this->set('clientes', json_encode($clientes));
         $this->set('boleta_id',$boleta_id);
     }
 
@@ -117,4 +120,46 @@ class MantenimientoController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function cambiarP($id = null){
+
+        if(!empty($_POST['prioridad'])){
+        $mantenimiento = $this->Mantenimiento->get($id);
+        $mantenimiento->prioridad = $_POST['prioridad'];
+
+        if ($this->Mantenimiento->save($mantenimiento)) {
+                $this->Flash->success(__('Se cambio la prioridad exitosamente'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('No se pudo cambiar la prioridad. Por favor, intente nuevamente.'));
+
+         return $this->redirect(['action' => 'index']);
+    }
+
+    return $this->redirect(['action' => 'index']);
+
+}
+
+ public function cambiarE($id = null){
+echo($id);
+echo($_POST['estado']);
+        if(!empty($_POST['estado'])){
+        $mantenimiento = $this->Mantenimiento->get($id);
+        $mantenimiento->estado = $_POST['estado'];
+
+        if ($this->Mantenimiento->save($mantenimiento)) {
+                $this->Flash->success(__('Se cambio el estado exitosamente'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('No se pudo cambiar el estado. Por favor, intente nuevamente.'));
+
+         return $this->redirect(['action' => 'index']);
+    }
+
+    return $this->redirect(['action' => 'index']);
+
+}
+
 }

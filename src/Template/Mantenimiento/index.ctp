@@ -22,10 +22,30 @@
         </thead>
         <tbody>
             <?php foreach ($mantenimiento as $mantenimiento): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
+            <tr >
                 <td><?= h($mantenimiento->garantia) ?></td>
-                <td><?= h(prioridad($mantenimiento->prioridad)) ?></td>
-                <td><?= h($mantenimiento->estado) ?></td>
+                <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarP', $mantenimiento->id])) ?>
+
+                <?= $this->Form->control('prioridad',array('label'=> false , 'name'=> 'prioridad', 'onchange' => "this.form.submit()", 'options'=>array(
+                    '4'=>'Baja',
+                    '3'=>'Media',
+                    '2'=>'Alta',
+                    '1'=>'Urgente'
+
+                ))); ?>
+                <?= $this->Form->end(); ?>
+                </td>
+                <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarE', $mantenimiento->id])) ?>
+              <?php      
+                 echo $this->Form->control('estado',array('label'=> false , 'name'=> 'estado', 'onchange' => "this.form.submit()",'options'=>array(
+                    'espera'=>'Espera',
+                    'reparando'=>'Reparando',
+                    'reparada'=>'Reparada',
+                    'entregada'=>'Entregada'
+
+                ))); ?>
+
+                </td>
                 <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->color, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
                 <td class="actions">
@@ -61,4 +81,17 @@
         return 'Baja';
     }
 }
+
+
+
+ /*   function cambiarPriori($id){
+    
+        /*return location.href = '/Ciclo_Barva/mantenimiento/cambiar_Prioridad/' + '<?php $mantenimiento->boletum->id ?> + '/' + $('.priori').val() ;
+        alert(id);
+        alert($('.priori').val() )
+        
+
+        echo($id);
+}
+*/
 ?>
