@@ -49,7 +49,7 @@ class MantservicioController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($mante_id = null)
     {
         $mantservicio = $this->Mantservicio->newEntity();
         if ($this->request->is('post')) {
@@ -111,4 +111,7 @@ class MantservicioController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
 }
+
+

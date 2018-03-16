@@ -20,12 +20,12 @@ class MantrepuestoController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
+       $this->paginate = [
             'contain' => ['Repuesto', 'Mantenimiento']
         ];
         $mantrepuesto = $this->paginate($this->Mantrepuesto);
 
-        $this->set(compact('mantrepuesto'));
+        $this->set(compact('mantrepuesto',$mantrepuesto));
     }
 
     /**
@@ -49,21 +49,25 @@ class MantrepuestoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+   public function add($mantenimiento_id=null)
     {
         $mantrepuesto = $this->Mantrepuesto->newEntity();
-        if ($this->request->is('post')) {
-            $mantrepuesto = $this->Mantrepuesto->patchEntity($mantrepuesto, $this->request->getData());
-            if ($this->Mantrepuesto->save($mantrepuesto)) {
-                $this->Flash->success(__('The mantrepuesto has been saved.'));
+            if ($this->request->is(['post','get'])) {
+                    $mantrepuesto = $this->Mantrepuesto->patchEntity($mantrepuesto, $this->request->getData());
 
-                return $this->redirect(['action' => 'index']);
+                if ($this->Mantrepuesto->save($mantrepuesto)) {
+                    $this->Flash->success(__('La solicitud fue exitosa.'));
+                     $this->set('mantrepuesto', $mantrepuesto);
+
+                    return $this->redirect(['controller' => 'mantenimiento', 'action' => 'index']);
+                }
+                $this->Flash->error(__('La solicitud no pudo ser procesada.Por favor intente de nuevo.'));
             }
-            $this->Flash->error(__('The mantrepuesto could not be saved. Please, try again.'));
-        }
-        $repuesto = $this->Mantrepuesto->Repuesto->find('list', ['limit' => 200]);
-        $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('list', ['limit' => 200]);
-        $this->set(compact('mantrepuesto', 'repuesto', 'mantenimiento'));
+        $repuesto = $this->Mantrepuesto->Repuesto->find('all');
+       // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
+        $this->set(compact('mantrepuesto'));
+        $this->set('mantenimiento', $mantenimiento_id);
+        $this->set('repuesto',$repuesto);
     }
 
     /**

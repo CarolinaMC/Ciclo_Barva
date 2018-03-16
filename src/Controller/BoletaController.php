@@ -137,6 +137,8 @@ class BoletaController extends AppController
         
                 return $this->redirect(['controller' => 'cliente', 'action' => 'view', $clientes->first()->id]); 
 
-    }
-}
+         }
+        }
+
+      
 }

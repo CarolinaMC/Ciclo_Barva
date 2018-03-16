@@ -17,7 +17,7 @@
                 <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bicicleta_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('boleta_id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -50,7 +50,8 @@
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->html->Link('Eliminar', ['action' => 'delete', $mantenimiento->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $mantenimiento->id),'class'=>'btn btn-sm btn-danger']) ?>                </td>
+                    <?= $this->html->Link('Eliminar', ['action' => 'delete', $mantenimiento->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $mantenimiento->id),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->link(__('Agregar repuesto'), ['controller'=>'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-success']) ?>                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

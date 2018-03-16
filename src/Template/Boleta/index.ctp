@@ -16,7 +16,7 @@
                 <th scope="col"><?= $this->Paginator->sort('fecha_salida') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cliente_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('usuario_id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                 <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->id, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>
                 <td><?= $boletum->has('usuario') ? $this->Html->link($boletum->usuario->id, ['controller' => 'Usuario', 'action' => 'view', $boletum->usuario->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $boletum->id]) ?>
-                    <?= $this->html->Link(__('Delete'), ['action' => 'delete', $boletum->id], ['confirm' => __('Are you sure you want to delete # {0}?', $boletum->id)]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $boletum->id]) ?>
+                    <?= $this->html->Link(__('Eliminar'), ['action' => 'delete', $boletum->id], ['confirm' => __('Are you sure you want to delete # {0}?', $boletum->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

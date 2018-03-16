@@ -170,3 +170,30 @@ function llenarAutoCompleteBoleta(data) {
 function nuevo_mantenimiento(boleta_id, cliente_id){
   return location.href = '/Ciclo_Barva/mantenimiento/add/' + boleta_id + '/' + cliente_id;
 }
+
+function llenarAutoCompleteRepuesto(data) {
+  data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+                  return element.id.toString();
+                  },
+
+        all: {
+            match: {
+                enabled: true
+            }
+         },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+                  return element.descripcion+ " - " + element.categoria+ " - " +element.marca_id;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#repuesto_id").easyAutocomplete(opcions);
+}
