@@ -1,11 +1,19 @@
 <?= $this->Html->css('menu') ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  
-  
-    
-  
-    <ul class="navbar-nav">
 
+<?php if(isset($current_user)): ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+   
+
+
+    <ul class="navbar-nav">
+      
+      
+        <li>
+           <?= $this->Html->image("ciclo.jpg", [
+        "alt" => "Logo", 'class'=>'logo',
+       'url' => ['controller' => 'Usuario', 'action' => 'home']
+        ]);?>
+        </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Usuarios
@@ -66,9 +74,6 @@
         </div>
       </li>
 
-    
-        
-    </ul>
       <ul class="navbar-nav nav1">
         <li>
           <div>
@@ -82,7 +87,13 @@
         
       </li>
       </ul>
+       
+    </ul>
+      
     <ul>
      
     </ul>
+
+  
   </nav>
+   <?php endif; ?>

@@ -43,3 +43,19 @@ nav {
   position: fixed;
   z-index: 100;
 }
+
+.fondo{
+  background-image: url('../img/ciclo.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% -60%;
+  overflow: scroll;
+  background-size: 50%;
+
+  }
+
+  .contenedor1{
+    opacity: 0.9;
+background-color:#fff;
+min-height: 100%;
+  }

@@ -52,15 +52,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body class="fondo">
 
-    <?= $this->element('menu')?>
+    <div class="contenedor1">
+        <?= $this->element('menu')?>
 
-    <?= $this->Flash->render() ?>
-    <div class="container">
-        <?= $this->fetch('content') ?>
+        <?= $this->Flash->render() ?>
+        <div class="container">
+            <?= $this->fetch('content') ?>
+        </div>
+        <footer>
+        </footer>
     </div>
-    <footer>
-    </footer>
 </body>
 </html>
