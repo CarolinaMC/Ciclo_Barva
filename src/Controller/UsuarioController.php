@@ -99,7 +99,7 @@ class UsuarioController extends AppController
 
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['patch','post', 'delete', 'put', 'get']);
         $usuario = $this->Usuario->get($id);
         if ($this->Usuario->delete($usuario)) {
             $this->Flash->success(__('El usuario se ha eliminado.'));

@@ -1,14 +1,7 @@
 .nav1{
 	position: relative;
-	left: 50px;
-	top: 8px;
-
+	right: 0px;
 }
-.nav2{
-	position: absolute;
-	left: 1px;
-}
-
 .nav1 a, h4{
 	color: rgba(255,255,255,0.5);
 	
@@ -24,6 +17,6 @@
   top: 0;
   width: 100%;
   display:grid;
-  height: 53px;
+  
 
 }

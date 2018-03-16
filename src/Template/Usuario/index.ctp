@@ -45,7 +45,7 @@
                 <td><?= h($usuario->puesto) ?></td>
                 <td class="actions" >
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->Link(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

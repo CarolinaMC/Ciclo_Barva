@@ -48,9 +48,10 @@ nav {
   background-image: url('../img/ciclo.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 50% -60%;
+  background-position-x: center;
+  background-position-y: 63px;  
   overflow: scroll;
-  background-size: 50%;
+  background-size: 47%;
 
   }
 
