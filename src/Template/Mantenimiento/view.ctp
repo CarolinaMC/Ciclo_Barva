@@ -34,6 +34,7 @@
     </div>
     <div class="related">
         <h4><?= __('Related Mantrepuesto') ?></h4>
+        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
         <?php if (!empty($mantenimiento->mantrepuesto)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
