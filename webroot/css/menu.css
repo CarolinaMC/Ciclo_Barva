@@ -1,6 +1,12 @@
 .nav1{
+	position: relative;
+	left: 50px;
+	top: 8px;
+
+}
+.nav2{
 	position: absolute;
-	right: 10px;
+	left: 1px;
 }
 
 .nav1 a, h4{
@@ -13,8 +19,11 @@
 }
 
 .navbar{
-	position: fixed;
 	
-	
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display:grid;
+  height: 53px;
 
 }

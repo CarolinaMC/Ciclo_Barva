@@ -52,7 +52,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body class="fondo">
+<body class="fondo" style="position:relative; top: 20px;">
 
     <div class="contenedor1">
         <?= $this->element('menu')?>
