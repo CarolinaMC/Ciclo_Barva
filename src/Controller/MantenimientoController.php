@@ -27,6 +27,36 @@ class MantenimientoController extends AppController
         $this->set(compact('mantenimiento',$mantenimiento));
     }
 
+    public function mechanic(){
+        $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta'],
+            'conditions'=> ['estado !=' => 'entregada']
+        ];
+        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
+
+        $this->set(compact('mantenimiento',$mantenimiento));
+    }
+
+    public function delivered(){
+        $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta'],
+            'conditions'=> ['estado' => 'entregada']
+        ];
+        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
+
+        $this->set(compact('mantenimiento',$mantenimiento));
+    }
+
+    public function repaired(){
+        $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta'],
+            'conditions'=> ['estado' => 'Reparada']
+        ];
+        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
+
+        $this->set(compact('mantenimiento',$mantenimiento));
+    }
+
     /**
      * View method
      *
