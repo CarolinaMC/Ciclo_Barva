@@ -17,6 +17,9 @@
        'url' => ['controller' => 'Usuario', 'action' => 'home']
         ]);?></a></li>
 
+
+
+    <?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
       <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Usuario
@@ -29,52 +32,67 @@
           
         </div>
       </li>
+    <?php endif;?>
 
+    
       <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Cliente
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
+          <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
             <?= $this->Html->link('Lista de Clientes',['controller'=>'Cliente', 'action'=>'index'],['class'=>'dropdown-item'])?>
             
           <?= $this->Html->link('Agregar Cliente',['controller'=>'Cliente', 'action'=>'add'],['class'=>'dropdown-item'])?>
             <div class="dropdown-divider"></div>
+          <?php endif;?>
+
           <?= $this->Html->link('Lista de Bicicletas',['controller'=>'Bicicleta', 'action'=>'index'],['class'=>'dropdown-item'])?>
            
           <?= $this->Html->link('Agregar Bicicleta',['controller'=>'Bicicleta', 'action'=>'add'],['class'=>'dropdown-item'])?>
         </div>
       </li>
+    
       
       <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mantenimiento
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-            
+            <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
             <?= $this->Html->link('Lista de boleta',['controller'=>'boleta', 'action'=>'index'],['class'=>'dropdown-item '])?>
           <?= $this->Html->link('Agregar boleta',['controller'=>'boleta', 'action'=>'add'],['class'=>'dropdown-item '])?>
             
             <div class="dropdown-divider"></div>
-            
+            <?php endif; ?>
             <?= $this->Html->link('Lista de Servicio',['controller'=>'Servicio', 'action'=>'index'],['class'=>'dropdown-item '])?>
-          <?= $this->Html->link('Agregar Servicio',['controller'=>'Servicio', 'action'=>'add'],['class'=>'dropdown-item '])?>
+            <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
+            <?= $this->Html->link('Agregar Servicio',['controller'=>'Servicio', 'action'=>'add'],['class'=>'dropdown-item '])?>
+            <?php endif; ?>
             <div class="dropdown-divider"></div>
             
             <?= $this->Html->link('Lista de Repuesto',['controller'=>'Repuesto', 'action'=>'index'],['class'=>'dropdown-item '])?>
-          <?= $this->Html->link('Agregar Repuesto',['controller'=>'Repuesto', 'action'=>'add'],['class'=>'dropdown-item '])?>
+            <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
+              <?= $this->Html->link('Agregar Repuesto',['controller'=>'Repuesto', 'action'=>'add'],['class'=>'dropdown-item '])?>
+            
           <div class="dropdown-divider"></div>
           
             <?= $this->Html->link('Lista de Marcas',['controller'=>'Marca', 'action'=>'index'],['class'=>'dropdown-item '])?>
           <?= $this->Html->link('Agregar Marca',['controller'=>'Marca', 'action'=>'add'],['class'=>'dropdown-item '])?>
-
+            <?php endif; ?>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#"><?= $current_user['nombre']?>  <?= $current_user['puesto']?></a>
+
       </li>
-      <li class="nav-item">
-        <?= $this->Html->link('Salir',['controller'=>'Usuario', 'action'=>'logout'],['class'=>'dropdown-item nav-link'])?>
-      </li>
+       <li class="salir">
+         <?= $this->Html->link('Salir',['controller'=>'Usuario', 'action'=>'logout'],['class'=>'dropdown-item nav-link'])?>
+       </li>
+      
+       
+      
 
 
      

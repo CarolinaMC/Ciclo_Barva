@@ -17,6 +17,21 @@ class ServicioController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+    public function isAuthorized($user){
+        if(isset($user['puesto']) and $user['puesto']==='dependiente'){
+            if(in_array($this->request->action, ['view','index','edit','add'])){
+                return true;
+            }
+
+        }else if(isset($user['puesto']) and $user['puesto']==='mecanico'){
+            if(in_array($this->request->action, ['view','index'])){
+                return true;
+            }
+
+        }
+        return parent::isAuthorized($user);
+    }
+    
     public function index()
     {
         $servicios = $this->paginate($this->Servicio);

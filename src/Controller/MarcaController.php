@@ -19,6 +19,16 @@ public $helpers = array('Html', 'Form' );
      *
      * @return \Cake\Http\Response|void
      */
+    public function isAuthorized($user){
+        if(isset($user['puesto']) and $user['puesto']==='dependiente'){
+            if(in_array($this->request->action, ['view','index','edit','add'])){
+                return true;
+            }
+
+        }
+        return parent::isAuthorized($user);
+    }
+    
     public function index()
     {
         $marca = $this->paginate($this->Marca);

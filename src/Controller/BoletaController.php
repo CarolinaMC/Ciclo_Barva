@@ -17,6 +17,16 @@ class BoletaController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+    public function isAuthorized($user){
+        if(isset($user['puesto']) and $user['puesto']==='dependiente'){
+            if(in_array($this->request->action, ['add','edit','view','index'])){
+                return true;
+            }
+
+        }
+        return parent::isAuthorized($user);
+    }
+    
     public function index()
     {
         $boleta = $this->paginate($this->Boleta);

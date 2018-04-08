@@ -13,6 +13,17 @@ class ClienteController extends AppController
 
     var $paginate = array('limit'=>5,'order'=>array('nombre'));
 
+
+    public function isAuthorized($user){
+        if(isset($user['puesto']) and $user['puesto']==='dependiente'){
+            if(in_array($this->request->action, ['add','edit','view','index'])){
+                return true;
+            }
+
+        }
+        return parent::isAuthorized($user);
+    }
+    
     public function index()
     {
         $clientes = $this->paginate($this->Cliente);
