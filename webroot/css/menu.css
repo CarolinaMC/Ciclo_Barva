@@ -21,3 +21,14 @@
   
 
 }
+
+.salir{
+	z-index: 1000;
+}
+.salir a{
+	min-width: 60px;
+	width: 100%;
+}
+.salir a:hover{
+	background-color: #591111;
+}

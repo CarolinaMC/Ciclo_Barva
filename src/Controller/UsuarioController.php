@@ -13,6 +13,22 @@ class UsuarioController extends AppController
 
     var $paginate = array('limit'=>5,'order'=>array('nombre'));
 
+    
+    public function isAuthorized($user){
+        if(isset($user['puesto']) and $user['puesto']==='dependiente'){
+            if(in_array($this->request->action, ['home','logout'])){
+                return true;
+            }
+
+        }else if(isset($user['puesto']) and $user['puesto']==='mecanico'){
+            if(in_array($this->request->action, ['home','logout'])){
+                return true;
+            }
+
+        }
+        return parent::isAuthorized($user);
+    }
+    
 
 	public function login(){
         if($this->request->is('post')){

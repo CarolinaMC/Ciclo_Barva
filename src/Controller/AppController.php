@@ -59,7 +59,7 @@ class AppController extends Controller
                     'controller'=>'Usuario',
                     'action'=>'login'
                 ],
-                'authError'=>'Ingrese sus datos',
+                'authError'=>'!!!!!! No está autorizado',
                 'loginRedirect'=>[
                     'controller'=>'Usuario',
                     'action'=>'home'
@@ -67,7 +67,8 @@ class AppController extends Controller
                 'logoutRedirect'=>[
                     'controller'=>'Usuario',
                     'action'=>'login'
-                ]
+                ],
+                'unauthorizedRedirect'=> $this->referer()
             ]);
 
         /*
@@ -96,7 +97,13 @@ class AppController extends Controller
     }
     public function isAuthorized($usuario)
     {
-        return true;
+        if(isset($usuario['puesto']) and $usuario['puesto']==='administrador')
+        {
+            return true;
+        }
+        
+            return false;
+        
     }
 }
 
