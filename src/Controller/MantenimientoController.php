@@ -187,8 +187,7 @@ class MantenimientoController extends AppController
 }
 
  public function cambiarE($id = null){
-echo($id);
-echo($_POST['estado']);
+
         if(!empty($_POST['estado'])){
         $mantenimiento = $this->Mantenimiento->get($id);
         $mantenimiento->estado = $_POST['estado'];

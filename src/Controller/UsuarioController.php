@@ -132,12 +132,18 @@ class UsuarioController extends AppController
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
-            
-            $opciones=array('conditions' => array('Usuario.cedula' => $buscar));
+             $porciones = explode(" ", $buscar);
+            $opciones=array('conditions' => array('Usuario.cedula' => $porciones[0]));
             $usuarios = $this->Usuario->find('all', $opciones);
             
-        
-                return $this->redirect(array('action' => 'view', $usuarios->first()->id)); 
+        if(!empty($usuarios->first())){
+                return $this->redirect(array('action' => 'view', $usuarios->first()->id));
+                }
+                else{
+                    //return $this->redirect(array('action' => 'view', $clientes->first()->id));
+                    $this->Flash->error(__('Valor no enconcontrado. Intente de nuevo.'));
+                    return $this->redirect(array('action' => 'index'));
+                }  
     }
 }
 	

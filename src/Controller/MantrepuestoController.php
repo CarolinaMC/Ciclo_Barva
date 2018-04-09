@@ -67,9 +67,9 @@ class MantrepuestoController extends AppController
    public function add($mantenimiento_id=null)
     {
         $mantrepuesto = $this->Mantrepuesto->newEntity();
+        if(!$mantenimiento_id == null){
             if ($this->request->is(['post','get'])) {
                     $mantrepuesto = $this->Mantrepuesto->patchEntity($mantrepuesto, $this->request->getData());
-
                 if ($this->Mantrepuesto->save($mantrepuesto)) {
                     $this->Flash->success(__('La solicitud fue exitosa.'));
                      $this->set('mantrepuesto', $mantrepuesto);
@@ -78,11 +78,13 @@ class MantrepuestoController extends AppController
                 }
                 $this->Flash->error(__('La solicitud no pudo ser procesada.Por favor intente de nuevo.'));
             }
+        }
         $repuesto = $this->Mantrepuesto->Repuesto->find('all');
        // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
+
         $this->set(compact('mantrepuesto'));
         $this->set('mantenimiento', $mantenimiento_id);
-        $this->set('repuesto',$repuesto);
+        $this->set('repuesto',json_encode($repuesto));
     }
 
     /**

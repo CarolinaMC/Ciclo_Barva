@@ -4,12 +4,6 @@
  * @var \Cake\Datasource\EntityInterface $mantrepuesto
  */
 ?>
-<script>
-        $(document).ready(function(){
-    llenarAutoCompleteRepuesto('<?php echo $repuesto ?>');
-});
-
-</script>
 
 <div class="mantrepuesto form large-12 medium-8 columns content">
     <?= $this->Form->create($mantrepuesto) ?>
@@ -38,3 +32,9 @@
     <?= $this->Form->end() ?>
 </div>
 
+<script>
+        $(document).ready(function(){
+    llenarAutoCompleteRepuesto('<?php echo $repuesto ?>');
+});
+
+</script>

@@ -61,8 +61,7 @@ class MantrepuestoTable extends Table
 
         $validator
             ->dateTime('fecha')
-            ->requirePresence('fecha', 'create')
-            ->notEmpty('fecha');
+            ->allowEmpty('fecha');
 
         return $validator;
     }

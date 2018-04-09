@@ -44,7 +44,7 @@
                     'entregada'=>'Entregada'
 
                 ))); ?>
-
+                <?= $this->Form->end(); ?>
                 </td>
                 <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->color, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>

@@ -103,12 +103,19 @@ class ClienteController extends AppController
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
-            
-            $opciones=array('conditions' => array('Cliente.telefono' => $buscar));
+            $porciones = explode(" ", $buscar);
+            $opciones=array('conditions' => array('Cliente.telefono' => $porciones[0]));
+            //echo($porciones[0]);
             $clientes = $this->Cliente->find('all', $opciones);
             
-        
-                return $this->redirect(array('action' => 'view', $clientes->first()->id)); 
+        if(!empty($clientes->first())){
+                return $this->redirect(array('action' => 'view', $clientes->first()->id));
+                }
+                else{
+                    //return $this->redirect(array('action' => 'view', $clientes->first()->id));
+                    $this->Flash->error(__('Valor no enconcontrado. Intente de nuevo.'));
+                    return $this->redirect(array('action' => 'index'));
+                } 
 
     }
 }

@@ -6,7 +6,7 @@ function llenarAutoCompleteCliente(data) {
     var opcions = {
         data ,
         getValue: function(element) {
-	                return element.telefono.toString();
+	                return element.telefono.toString() + "  " + element.nombre;
                   },
 
         list: {
@@ -18,7 +18,7 @@ function llenarAutoCompleteCliente(data) {
             type: "description",
             fields: {
                 description: function(element) {
-	                return element.nombre + " - " + element.alias;
+	                return element.primer_ape + " - " + element.alias;
                   }
             }
         },
@@ -33,7 +33,7 @@ function llenarAutoCompleteUsuario(data) {
     var opcions = {
         data ,
         getValue: function(element) {
-	                return element.cedula.toString();
+	                return element.cedula.toString()+ " " + element.nombre;
                   },
 
         list: {
@@ -45,7 +45,7 @@ function llenarAutoCompleteUsuario(data) {
             type: "description",
             fields: {
                 description: function(element) {
-	                return element.nombre + " - " + element.primer_ape;
+	                return element.primer_ape;
                   }
             }
         },
@@ -172,6 +172,7 @@ function nuevo_mantenimiento(boleta_id, cliente_id){
 }
 
 function llenarAutoCompleteRepuesto(data) {
+  alert("si entro");
   data = JSON.parse(data);
     var opcions = {
         data ,
