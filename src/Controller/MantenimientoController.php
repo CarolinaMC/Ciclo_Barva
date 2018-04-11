@@ -206,4 +206,14 @@ class MantenimientoController extends AppController
 
 }
 
+function list(){
+    $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta']
+        ];
+        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
+
+        $this->set(compact('mantenimiento',$mantenimiento));
+}
+
+
 }
