@@ -33,7 +33,13 @@ class ServicioTable extends Table
         $this->setTable('servicio');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Mantrepuesto', [
+            'foreignKey' => 'repuesto_id'
+        ]);
     }
+
+
 
     /**
      * Default validation rules.

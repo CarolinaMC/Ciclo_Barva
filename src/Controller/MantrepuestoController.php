@@ -66,25 +66,32 @@ class MantrepuestoController extends AppController
      */
    public function add($mantenimiento_id=null)
     {
+        //echo($mantenimiento_id);
         $mantrepuesto = $this->Mantrepuesto->newEntity();
         if(!$mantenimiento_id == null){
-            if ($this->request->is(['post','get'])) {
+            if ($this->request->is(['post'])) {
                     $mantrepuesto = $this->Mantrepuesto->patchEntity($mantrepuesto, $this->request->getData());
+                    $mantrepuesto->mantenimiento_id = $mantenimiento_id;
+                    $mantrepuesto->repuesto_id = $_POST['repuesto'];
                 if ($this->Mantrepuesto->save($mantrepuesto)) {
-                    $this->Flash->success(__('La solicitud fue exitosa.'));
+                    $this->Flash->success(__('La seleccion fue exitosa.'));
                      $this->set('mantrepuesto', $mantrepuesto);
 
-                    return $this->redirect(['controller' => 'mantenimiento', 'action' => 'index']);
+                   // return $this->redirect(['controller' => 'mantrepuesto', 'action' => 'add', $mantenimiento_id]);
                 }
-                $this->Flash->error(__('La solicitud no pudo ser procesada.Por favor intente de nuevo.'));
+                else{
+                $this->Flash->error(__('La seleccion no pudo ser procesada.Por favor intente de nuevo.'));
+            }
             }
         }
-        $repuesto = $this->Mantrepuesto->Repuesto->find('all');
+        $repuestos = $this->Mantrepuesto->Repuesto->find('all');
        // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
 
         $this->set(compact('mantrepuesto'));
         $this->set('mantenimiento', $mantenimiento_id);
-        $this->set('repuesto',json_encode($repuesto));
+        $this->set('repuestos',$repuestos);
+
+
     }
 
     /**

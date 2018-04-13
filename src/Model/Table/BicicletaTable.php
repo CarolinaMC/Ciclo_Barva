@@ -45,6 +45,10 @@ class BicicletaTable extends Table
             'foreignKey' => 'marca_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->hasMany('Mantenimiento', [
+            'foreignKey' => 'Bicicleta_id'
+        ]);
     }
 
     /**

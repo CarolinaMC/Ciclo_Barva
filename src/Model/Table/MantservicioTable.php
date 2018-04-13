@@ -61,8 +61,7 @@ class MantservicioTable extends Table
 
         $validator
             ->dateTime('fecha')
-            ->requirePresence('fecha', 'create')
-            ->notEmpty('fecha');
+            ->allowEmpty('fecha');Empty('fecha');
 
         return $validator;
     }

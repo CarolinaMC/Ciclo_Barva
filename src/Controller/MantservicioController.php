@@ -64,21 +64,32 @@ class MantservicioController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($mante_id = null)
+    public function add($mantenimiento_id = null)
     {
         $mantservicio = $this->Mantservicio->newEntity();
-        if ($this->request->is('post')) {
-            $mantservicio = $this->Mantservicio->patchEntity($mantservicio, $this->request->getData());
-            if ($this->Mantservicio->save($mantservicio)) {
-                $this->Flash->success(__('The mantservicio has been saved.'));
+        if(!$mantenimiento_id == null){
+            if ($this->request->is(['post'])) {
+                    $mantservicio = $this->Mantservicio->patchEntity($mantservicio, $this->request->getData());
+                    $mantservicio->mantenimiento_id = $mantenimiento_id;
+                    $mantservicio->servicio_id = $_POST['servicio'];
+                if ($this->Mantservicio->save($mantservicio)) {
+                    $this->Flash->success(__('La seleccion fue exitosa.'));
+                     $this->set('mantservicio', $mantservicio);
 
-                return $this->redirect(['action' => 'index']);
+                    //return $this->redirect(['controller' => 'mantservicio', 'action' => 'add', $mantenimiento_id]);
+                }
+                else{
+                $this->Flash->error(__('La seleccion no pudo ser procesada.Por favor intente de nuevo.'));
             }
-            $this->Flash->error(__('The mantservicio could not be saved. Please, try again.'));
+            }
         }
-        $servicio = $this->Mantservicio->Servicio->find('list', ['limit' => 200]);
-        $mantenimiento = $this->Mantservicio->Mantenimiento->find('list', ['limit' => 200]);
-        $this->set(compact('mantservicio', 'servicio', 'mantenimiento'));
+        $servicios = $this->Mantservicio->Servicio->find('all');
+       // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
+
+        $this->set(compact('mantservicio'));
+        $this->set('mantenimiento', $mantenimiento_id);
+        $this->set('servicios',$servicios);
+
     }
 
     /**

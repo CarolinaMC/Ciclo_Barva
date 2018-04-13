@@ -6,35 +6,40 @@
 ?>
 
 <div class="mantrepuesto form large-12 medium-8 columns content">
-    <?= $this->Form->create($mantrepuesto) ?>
-    <fieldset>
-        <legend><?= __('Solicitar repuesto para mantenimiento') ?></legend>
-        <?php?>
-         <table <table class="table">
+    
+    <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
+
+    <?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'btn btn-sm btn-info']) ?>
+
+        <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
+        <thead>
             <tr>
-                <td>
-        <?php
-
-         if($mantenimiento==null){
-            echo $this->Form->control('mantenimiento_id',['type'=>'text', 'id'=>'mantenimiento_id', 'placeholder' => 'id mantenimiento']);
-        }
-        else{
-             echo $this->Form->control('mantenimiento_id',['type'=>'text', 'value' => $mantenimiento]);
-        } ?>
-                <td> <?php echo $this->Form->control('repuesto_id', array( 'div' => false, 'id' => 'repuesto_id', 'placeholder' => 'Descripción del repuesto', 'required', 'type' => 'text')); ?> </td>
-            </td>
-        </tr>
-            
-        </table>
-        
-    </fieldset>
-    <?= $this->Form->button(__('Agregar')) ?>
-    <?= $this->Form->end() ?>
+                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('categoria') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('marca_id') ?></th>
+                
+                <th scope="col" class="actions"><?= __('Seleccione') ?></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($repuestos as $repuesto): ?>
+            <tr ondblclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
+                <td><?= h($repuesto->descripcion) ?></td>
+                <td><?= h($repuesto->categoria) ?></td>
+                <td><?= h($repuesto->estado) ?></td>
+                <td><?= $this->Number->format($repuesto->precio) ?></td>
+                <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
+                
+                <td class="actions">
+                    <?= $this->Form->create($mantrepuesto, array('type' => 'POST',  'url' => ['action' => 'add', $mantenimiento])) ?>
+                    <?= $this->Form->control('repuesto',array('label'=> false , 'name'=> 'repuesto', 'type'=>'checkbox', 'value' => $repuesto->id, 'onclick' => "this.form.submit()")); ?>
+                <?= $this->Form->end(); ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
-
-<script>
-        $(document).ready(function(){
-    llenarAutoCompleteRepuesto('<?php echo $repuesto ?>');
-});
-
-</script>

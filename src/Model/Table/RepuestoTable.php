@@ -40,6 +40,10 @@ class RepuestoTable extends Table
             'foreignKey' => 'marca_id',
             'joinType' => 'INNER'
         ]);
+
+         $this->hasMany('Mantrepuesto', [
+            'foreignKey' => 'repuesto_id'
+        ]);
     }
 
     /**
