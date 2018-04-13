@@ -27,7 +27,13 @@ class RepuestoTableTest extends TestCase
         'app.repuesto',
         'app.marca',
         'app.bicicleta',
-        'app.cliente'
+        'app.cliente',
+        'app.mantrepuesto',
+        'app.mantenimiento',
+        'app.boleta',
+        'app.usuario',
+        'app.mantservicio',
+        'app.servicio'
     ];
 
     /**

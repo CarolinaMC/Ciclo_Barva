@@ -30,6 +30,7 @@ class BicicletaFixture extends TestFixture
         'descripcion' => ['type' => 'text', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null],
         'cliente_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'marca_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'marca_nombre' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'cliente_id' => ['type' => 'index', 'columns' => ['cliente_id'], 'length' => []],
             'marca_id' => ['type' => 'index', 'columns' => ['marca_id'], 'length' => []],
@@ -58,7 +59,8 @@ class BicicletaFixture extends TestFixture
             'color' => 'Lorem ipsum dolor sit amet',
             'descripcion' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
             'cliente_id' => 1,
-            'marca_id' => 1
+            'marca_id' => 1,
+            'marca_nombre' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

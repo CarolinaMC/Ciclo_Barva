@@ -79,8 +79,11 @@ class BicicletaController extends AppController
             $opciones = array('conditions' => array('Marca.nombre' => $bici_json->marca_id));
             $marcas = $this->Bicicleta->Marca->find('all', $opciones);
 
+
             $bicicletum->cliente_id = $clientes->first()->id;
             $bicicletum->marca_id = $marcas->first()->id;
+            $bicicletum->marca_nombre = $marcas->first()->nombre;
+
             
             if ($this->Bicicleta->save($bicicletum)) {
                 $this->Flash->success(__('La bicicleta a sido guardada exitosamente.'));

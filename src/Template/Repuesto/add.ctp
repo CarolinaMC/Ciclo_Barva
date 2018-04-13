@@ -43,8 +43,8 @@ function validaL(e){
             </tr>
              <tr>
                 <td> <?php echo $this->Form->control('categoria', ['options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisores' =>'Trasmisores','Aro' =>'Aro', 'Neumaticos' =>'Neumaticos','otros' =>'otros']]);?> </td>
-             <tr>
-                <td> <?php echo $this->Form->control('marca_id',['options' => $marca]);?> </td> 
+              <tr>
+                <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => ' Marca', 'required', 'type' => 'text'));?> </td> 
             </tr>
             <tr>
                 <td> <?php echo $this->Form->control('estado', ['options' => ['Disponible' =>'Disponible', 'Agotado' =>'Agotado']]);?> </td>
@@ -58,3 +58,7 @@ function validaL(e){
     <?= $this->Form->button(__('Agregar')) ?>
     <?= $this->Form->end() ?>
 </div>
+<script>
+        $(document).ready(function(){
+    llenarAutoCompleteMarca('<?php echo $marcas ?>');
+});

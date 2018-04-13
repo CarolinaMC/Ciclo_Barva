@@ -68,6 +68,14 @@ class RepuestoController extends AppController
         $repuesto = $this->Repuesto->newEntity();
         if ($this->request->is('post')) {
             $repuesto = $this->Repuesto->patchEntity($repuesto, $this->request->getData());
+             $rep_json = json_decode(json_encode($this->request->getData()));
+
+            $opciones = array('conditions' => array('Marca.nombre' => $rep_json->marca_id));
+            $marcas = $this->Repuesto->Marca->find('all', $opciones);
+
+             $repuesto->marca_id = $marcas->first()->id;
+             $repuesto->marca_nombre = $marcas->first()->nombre;
+
             if ($this->Repuesto->save($repuesto)) {
                 $this->Flash->success(__('El repuesto se guardo correctamente.'));
 
@@ -75,8 +83,9 @@ class RepuestoController extends AppController
             }
            $this->Flash->error(__('El repuesto no se pudo guardar, intente de nuevo.'));
         }
-        $marca = $this->Repuesto->Marca->find('list', ['limit' => 200]);
+        $marca = $this->Repuesto->Marca->find('all');
         $this->set(compact('repuesto', 'marca'));
+        $this->set('marcas', json_encode($marca));
         }
 
     /**

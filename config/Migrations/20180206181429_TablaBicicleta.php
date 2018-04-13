@@ -35,6 +35,9 @@ class TablaBicicleta extends AbstractMigration
 
                  ->addColumn('marca_id', 'integer',array('signed' => 'disable'))
                  ->addForeignKey('marca_id','Marca','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
+
+                  ->addColumn('marca_nombre', 'string',array('signed' => 'none'))
+                 // ->addForeignKey('marca_nombre','Marca','nombre',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
                  
                  ->update();
     }

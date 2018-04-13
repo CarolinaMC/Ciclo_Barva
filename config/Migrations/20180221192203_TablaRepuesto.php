@@ -35,8 +35,11 @@ class TablaRepuesto extends AbstractMigration
         ->create();
 
         $refTable = $this->table('Repuesto');
-        $refTable->addColumn('marca_id', 'integer',array('signed' => 'disable'))
+        $refTable->addColumn('marca_id', 'integer')
                  ->addForeignKey('marca_id','Marca','id',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
+
+                  ->addColumn('marca_nombre', 'string',array('signed' => 'disable'))
+                 // ->addForeignKey('marca_nombre','Marca','nombre',array('delete' => 'CASCADE','update' =>'NO_ACTION'))
                  
         ->update();
     }

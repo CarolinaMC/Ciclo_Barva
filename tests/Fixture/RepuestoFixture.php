@@ -30,6 +30,7 @@ class RepuestoFixture extends TestFixture
         'estado' => ['type' => 'string', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'precio' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'marca_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'marca_nombre' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'marca_id' => ['type' => 'index', 'columns' => ['marca_id'], 'length' => []],
         ],
@@ -56,7 +57,8 @@ class RepuestoFixture extends TestFixture
             'categoria' => 'Lorem ipsum dolor sit amet',
             'estado' => 'Lorem ipsum dolor sit amet',
             'precio' => 1,
-            'marca_id' => 1
+            'marca_id' => 1,
+            'marca_nombre' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

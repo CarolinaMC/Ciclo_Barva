@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Repuesto Model
  *
  * @property \App\Model\Table\MarcaTable|\Cake\ORM\Association\BelongsTo $Marca
+ * @property \App\Model\Table\MantrepuestoTable|\Cake\ORM\Association\HasMany $Mantrepuesto
  *
  * @method \App\Model\Entity\Repuesto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Repuesto newEntity($data = null, array $options = [])
@@ -39,6 +40,9 @@ class RepuestoTable extends Table
         $this->belongsTo('Marca', [
             'foreignKey' => 'marca_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Mantrepuesto', [
+            'foreignKey' => 'repuesto_id'
         ]);
     }
 
@@ -75,6 +79,12 @@ class RepuestoTable extends Table
             ->numeric('precio')
             ->requirePresence('precio', 'create')
             ->notEmpty('precio');
+
+        $validator
+            ->scalar('marca_nombre')
+            ->maxLength('marca_nombre', 255)
+            ->requirePresence('marca_nombre', 'create')
+            ->notEmpty('marca_nombre');
 
         return $validator;
     }

@@ -76,6 +76,12 @@ class BicicletaTable extends Table
             ->requirePresence('descripcion', 'create')
             ->notEmpty('descripcion');
 
+        $validator
+            ->scalar('marca_nombre')
+            ->maxLength('marca_nombre', 255)
+            ->requirePresence('marca_nombre', 'create')
+            ->notEmpty('marca_nombre');
+
         return $validator;
     }
 

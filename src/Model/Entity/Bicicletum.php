@@ -4,20 +4,20 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Repuesto Entity
+ * Bicicletum Entity
  *
  * @property int $id
+ * @property string $tamano
+ * @property string $color
  * @property string $descripcion
- * @property string $categoria
- * @property string $estado
- * @property float $precio
+ * @property int $cliente_id
  * @property int $marca_id
  * @property string $marca_nombre
  *
+ * @property \App\Model\Entity\Cliente $cliente
  * @property \App\Model\Entity\Marca $marca
- * @property \App\Model\Entity\Mantrepuesto[] $mantrepuesto
  */
-class Repuesto extends Entity
+class Bicicletum extends Entity
 {
 
     /**
@@ -30,13 +30,13 @@ class Repuesto extends Entity
      * @var array
      */
     protected $_accessible = [
+        'tamano' => true,
+        'color' => true,
         'descripcion' => true,
-        'categoria' => true,
-        'estado' => true,
-        'precio' => true,
+        'cliente_id' => true,
         'marca_id' => true,
         'marca_nombre' => true,
-        'marca' => true,
-        'mantrepuesto' => true
+        'cliente' => true,
+        'marca' => true
     ];
 }
