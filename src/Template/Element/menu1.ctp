@@ -16,8 +16,12 @@
           <li class="nav-item dropdown logo">
             
                 <?= $this->Html->image("ciclo.jpg", ["alt" => "Logo", 'class'=>'logo navbar-brand', 'url' => ['controller' => 'Usuario', 'action' => 'home']]);?>
+                
               
             
+          </li>
+          <li class="nav-item dropdown cic">
+            <?= $this->Html->link("Ciclo Barva", ['controller'=>'Usuario', 'action'=>'home'], ['class'=>'dropdown-item cic'])?>
           </li>
       
 

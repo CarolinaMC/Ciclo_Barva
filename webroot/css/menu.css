@@ -33,3 +33,13 @@
 .salir a:hover{
 	background-color: #591111;
 }
+
+.cic a{
+	color: white;
+}
+
+.cic a:hover{
+	background-color: rgba(0,0,0,0);
+	color: white;
+	text-transform: uppercase;
+}
