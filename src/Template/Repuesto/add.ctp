@@ -55,10 +55,11 @@ function validaL(e){
         </table>
             </tr>
     </fieldset>
-    <?= $this->Form->button(__('Agregar')) ?>
+    <?= $this->Form->button('Agregar', array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>
 <script>
         $(document).ready(function(){
     llenarAutoCompleteMarca('<?php echo $marcas ?>');
 });
+</script>        

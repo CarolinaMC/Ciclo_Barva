@@ -29,6 +29,6 @@
             echo $this->Form->control('boleta_id',['type'=>'text']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Actualizar')) ?>
+    <?= $this->Form->button('Actualizar', array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>

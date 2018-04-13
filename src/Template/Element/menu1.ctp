@@ -75,6 +75,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
               <?= $this->Html->link('Lista de Mantenimiento',['controller'=>'Mantenimiento', 'action'=>'index'],['class'=>'dropdown-item '])?>
               <?= $this->Html->link('Agregar Mantenimiento',['controller'=>'Mantenimiento', 'action'=>'add'],['class'=>'dropdown-item '])?>
+              <?= $this->Html->link('Vista Mecanico',['controller'=>'Mantenimiento', 'action'=>'mechanic'],['class'=>'dropdown-item '])?>
+              <?= $this->Html->link('Vista reparado',['controller'=>'Mantenimiento', 'action'=>'repaired'],['class'=>'dropdown-item '])?>
+              <?= $this->Html->link('Vista entregada',['controller'=>'Mantenimiento', 'action'=>'delivered'],['class'=>'dropdown-item '])?>
             
             <div class="dropdown-divider"></div>
           <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>

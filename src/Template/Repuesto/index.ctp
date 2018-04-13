@@ -30,7 +30,7 @@
                 <td><?= h($repuesto->categoria) ?></td>
                 <td><?= h($repuesto->estado) ?></td>
                 <td><?= $this->Number->format($repuesto->precio) ?></td>
-                <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->id, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
+                <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
                 <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
                 <td class="actions">
                    

@@ -34,7 +34,7 @@
         <h4><?= __('Repuestos') ?></h4>
         <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($repuestos)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Descripcion') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
@@ -45,7 +45,7 @@
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->precio) ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantrepuesto', 'action' => 'delete', $repuesto->mantrepuesto_id], ['confirm' => __('Estas seguro que quieres quitar el repuesto # {0}?', $repuesto->descripcion), 'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantrepuesto', 'action' => 'delete', $repuesto->mantrepuesto['id']], ['confirm' => __('Estas seguro que quieres quitar el repuesto # {0}?', $repuesto->descripcion), 'class'=>'btn btn-sm btn-danger']) ?>
                 </tr>
             <?php endforeach; ?>
         </table>
@@ -56,7 +56,7 @@
         <h4><?= __('Servicios') ?></h4>
          <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($servicios)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('descripcion') ?></th>
                 <th scope="col"><?= __('precio') ?></th>
@@ -67,7 +67,7 @@
                 <td><?= h($servicio->descripcion) ?></td>
                 <td><?= h($servicio->precio) ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantservicio', 'action' => 'delete', $servicio->mantservicio_id], ['confirm' => __('Estas seguro que quieres quitar el servicio # {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantservicio', 'action' => 'delete', $servicio->mantservicio['id']], ['confirm' => __('Estas seguro que quieres quitar el servicio # {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

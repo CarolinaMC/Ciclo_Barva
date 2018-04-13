@@ -26,6 +26,6 @@
             echo $this->Form->control('mantenimiento_id');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button('Editar', array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>

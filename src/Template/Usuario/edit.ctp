@@ -60,6 +60,6 @@ function validaL(e){
         </table>
 
     </fieldset>
-    <?= $this->Form->button(__('Editar')) ?>
+    <?= $this->Form->button('Editar', array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>
