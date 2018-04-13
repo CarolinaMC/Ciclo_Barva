@@ -81,12 +81,62 @@ class MantenimientoController extends AppController
      */
     public function view($id = null)
     {
+        
         $mantenimiento = $this->Mantenimiento->get($id, [
             'contain' => []
         ]);
+           //$opciones=array('conditions' => array('mantrepuesto.mantenimiento_id = 11 AND mantrepuesto_id = repuesto.id'));
+          // $opc=array('conditions' => array('repuesto.id' => 'mantrepuesto.repuesto_id'));
+            //echo($porciones[0]);
+        $this->loadModel('Mantrepuesto'); 
+            $repuestos = $this->Mantrepuesto->Repuesto->find('all')
+            ->select(['descripcion'])
+            ->select(['precio'])
+            ->select(['mantrepuesto.id'])
+            ->join([
+                            'table' => 'mantrepuesto',
+                            'alias' => 'mantrepuesto',
+                            'conditions' => ['mantrepuesto.mantenimiento_id' => $id ,'mantrepuesto.repuesto_id = repuesto.id']
+                          ]);
 
-        $this->set('mantenimiento', $mantenimiento);
+            $this->loadModel('Mantservicio'); 
+            $servicios = $this->Mantservicio->Servicio->find('all')
+            ->select(['descripcion'])
+            ->select(['precio'])
+            ->select(['mantservicio.id'])
+            ->join([
+                            'table' => 'mantservicio',
+                            'alias' => 'mantservicio',
+                            'conditions' => ['mantservicio.mantenimiento_id' => $id ,'mantservicio.servicio_id = servicio.id']
+                          ]);
+       // $this->set('mantenimiento', $mantenimiento);
+            //echo($repuestos);
+            //echo(gettype($repuestos->first()->mantrepuesto->f));
+        $this->set(compact('mantenimiento',$mantenimiento));
+        $this->set(compact('repuestos',$repuestos));
+        $this->set(compact('servicios',$servicios));
+        
     }
+
+    public function cambDescripcion($id = null){
+        if(!empty($_POST['descripcion'])){
+        $mantenimiento = $this->Mantenimiento->get($id);
+        $mantenimiento->descripcion = $_POST['descripcion'];
+
+        if ($this->Mantenimiento->save($mantenimiento)) {
+                $this->Flash->success(__('Se agredaron las anotaciones exitosamente'));
+
+                return $this->redirect(['action' => 'view', $mantenimiento->id]);
+            }
+            $this->Flash->error(__('No se pudo cambiar la prioridad. Por favor, intente nuevamente.'));
+
+         return $this->redirect(['action' => 'view', $mantenimiento->id]);
+    }
+
+    return $this->redirect(['action' => 'view', $mantenimiento->id]);
+
+}
+
 
     /**
      * Add method

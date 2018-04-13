@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <?php foreach ($mantenimiento as $mantenimiento): ?>
-            <tr >
+            <tr ondblclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
                 <td><?= h($mantenimiento->garantia) ?></td>
                 <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarP', $mantenimiento->id])) ?>
 
@@ -46,12 +46,11 @@
                 ))); ?>
                 <?= $this->Form->end(); ?>
                 </td>
-                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->color, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
+                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->id, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->html->Link('Eliminar', ['action' => 'delete', $mantenimiento->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $mantenimiento->id),'class'=>'btn btn-sm btn-danger']) ?>
-                    <?= $this->Html->link(__('Agregar repuesto'), ['controller'=>'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-success']) ?>                </td>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>  
+                                  </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
