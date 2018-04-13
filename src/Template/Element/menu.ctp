@@ -7,14 +7,15 @@
 
     <ul class="navbar-nav nav2">
       
-      
-        <li>
-           <?= $this->Html->image("ciclo.jpg", [
-        "alt" => "Logo", 'class'=>'logo', 'label'=>'Ciclo Barva',
-       'url' => ['controller' => 'Usuario', 'action' => 'home']
-        ]);?> 
-        Ciclo Barva
-        </li>
+      <a href="../usuario/home">
+          <li>
+             <?= $this->Html->image("ciclo.jpg", [
+          "alt" => "Logo", 'class'=>'logo', 'label'=>'Ciclo Barva',
+         'url' => ['controller' => 'Usuario', 'action' => 'home']
+          ]);?> 
+          Ciclo Barva
+          </li>
+      </a>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

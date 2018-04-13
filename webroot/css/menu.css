@@ -9,6 +9,7 @@
 
 .logo{
 	width: 53px;
+	z-index: 1000;
 }
 
 .navbar{
