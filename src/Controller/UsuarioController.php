@@ -144,7 +144,9 @@ class UsuarioController extends AppController
                     $this->Flash->error(__('Valor no enconcontrado. Intente de nuevo.'));
                     return $this->redirect(array('action' => 'index'));
                 }  
+        }
     }
-}
+
+
 	
 }

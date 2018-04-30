@@ -4,6 +4,23 @@
  * @var \App\Model\Entity\Usuario $usuario
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de usuarios', 'url' => ['controller' => 'Usuario', 'action' => 'index']],
+    ['title' => 'Ver usuario', 'url' => ['controller' => 'Usuario', 'action' => 'view',$usuario->id]]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="usuario view large-12 medium-8 columns content">
     <h3 class="heading"><?= h($usuario->nombre) ?></h3>
     <table class="vertical-table">

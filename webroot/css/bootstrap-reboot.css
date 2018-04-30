@@ -108,6 +108,7 @@ dfn {
 b,
 strong {
   font-weight: bolder;
+  color: darkblue; 
 }
 
 small {
