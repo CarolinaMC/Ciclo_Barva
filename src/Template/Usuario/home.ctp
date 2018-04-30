@@ -21,7 +21,7 @@ echo $this->Breadcrumbs->render();
 <br><br>
 </div>
 <div class="row">
-<<<<<<< HEAD
+
 	<?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
 <div class="contenedor" id="uno">
 <h1  class="imagen"><?= $this->Html->image("usuario2.png")?></h1>
@@ -29,7 +29,7 @@ echo $this->Breadcrumbs->render();
 <?php $this->Breadcrumbs->add('Menú de Usuario',['controller'=>'Usuario', 'action'=>'index'])?>
 </div>
 	<?php endif; ?>
-=======
+
 <?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
 	<a href="../usuario/index">
 		<div class="contenedor" id="uno">
@@ -38,7 +38,6 @@ echo $this->Breadcrumbs->render();
 		</div>
 	</a>
 <?php endif; ?>
->>>>>>> origin/master
 
 <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
 	<a href="../cliente/index">
