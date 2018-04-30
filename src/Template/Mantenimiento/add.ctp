@@ -46,7 +46,7 @@
         ?>
     </fieldset>
     <br>
-    <?= $this->Form->button('Agregar', array('div' => false, 'class' => 'btn btn-success')); ?>
+    <?= $this->Form->button('Agregar', array('div' => false, 'class' => 'btn btn-primary')); ?>
     <?= $this->Form->end() ?>
 </div>
 

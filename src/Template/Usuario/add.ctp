@@ -5,6 +5,8 @@
  */
 ?>
 <script>
+
+
 function validaN(e){
     tecla = (document.all) ? e.keyCode : e.which;
 
@@ -55,7 +57,7 @@ echo $this->Breadcrumbs->render();
         <?php?>
         <table>
     <tr>
-          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaEx(event)')); ?> </td>
+          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaN(event)')); ?> </td>
             
           <td> <?php echo $this->Form->control('nombre',array('type'=>'text','onkeypress'=>'return validaL(event)' )); ?> </td>
             </tr>
@@ -75,6 +77,6 @@ echo $this->Breadcrumbs->render();
         </table>
 
     </fieldset>
-    <?= $this->Form->button(__('Agregar')) ?>
+    <?= $this->Form->button('Agregar', array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>

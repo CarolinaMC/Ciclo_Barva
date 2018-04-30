@@ -31,7 +31,7 @@
         </table>
 
     </fieldset>
-    <?= $this->Form->button(__('Agregar')) ?>
+    <?= $this->Form->button('Agregar',array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>
 

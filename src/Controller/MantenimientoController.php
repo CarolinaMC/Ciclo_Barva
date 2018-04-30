@@ -111,7 +111,7 @@ class MantenimientoController extends AppController
                           ]);
        // $this->set('mantenimiento', $mantenimiento);
             //echo($repuestos);
-            //echo(gettype($repuestos->first()->mantrepuesto->f));
+            //echo($repuestos->first()->mantrepuesto['id']);
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set(compact('repuestos',$repuestos));
         $this->set(compact('servicios',$servicios));
