@@ -236,6 +236,60 @@ class MantenimientoController extends AppController
 
 }
 
+public function vistaPorCliente($id=null){
+
+        $mantenimiento = $this->Mantenimiento->get($id, [
+             'contain' => []
+        ]);
+
+            $mantenimiento = $this->Mantenimiento->find('all')
+            ->select(['id'])
+            ->select(['garantia'])
+            ->select(['prioridad'])
+            ->select(['estado'])
+            ->select(['descripcion'])
+            ->select(['bicicleta_id'])
+            ->select(['boleta_id'])
+            ->from(['Boleta'])
+            ->from(['Mantenimiento'])
+            ->where('Mantenimiento.boleta_id = Boleta.id')
+            ->where('Boleta.cliente_id='.$id);
+
+
+         $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta']
+        ];
+        
+        
+        $this->set(compact('mantenimiento',$mantenimiento));
+}
+
+public function vistaPorBicicleta($id=null){
+
+     $mantenimiento = $this->Mantenimiento->get($id, [
+             'contain' => []
+        ]);
+
+            $mantenimiento = $this->Mantenimiento->find('all')
+            ->select(['id'])
+            ->select(['garantia'])
+            ->select(['prioridad'])
+            ->select(['estado'])
+            ->select(['descripcion'])
+            ->select(['bicicleta_id'])
+            ->from(['Bicicleta'])
+            ->from(['Mantenimiento'])
+            ->where('Mantenimiento.bicicleta_id ='.$id);
+
+
+         $this->paginate = [
+            'contain' => ['Bicicleta', 'Boleta']
+        ];
+       
+        $this->set(compact('mantenimiento',$mantenimiento));
+
+}
+
  public function cambiarE($id = null){
 
         if(!empty($_POST['estado'])){

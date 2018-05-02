@@ -36,4 +36,6 @@
         <h4><?= __('Descripcion') ?></h4>
         <?= $this->Text->autoParagraph(h($bicicletum->descripcion)); ?>
     </div> -->
+
+    <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vista_por_bicicleta', h($bicicletum->id)],['class'=>'btn btn-sm btn-success']) ?>
 </div>

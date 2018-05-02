@@ -33,9 +33,13 @@ class ClienteController extends AppController
 
     public function view($id = null){
     
+
+
         $cliente = $this->Cliente->get($id, [
             'contain' => []
         ]);
+
+        
 
         $this->set('cliente', $cliente);
         $this->set('_serialize', ['cliente']);
@@ -60,6 +64,7 @@ class ClienteController extends AppController
                     }
             }
         }
+
         $this->set(compact('cliente'));
         $this->set('_serialize', ['cliente']);
     }
