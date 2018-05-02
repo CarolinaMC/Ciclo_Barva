@@ -27,6 +27,8 @@
               $this->Form->end() ?>
 
     </div>
+    <div>
+        <br><?= $this->Html->link(__('Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, '_ext' => 'pdf'],['class'=>'btn btn-sm btn-success']); ?></div>
     <table>
         <tr>
             <td>

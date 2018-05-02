@@ -217,3 +217,19 @@ if (Configure::read('debug')) {
 }
 
 
+Plugin::load('CakePdf', ['bootstrap' => true]);
+
+    
+Configure::write('CakePdf', [
+    'engine' => [
+        'className' => 'CakePdf.WkHtmlToPdf',
+        // 'binary' => '/usr/local/bin/wkhtmltopdf', // Si estas en Mac OS X / Linux
+        'binary' => 'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe',
+        'options' => [
+            'print-media-type' => false,
+            'outline' => true,
+            'dpi' => 96
+        ],
+    ],
+    'download' => true
+]);

@@ -105,3 +105,9 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 Plugin::routes();
+
+Router::scope('/mantenimiento', function ($routes) {
+    $routes->extensions('pdf');
+    $routes->connect('/view/*', ['controller' => 'Mantenimiento', 'action' => 'view']);
+    $routes->fallbacks('InflectedRoute');
+});
