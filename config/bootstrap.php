@@ -218,8 +218,7 @@ if (Configure::read('debug')) {
 
 
 Plugin::load('CakePdf', ['bootstrap' => true]);
-
-    
+   
 Configure::write('CakePdf', [
     'engine' => [
         'className' => 'CakePdf.WkHtmlToPdf',
