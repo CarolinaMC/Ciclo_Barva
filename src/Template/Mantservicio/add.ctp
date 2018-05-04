@@ -4,6 +4,23 @@
  * @var \Cake\Datasource\EntityInterface $mantservicio
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de mantenimiento de servicios', 'url' => ['action' => 'index']],
+    ['title' => 'Agregar servicio', 'url' => ['action' => 'add']]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="mantrepuesto form large-12 medium-8 columns content">
     
     <legend><?= __('Seleccione servicios para mantenimiento') ?></legend>

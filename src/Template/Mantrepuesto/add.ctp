@@ -4,7 +4,23 @@
  * @var \Cake\Datasource\EntityInterface $mantrepuesto
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de repuestos del mantenimiento', 'url' => ['action' => 'index']],
+    ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',]]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
 
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="mantrepuesto form large-12 medium-8 columns content">
     
     <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>

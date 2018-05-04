@@ -4,7 +4,22 @@
  * @var \App\Model\Entity\Boletum $boletum
  */
 ?>
-
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de boletas', 'url' => ['controller' => 'Boleta', 'action' => 'index']],
+     ['title' => 'Ver boleta', 'url' => ['controller' => 'Boleta', 'action' => 'view',$boletum->id]],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="boleta view large-9 medium-8 columns content">
     <h3>Boleta # <?= h($boletum->id) ?></h3>
     <table class="vertical-table">

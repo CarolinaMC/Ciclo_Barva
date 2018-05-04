@@ -10,7 +10,23 @@
     $(document).ready(function(){
     llenarAutoCompleteCliente('<?php echo $clientes ?>');
 });
+</script>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de clientes', 'url' => ['controller' => 'Cliente', 'action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
 
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 </script> 
   <div class="">
 <div class="cliente index large-12 medium-8 content">

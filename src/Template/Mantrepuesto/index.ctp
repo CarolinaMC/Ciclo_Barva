@@ -4,12 +4,23 @@
  * @var \Cake\Datasource\EntityInterface[]|\Cake\Collection\CollectionInterface $mantrepuesto
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Mantrepuesto'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de mantenimiento de repuesto', 'url' => ['action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
+
 <div class="mantrepuesto index large-9 medium-8 columns content">
     <h3><?= __('Mantrepuesto') ?></h3>
     <table cellpadding="0" cellspacing="0">
