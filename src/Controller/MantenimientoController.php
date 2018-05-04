@@ -72,13 +72,6 @@ class MantenimientoController extends AppController
         $this->set(compact('mantenimiento',$mantenimiento));
     }
 
-
-    public function initialize()
-    {
-        parent::initialize();
-        $this->loadComponent('RequestHandler');
-    }
-
     /**
      * View method
      *
@@ -92,14 +85,9 @@ class MantenimientoController extends AppController
         $mantenimiento = $this->Mantenimiento->get($id, [
             'contain' => []
         ]);
-
-          $this->viewBuilder()->options([
-            'pdfConfig' => [
-                'orientation' => 'portrait',
-                'filename' => 'Mantenimiento#_' . $id . '.pdf'
-            ]
-        ]);
-
+           //$opciones=array('conditions' => array('mantrepuesto.mantenimiento_id = 11 AND mantrepuesto_id = repuesto.id'));
+          // $opc=array('conditions' => array('repuesto.id' => 'mantrepuesto.repuesto_id'));
+            //echo($porciones[0]);
         $this->loadModel('Mantrepuesto'); 
             $repuestos = $this->Mantrepuesto->Repuesto->find('all')
             ->select(['descripcion'])
@@ -121,6 +109,9 @@ class MantenimientoController extends AppController
                             'alias' => 'mantservicio',
                             'conditions' => ['mantservicio.mantenimiento_id' => $id ,'mantservicio.servicio_id = servicio.id']
                           ]);
+       // $this->set('mantenimiento', $mantenimiento);
+            //echo($repuestos);
+            //echo($repuestos->first()->mantrepuesto['id']);
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set(compact('repuestos',$repuestos));
         $this->set(compact('servicios',$servicios));
