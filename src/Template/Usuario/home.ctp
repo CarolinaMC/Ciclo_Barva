@@ -22,7 +22,6 @@ echo $this->Breadcrumbs->render();
 </div>
 <div class="row">
 
-
 <?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
 	<a href="../usuario/index">
 		<div class="contenedor" id="uno">

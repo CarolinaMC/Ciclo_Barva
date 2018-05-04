@@ -59,4 +59,7 @@ echo $this->Breadcrumbs->render();
     </table>
     
     <h3> Bicicletas perteneciantes al cliente </h3>
+
+    <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vista_por_cliente', h($cliente->id)],['class'=>'btn btn-sm btn-success']) ?>
+
 </div>
