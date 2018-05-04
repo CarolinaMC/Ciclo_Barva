@@ -4,18 +4,23 @@
  * @var \Cake\Datasource\EntityInterface $mantservicio
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $mantservicio->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $mantservicio->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Mantservicio'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de mantenimiento de servicios', 'url' => ['action' => 'index']],
+    ['title' => 'Editar servicio', 'url' => ['action' => 'edit',$mantservicio->id]]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="mantservicio form large-9 medium-8 columns content">
     <?= $this->Form->create($mantservicio) ?>
     <fieldset>
