@@ -3,6 +3,10 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+?>
+<? Use src\Template\Element\Flash\success.ctp;?>
+<?php
+
 /**
  * Mantenimiento Controller
  *
@@ -40,6 +44,17 @@ class MantenimientoController extends AppController
         $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
 
         $this->set(compact('mantenimiento',$mantenimiento));
+
+        foreach ($mantenimiento as $mantenimiento):
+
+            $fecha_actual = date("n/j/y",time());
+
+            $fecha_entrada = substr($mantenimiento->boletum->fecha_salida, 0, -10);
+
+            if($fecha_actual == $fecha_entrada){$this->Flash->success('La bicicleta color '.$mantenimiento->bicicletum->color.' se debe entregar hoy.');}
+            
+        endforeach;
+
     }
 
     public function mechanic(){
@@ -50,6 +65,16 @@ class MantenimientoController extends AppController
         $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
 
         $this->set(compact('mantenimiento',$mantenimiento));
+
+        foreach ($mantenimiento as $mantenimiento):
+
+            $fecha_actual = date("n/j/y",time());
+
+            $fecha_entrada = substr($mantenimiento->boletum->fecha_salida, 0, -10);
+
+            if($fecha_actual == $fecha_entrada){$this->Flash->success('La bicicleta color '.$mantenimiento->bicicletum->color.' se debe entregar hoy.');}
+
+        endforeach;
     }
 
     public function delivered(){
@@ -254,15 +279,6 @@ class MantenimientoController extends AppController
 
     return $this->redirect(['action' => 'index']);
 
-}
-
-function list(){
-    $this->paginate = [
-            'contain' => ['Bicicleta', 'Boleta']
-        ];
-        $mantenimiento = $this->paginate($this->Mantenimiento,['order'=>['Mantenimiento.prioridad'=>'asc','Mantenimiento.estado'=>'asc']]);
-
-        $this->set(compact('mantenimiento',$mantenimiento));
 }
 
 
