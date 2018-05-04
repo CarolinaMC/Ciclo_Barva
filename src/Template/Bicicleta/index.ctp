@@ -4,22 +4,7 @@
  * @var \App\Model\Entity\Bicicletum[]|\Cake\Collection\CollectionInterface $bicicleta
  */
 ?>
-<div><br></div>
-<div>
-    <?php 
-    $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
-    ['title' => 'Lista de bicicletas', 'url' => ['controller' => 'Bicicleta', 'action' => 'index']],
-]);
-    
-$this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
-]);
 
-echo $this->Breadcrumbs->render();
-    ?>
-</div>
 <div class="bicicleta index large-12 medium-8 columns content">
     <h3>
         <?= __('Bicicletas') ?>

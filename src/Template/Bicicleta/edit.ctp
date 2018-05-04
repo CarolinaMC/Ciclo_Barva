@@ -4,23 +4,6 @@
  * @var \App\Model\Entity\Bicicletum $bicicletum
  */
 ?>
-<div><br></div>
-<div>
-    <?php 
-    $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
-    ['title' => 'Lista de bicicletas', 'url' => ['controller' => 'Bicicleta', 'action' => 'index']],
-    ['title' => 'Editar bicicleta', 'url' => ['controller' => 'Bicicleta', 'action' => 'edit',$bicicletum->id]]
-]);
-    
-$this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
-]);
-
-echo $this->Breadcrumbs->render();
-    ?>
-</div>
 <div class="bicicleta form large-12 medium-8 columns content">
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
