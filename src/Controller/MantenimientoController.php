@@ -144,7 +144,7 @@ class MantenimientoController extends AppController
 
     return $this->redirect(['action' => 'view', $mantenimiento->id]);
 
-   }
+}
 
 
     /**
