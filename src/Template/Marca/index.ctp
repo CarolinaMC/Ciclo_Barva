@@ -4,6 +4,22 @@
  * @var \App\Model\Entity\Marca[]|\Cake\Collection\CollectionInterface $marca
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de marcas', 'url' => ['action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="marca index large-12 medium-8 columns content">
     <h3><?= __('Marca') ?>
         <?= $this->Html->link(__('Agregar Marca'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?></h3>

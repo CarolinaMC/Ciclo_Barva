@@ -4,6 +4,23 @@
  * @var \App\Model\Entity\Repuesto $repuesto
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de repuestos', 'url' => ['action' => 'index']],
+    ['title' => 'Ver repuesto', 'url' => ['action' => 'view',$repuesto->id]]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="repuesto view large-12 medium-8 columns content">
     <h3><?= h($repuesto->descripcion) ?></h3>
     <table class="vertical-table">

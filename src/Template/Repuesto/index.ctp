@@ -4,6 +4,22 @@
  * @var \App\Model\Entity\Repuesto[]|\Cake\Collection\CollectionInterface $repuesto
  */
 ?>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de repuestos', 'url' => ['action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="repuesto index large-12 medium-8 columns content">
     <h3><?= __('Repuesto') ?>
         <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>

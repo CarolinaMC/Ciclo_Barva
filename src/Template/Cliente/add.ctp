@@ -48,6 +48,23 @@ function validaL(e){
 }
 
 </script>
+<div><br></div>
+<div>
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de clientes', 'url' => ['controller' => 'Cliente', 'action' => 'index']],
+    ['title' => 'Agregar cliente', 'url' => ['controller' => 'Cliente', 'action' => 'add']]
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
+     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 <div class="cliente form large-12 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>

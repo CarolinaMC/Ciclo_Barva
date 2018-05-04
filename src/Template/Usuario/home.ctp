@@ -22,13 +22,6 @@ echo $this->Breadcrumbs->render();
 </div>
 <div class="row">
 
-	<?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
-<div class="contenedor" id="uno">
-<h1  class="imagen"><?= $this->Html->image("usuario2.png")?></h1>
-<h3 class="home"><?= $this->Html->link("Menú de Usuario",['controller'=>'Usuario', 'action'=>'index'])?></h3>
-<?php $this->Breadcrumbs->add('Menú de Usuario',['controller'=>'Usuario', 'action'=>'index'])?>
-</div>
-	<?php endif; ?>
 
 <?php if(isset($current_user['puesto']) and $current_user['puesto']==='administrador'):?>
 	<a href="../usuario/index">
