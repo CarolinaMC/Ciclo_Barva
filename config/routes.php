@@ -105,3 +105,23 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 Plugin::routes();
+
+Router::scope('/mantenimiento', function ($routes) {
+    $routes->extensions('pdf');
+    $routes->connect('/index/*', ['controller' => 'Mantenimiento', 'action' => 'index']);
+    $routes->connect('/view/*', ['controller' => 'Mantenimiento', 'action' => 'view']);
+    $routes->connect('/add/*', ['controller' => 'Mantenimiento', 'action' => 'add']);
+     $routes->connect('/edit/*', ['controller' => 'Mantenimiento', 'action' => 'edit']);
+    $routes->connect('/delete/*', ['controller' => 'Mantenimiento', 'action' => 'delete']);
+     $routes->connect('/cambDescripcion/*', ['controller' => 'Mantenimiento', 'action' => 'cambDescripcion']);
+   $routes->connect('/mechanic/*', ['controller' => 'Mantenimiento', 'action' => 'mechanic']);
+   $routes->connect('/delivered/*', ['controller' => 'Mantenimiento', 'action' => 'delivered']);
+   $routes->connect('/repaired/*', ['controller' => 'Mantenimiento', 'action' => 'repaired']);
+   $routes->connect('/initialize/*', ['controller' => 'Mantenimiento', 'action' => 'initialize']);
+   $routes->connect('/cambiarP/*', ['controller' => 'Mantenimiento', 'action' => 'cambiarP']);
+   $routes->connect('/cambiarE*', ['controller' => 'Mantenimiento', 'action' => 'cambiarE']);
+   $routes->connect('/list/*', ['controller' => 'Mantenimiento', 'action' => 'list']);
+   $routes->connect('/vistaPorBicicleta/*', ['controller' => 'Mantenimiento', 'action' => 'vistaPorBicicleta']);
+   $routes->connect('/vistaPorCliente/*', ['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente']);
+    $routes->fallbacks('InflectedRoute');
+});

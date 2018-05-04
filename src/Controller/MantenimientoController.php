@@ -141,9 +141,14 @@ public function vistaPorBicicleta($id=null){
         $mantenimiento = $this->Mantenimiento->get($id, [
             'contain' => []
         ]);
-           //$opciones=array('conditions' => array('mantrepuesto.mantenimiento_id = 11 AND mantrepuesto_id = repuesto.id'));
-          // $opc=array('conditions' => array('repuesto.id' => 'mantrepuesto.repuesto_id'));
-            //echo($porciones[0]);
+        
+        $this->viewBuilder()->options([
+            'pdfConfig' => [
+                'orientation' => 'portrait',
+                'filename' => 'Mantenimiento#_' . $id . '.pdf'
+            ]
+        ]);
+
         $this->loadModel('Mantrepuesto'); 
             $repuestos = $this->Mantrepuesto->Repuesto->find('all')
             ->select(['descripcion'])
