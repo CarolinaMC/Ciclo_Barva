@@ -119,7 +119,7 @@ Router::scope('/mantenimiento', function ($routes) {
    $routes->connect('/repaired/*', ['controller' => 'Mantenimiento', 'action' => 'repaired']);
    $routes->connect('/initialize/*', ['controller' => 'Mantenimiento', 'action' => 'initialize']);
    $routes->connect('/cambiarP/*', ['controller' => 'Mantenimiento', 'action' => 'cambiarP']);
-   $routes->connect('/cambiarE*', ['controller' => 'Mantenimiento', 'action' => 'cambiarE']);
+   $routes->connect('/cambiarE/*', ['controller' => 'Mantenimiento', 'action' => 'cambiarE']);
    $routes->connect('/list/*', ['controller' => 'Mantenimiento', 'action' => 'list']);
    $routes->connect('/vistaPorBicicleta/*', ['controller' => 'Mantenimiento', 'action' => 'vistaPorBicicleta']);
    $routes->connect('/vistaPorCliente/*', ['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente']);

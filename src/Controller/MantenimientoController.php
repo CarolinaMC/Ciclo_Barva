@@ -103,11 +103,12 @@ public function vistaPorBicicleta($id=null){
 
         foreach ($mantenimiento as $mantenimiento):
 
+
             $fecha_actual = date("n/j/y",time());
 
-            $fecha_entrada = substr($mantenimiento->boletum->fecha_salida, 0, -10);
+            $fecha_entrada = substr($mantenimiento->boletum->fecha_salida, 0, -9);
 
-            if($fecha_actual == $fecha_entrada){$this->Flash->success('La bicicleta color '.$mantenimiento->bicicletum->color.' se debe entregar hoy.');}
+            if($fecha_actual == $fecha_entrada){$this->Flash->success('La bicicleta '.$mantenimiento->bicicletum->marca_nombre." ".$mantenimiento->bicicletum->color." ".$mantenimiento->bicicletum->tamano.' se debe entregar hoy.');}
             
         endforeach;
 
