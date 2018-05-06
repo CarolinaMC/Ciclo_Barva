@@ -26,10 +26,7 @@ class MantenimientoTableTest extends TestCase
     public $fixtures = [
         'app.mantenimiento',
         'app.bicicleta',
-        'app.cliente',
-        'app.marca',
         'app.boleta',
-        'app.usuario',
         'app.mantrepuesto',
         'app.mantservicio'
     ];

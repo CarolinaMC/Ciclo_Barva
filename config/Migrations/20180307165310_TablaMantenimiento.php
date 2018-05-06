@@ -26,6 +26,11 @@ class TablaMantenimiento extends AbstractMigration
             'default' => null ,
             'null' => false,
             ])
+            ->addColumn('manoObra','float', [
+            'default' => null,
+            'limit' => 30,
+            'null' => false,
+        ])
 
     ->create();
 

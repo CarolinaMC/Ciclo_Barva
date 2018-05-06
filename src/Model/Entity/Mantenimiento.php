@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $prioridad
  * @property string $estado
  * @property string $descripcion
+ * @property float $manoObra
  * @property int $bicicleta_id
  * @property int $boleta_id
  *
@@ -36,6 +37,7 @@ class Mantenimiento extends Entity
         'prioridad' => true,
         'estado' => true,
         'descripcion' => true,
+        'manoObra' => true,
         'bicicleta_id' => true,
         'boleta_id' => true,
         'bicicletum' => true,
