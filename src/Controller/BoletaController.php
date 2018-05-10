@@ -29,7 +29,12 @@ class BoletaController extends AppController
     
     public function index()
     {
-        $boleta = $this->paginate($this->Boleta);
+        $this->paginate = [
+            'contain' => ['Usuario', 'Cliente']
+        ];
+
+         $boleta = $this->paginate($this->Boleta);
+
 
         $this->set(compact('boleta'));
     }
@@ -55,17 +60,18 @@ class BoletaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($cliente_id = null, $usuario_id = null)
+    public function add($nombre = null, $cliente_id = null, $usuario_id = null)
     {
         $boletum = $this->Boleta->newEntity();
         if(!($cliente_id == null && $usuario_id == null)){
         if ($this->request->is(['post', 'get'])) {
-
+             $boletum->fecha_entrada = date('y-m-d');
             if($this->request->is('get')){
 
             $boletum->cliente_id = $cliente_id;
             $boletum->usuario_id = $usuario_id;
-            
+            echo($boletum);
+            echo($boletum->cliente_id);
             }
 
             else {
@@ -76,7 +82,7 @@ class BoletaController extends AppController
                 $this->Flash->success(__('La boleta a sido creada.'));
                 $this->set('boleta', $boletum);
 
-                return $this->redirect( ['controller' => 'boleta', 'action' => 'view',  $boletum->id]);
+                return $this->redirect( ['controller' => 'boleta', 'action' => 'view',  $boletum->id, $boletum->id]);
             }
             $this->Flash->error(__('La boleta no pudo ser creada. Por favor, intente de nuevo.'));
         }
@@ -88,6 +94,7 @@ class BoletaController extends AppController
         $this->set('cliente',$clientes);
          $this->set('clientes', json_encode($clientes));
         $this->set(compact('boletum'));
+        $this->set('nombre', $nombre);
     }
 
     /**
@@ -123,12 +130,12 @@ class BoletaController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['patch', 'post', 'put', 'get', 'delete']);
         $boletum = $this->Boleta->get($id);
         if ($this->Boleta->delete($boletum)) {
-            $this->Flash->success(__('The boletum has been deleted.'));
+            $this->Flash->success(__('La boleta a sido borrada exitosamente.'));
         } else {
-            $this->Flash->error(__('The boletum could not be deleted. Please, try again.'));
+            $this->Flash->error(__('No se pudo borrar la boleta. Por favor trate de nuevo.'));
         }
 
         return $this->redirect(['action' => 'index']);
@@ -150,5 +157,24 @@ class BoletaController extends AppController
          }
         }
 
-      
+      public function asinarFechaEntrega($id = null){
+//echo($_POST['fecha_salida']);
+//echo("si entro");
+        if(!empty($_POST['fecha_salida'])){
+        $boleta = $this->Boleta->get($id);
+        $boleta->fecha_salida = $_POST['fecha_salida'];
+
+        if ($this->Boleta->save($boleta)) {
+                $this->Flash->success(__('Se asigno corretamente la fecha'));
+
+                return $this->redirect(['action' => 'view', $id]);
+            }
+            $this->Flash->error(__('No se pudo asinar la fecha de entrega. Por favor, intente nuevamente.'));
+
+         return $this->redirect(['action' => 'view',  $id]);
+    }
+
+    return $this->redirect(['action' => 'view',  $id]);
+
+}
 }

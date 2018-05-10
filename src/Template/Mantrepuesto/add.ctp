@@ -34,7 +34,7 @@ echo $this->Breadcrumbs->render();
                 <th scope="col"><?= $this->Paginator->sort('categoria') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('marca_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('marca') ?></th>
                 
                 <th scope="col" class="actions"><?= __('Seleccione') ?></th>
                 
@@ -47,7 +47,7 @@ echo $this->Breadcrumbs->render();
                 <td><?= h($repuesto->categoria) ?></td>
                 <td><?= h($repuesto->estado) ?></td>
                 <td><?= $this->Number->format($repuesto->precio) ?></td>
-                <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
+                <td><?= $repuesto->has('marca') ? $this->Html->link(h($repuesto->marca_nombre), ['controller' => 'Marca', 'action' => 'view', h($repuesto->marca_id)]) : '' ?></td>
                 
                 <td class="actions">
                     <?= $this->Form->create($mantrepuesto, array('type' => 'POST',  'url' => ['action' => 'add', $mantenimiento])) ?>

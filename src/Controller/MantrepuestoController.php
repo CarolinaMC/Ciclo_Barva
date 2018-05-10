@@ -84,7 +84,7 @@ class MantrepuestoController extends AppController
             }
             }
         }
-        $repuestos = $this->Mantrepuesto->Repuesto->find('all');
+        $repuestos = $this->Mantrepuesto->Repuesto->find('all', array('contain' => ['Marca']));
        // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
 
         $this->set(compact('mantrepuesto'));

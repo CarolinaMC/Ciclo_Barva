@@ -39,11 +39,12 @@ echo $this->Breadcrumbs->render();
             <tr onclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
                 <td><?= h($boletum->fecha_entrada) ?></td>
                 <td><?= h($boletum->fecha_salida) ?></td>
-                <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->id, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>
-                <td><?= $boletum->has('usuario') ? $this->Html->link($boletum->usuario->id, ['controller' => 'Usuario', 'action' => 'view', $boletum->usuario->id]) : '' ?></td>
+                <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>
+                <td><?= $boletum->has('usuario') ? $this->Html->link($boletum->usuario->nombre, ['controller' => 'Usuario', 'action' => 'view', $boletum->usuario->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $boletum->id]) ?>
-                    <?= $this->html->Link(__('Eliminar'), ['action' => 'delete', $boletum->id], ['confirm' => __('Are you sure you want to delete # {0}?', $boletum->id)]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $boletum->id],['class'=>'btn btn-sm btn-primary']) ?>
+
+                    <?= $this->html->Link(__('Eliminar'), ['action' => 'delete', $boletum->id], ['confirm' => __('Estas seguro que quieres eliminar la boleta numero  {0}?', $boletum->nombre),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

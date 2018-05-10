@@ -230,12 +230,15 @@ public function vistaPorBicicleta($id=null){
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($boleta_id = null, $cliente_id=null)
+    public function add($cliente_nombre = null, $boleta_id = null, $cliente_id=null)
     {
         $mantenimiento = $this->Mantenimiento->newEntity();
         if ($this->request->is('post')) {
            $mantenimiento = $this->Mantenimiento->patchEntity($mantenimiento, $this->request->getData());
 
+           $porciones = explode(" ", $_POST['bicicleta_id']);
+           $mantenimiento->bicicleta_id = $porciones[0];
+            
             if ($this->Mantenimiento->save($mantenimiento)) {
                 $this->Flash->success(__('El mantenimiento ha sido guardado.'));
 
@@ -244,10 +247,12 @@ public function vistaPorBicicleta($id=null){
             $this->Flash->error(__('El mantenimiento no ha sido guardado, revise los datos e intente de  nuevo.'));
         }
         if(!$cliente_id==null){
+            
         $opci = array('conditions' => array('Bicicleta.cliente_id' => $cliente_id));
-        $bicicleta=$this->Mantenimiento->Bicicleta->find('all',array('contain' => 'Marca'),$opci);
+        $bicicleta=$this->Mantenimiento->Bicicleta->find('all',$opci);
     }
     else{
+
         $bicicleta=$this->Mantenimiento->Bicicleta->find('all',array('contain' => 'Marca'));
        
     }
@@ -257,6 +262,7 @@ public function vistaPorBicicleta($id=null){
         $this->set(compact('mantenimiento'));
         $this->set('bicicletas', json_encode($bicicleta));
         $this->set('boleta_id',$boleta_id);
+        $this->set('nombre',$cliente_nombre);
     }
 
     /**

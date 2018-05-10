@@ -87,10 +87,9 @@ class MantenimientoTable extends Table
             ->requirePresence('descripcion', 'create')
             ->notEmpty('descripcion');
 
-        // $validator
-        //     ->numeric('manoObra')
-        //     ->requirePresence('manoObra', 'create')
-        //     ->notEmpty('manoObra');
+         $validator
+             ->numeric('manoObra')
+             ->requirePresence('manoObra', 'create');
 
         return $validator;
     }

@@ -104,7 +104,7 @@ function llenarAutoCompleteMarca(data) {
 
 function comfirmar(nombre, cliente_id, usuario_id){
 	if(confirm("Estas seguro que quiere crear una boleta de reparacion al cliente " + nombre)){
-		return location.href = '/Ciclo_Barva/boleta/add/' + cliente_id + '/' + usuario_id ;
+		return location.href = '/Ciclo_Barva/boleta/add/' + nombre + '/' + cliente_id + '/' + usuario_id ;
 	}
 	else{
 		return false;
@@ -112,12 +112,13 @@ function comfirmar(nombre, cliente_id, usuario_id){
 }
 
 function llenarAutoCompleteBici(data) {
+  if(data.length>3){
 
   data = JSON.parse(data);
     var opcions = {
         data ,
         getValue: function(element) {
-                  return element.id.toString();
+                  return element.id.toString() + " " +element.marca_nombre;
                   },
 
         all: {
@@ -129,7 +130,7 @@ function llenarAutoCompleteBici(data) {
             type: "description",
             fields: {
                 description: function(element) {
-                  return element.marca.nombre + " - " + element.color + " - " + element.tamano;
+                  return element.color + " - " + element.tamano;
                   }
             }
         },
@@ -137,6 +138,9 @@ function llenarAutoCompleteBici(data) {
 //gris oscuro
     };
     $("#bicicleta_id").easyAutocomplete(opcions);
+  }
+  else
+    alert("El cliente no tiene bicicletas");
 }
 
 function llenarAutoCompleteBoleta(data) {
@@ -167,8 +171,8 @@ function llenarAutoCompleteBoleta(data) {
     $("#boleta_id").easyAutocomplete(opcions);
 }
 
-function nuevo_mantenimiento(boleta_id, cliente_id){
-  return location.href = '/Ciclo_Barva/mantenimiento/add/' + boleta_id + '/' + cliente_id;
+function nuevo_mantenimiento(cliente_nombre, boleta_id, cliente_id){
+  return location.href = '/Ciclo_Barva/mantenimiento/add/' + cliente_nombre + '/' + boleta_id + '/' + cliente_id;
 }
 
 function llenarAutoCompleteRepuesto(data) {
