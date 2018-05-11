@@ -101,7 +101,7 @@ echo $this->Breadcrumbs->render();
       var date_input=$('input[name="fecha_salida"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
-        format: 'dd/mm/yy',
+        format: 'dd-mm-yy',
         container: container,
         todayHighlight: true,
         autoclose: true
