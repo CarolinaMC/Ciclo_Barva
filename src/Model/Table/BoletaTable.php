@@ -60,12 +60,12 @@ class BoletaTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->dateTime('fecha_entrada')
+            ->scalar('fecha_entrada')
             //->requirePresence('fecha_entrada', 'create')
             ->allowEmpty('fecha_entrada');
 
         $validator
-            ->dateTime('fecha_salida')
+            ->scalar('fecha_salida')
             //->requirePresence('fecha_salida', 'create')
             ->allowEmpty('fecha_salida');
 

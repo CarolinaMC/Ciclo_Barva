@@ -161,7 +161,7 @@ public function vistaPorBicicleta($id=null){
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($id = null, $bici_id = null)
     {
         
         $mantenimiento = $this->Mantenimiento->get($id, [
@@ -196,9 +196,16 @@ public function vistaPorBicicleta($id=null){
                             'alias' => 'mantservicio',
                             'conditions' => ['mantservicio.mantenimiento_id' => $id ,'mantservicio.servicio_id = servicio.id']
                           ]);
-       // $this->set('mantenimiento', $mantenimiento);
-            //echo($repuestos);
-            //echo($repuestos->first()->mantrepuesto['id']);
+
+            $this->loadModel('Cliente'); 
+            $cliente = $this->Cliente->find('all')
+            ->select(['nombre'])
+            ->join([
+                            'table' => 'bicicleta',
+                            'alias' => 'bicicleta',
+                            'conditions' => ['bicicleta.id' => $bici_id ,'bicicleta.id = cliente.id']
+                          ]);
+            echo(json_encode($cliente));
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set(compact('repuestos',$repuestos));
         $this->set(compact('servicios',$servicios));

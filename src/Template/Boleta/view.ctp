@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
 <!--Font Awesome (added because you use icons in your prepend/append)-->
-<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
 
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
@@ -52,7 +52,7 @@ echo $this->Breadcrumbs->render();
          <i class="fa fa-calendar">
          </i>
         </div>
-        <?= $this->Form->control('fecha_salida',array('label'=> false , 'name'=> 'fecha_salida' ,'id'=>'fecha_salida', 'placeholder'=>"MM/DD/YYYY", 'type'=>"text", 'onchange' => "this.form.submit()")); ?>
+        <?= $this->Form->control('fecha_salida',array('label'=> false , 'name'=> 'fecha_salida' ,'id'=>'fecha_salida', 'placeholder'=>"DD/MM/YYYY", 'type'=>"text", 'onchange' => "this.form.submit()")); ?>
        </div>
       </div>
       <div class="form-group">
@@ -101,7 +101,7 @@ echo $this->Breadcrumbs->render();
       var date_input=$('input[name="fecha_salida"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
-        format: 'yyyy/mm/dd',
+        format: 'dd/mm/yy',
         container: container,
         todayHighlight: true,
         autoclose: true

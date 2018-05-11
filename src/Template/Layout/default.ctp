@@ -40,6 +40,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('easy-autocomplete') ?>
     <?= $this->Html->css('easy-autocomplete.themes') ?>
     <?= $this->Html->css('style.css')?>
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
     
     <?= $this->Html->script('jquery-3.3.1.min') ?>

@@ -13,12 +13,12 @@ class TablaBoleta extends AbstractMigration
     public function change()
     {
         $table = $this->table('Boleta');
-    $table->addColumn('fecha_entrada','datetime', [
+    $table->addColumn('fecha_entrada','string', [
              'default' => null ,
              'null' => false,
             ])
     
-          ->addColumn('fecha_salida','datetime', [
+          ->addColumn('fecha_salida','string', [
             'default' => null ,
             'null' => false,
             ])

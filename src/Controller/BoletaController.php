@@ -65,7 +65,7 @@ class BoletaController extends AppController
         $boletum = $this->Boleta->newEntity();
         if(!($cliente_id == null && $usuario_id == null)){
         if ($this->request->is(['post', 'get'])) {
-             $boletum->fecha_entrada = date('y-m-d');
+             $boletum->fecha_entrada = date('d-m-y');
             if($this->request->is('get')){
 
             $boletum->cliente_id = $cliente_id;
