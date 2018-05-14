@@ -1,19 +1,25 @@
 <div >
-<h2>Mantenimento</h2>
+    <?= $this->Html->image("ciclo.jpg", [
+          "alt" => "Logo", 'class'=>'logo', 'label'=>'Ciclo Barva'
+          ]);?>
+<h2>Mantenimento # <?= $this->Number->format($mantenimiento->id) ?></h2>
     <dl>
-        <dt><?= __('Numero') ?></dt>
+       
+        <dt><?= __('Cliente') ?></dt>
         <dd>
-            <?= $this->Number->format($mantenimiento->id) ?>
+            <?= $nombre ?>
             &nbsp;
         </dd>
-        <dt><?= __('Garantia') ?></dt>
+
+        <dt><?= __('Descripcíon') ?></dt>
         <dd>
-            <?= h($mantenimiento->garantia) ?>
-            &nbsp;
-        </dd>
-        <dd>
-            <dt><?= __('descricion') ?></dt>
             <?= h($mantenimiento->descripcion) ?>
+            &nbsp;
+        </dd>
+
+        <dt><?= __('Mano de obra') ?></dt>
+        <dd>
+            <?= h($mantenimiento->manoObra) ?>
             &nbsp;
         </dd>
     <div >
@@ -21,7 +27,7 @@
         <?php if (!empty($repuestos)): ?>
         <table >
             <tr>
-                <th scope="col"><?= __('Descripcion') ?></th>
+                <th scope="col"><?= __('Descripcíon') ?></th>
                 <th scope="col"><?= __('Precio') ?></th>
                  </tr>
             <?php foreach ($repuestos as $repuesto): ?>
@@ -39,8 +45,8 @@
          <?php if (!empty($servicios)): ?>
         <table >
             <tr>
-                <th scope="col"><?= __('descripcion') ?></th>
-                <th scope="col"><?= __('precio') ?></th>
+                <th scope="col"><?= __('Descripcíon') ?></th>
+                <th scope="col"><?= __('Precio') ?></th>
                </tr>
             <?php foreach ($servicios as $servicio): ?>
             <tr>
@@ -52,5 +58,27 @@
         </table>
         <?php endif; ?>
     </div>
+    <div><h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?></h3></div>
     </dl>
 </div>
+
+<?php 
+function total($manoObra = null, $repuestos = null, $servicios = null){
+     $total = 0;
+     if($manoObra!=null){
+        $total = $total + $manoObra;
+     }
+     if($repuestos!=null){
+    foreach ($repuestos as $repuesto){
+        $total = $total + $repuesto->precio; 
+    }
+}
+if($servicios!=null){
+foreach ($servicios as $servicio) {
+    $total = $total + $servicio->precio;
+}
+}
+    return $total;
+}
+
+?>

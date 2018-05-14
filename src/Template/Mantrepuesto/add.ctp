@@ -25,7 +25,7 @@ echo $this->Breadcrumbs->render();
     
     <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
 
-    <?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'btn btn-sm btn-info']) ?>
+    <?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento, $bici_id],['class'=>'btn btn-sm btn-info']) ?>
 
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>

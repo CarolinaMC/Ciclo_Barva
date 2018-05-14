@@ -198,17 +198,20 @@ public function vistaPorBicicleta($id=null){
                           ]);
 
             $this->loadModel('Cliente'); 
-            $cliente = $this->Cliente->find('all')
-            ->select(['nombre'])
+            $cliente = $this->Cliente->Bicicleta->find('all')
+            ->select(['cliente.nombre'])
             ->join([
-                            'table' => 'bicicleta',
-                            'alias' => 'bicicleta',
-                            'conditions' => ['bicicleta.id' => $bici_id ,'bicicleta.id = cliente.id']
+                            'table' => 'cliente',
+                            'alias' => 'cliente',
+                            'conditions' => ['bicicleta.id' => $bici_id ,'bicicleta.cliente_id = cliente.id']
                           ]);
-            echo(json_encode($cliente));
+
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set(compact('repuestos',$repuestos));
         $this->set(compact('servicios',$servicios));
+        $this->set('nombre',$cliente->first()->cliente['nombre']);
+        $this->set(compact('bici_id',$bici_id));
+        
         
     }
 

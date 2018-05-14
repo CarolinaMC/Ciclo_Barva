@@ -64,7 +64,7 @@ class MantrepuestoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-   public function add($mantenimiento_id=null)
+   public function add($mantenimiento_id=null, $bici_id = null)
     {
         //echo($mantenimiento_id);
         $mantrepuesto = $this->Mantrepuesto->newEntity();
@@ -90,6 +90,7 @@ class MantrepuestoController extends AppController
         $this->set(compact('mantrepuesto'));
         $this->set('mantenimiento', $mantenimiento_id);
         $this->set('repuestos',$repuestos);
+        $this->set('bici_id', $bici_id);
 
 
     }

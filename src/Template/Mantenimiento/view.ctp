@@ -5,7 +5,7 @@
  */
 ?>
 <div class="mantenimiento view large-12 medium-8 columns content">
-    <h3><?= h($mantenimiento->id) ?></h3>
+    <h3>Mantenimiento # <?= h($mantenimiento->id) ?> / <?= h($nombre) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Garantia') ?></th>
@@ -19,6 +19,10 @@
             <th scope="row"><?= __('Estado') ?></th>
             <td><?= h($mantenimiento->estado) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Mano Obra') ?></th>
+            <td><?= h($mantenimiento->manoObra) ?></td>
+        </tr>
     </table>
     <div class="row">
         
@@ -28,13 +32,13 @@
 
     </div>
     <div>
-        <br><?= $this->Html->link(__('Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, '_ext' => 'pdf'],['class'=>'btn btn-sm btn-success']); ?></div>
+        <br><?= $this->Html->link(__('Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, $bici_id, '_ext' => 'pdf'],['class'=>'btn btn-sm btn-success']); ?></div>
     <table>
         <tr>
             <td>
     <div class="related">
         <h4><?= __('Repuestos') ?></h4>
-        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
+        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id, $bici_id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($repuestos)): ?>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
@@ -56,7 +60,7 @@
 </td><td>
     <div class="related">
         <h4><?= __('Servicios') ?></h4>
-         <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
+         <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id, $bici_id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($servicios)): ?>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
@@ -79,6 +83,7 @@
 </td>
 </tr>
     </table>
+    <h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?></h3>
 </div>
 
 <?php function prioridad($pri){
@@ -95,4 +100,24 @@
         return 'Baja';
     }
 }
+
+function total($manoObra = null, $repuestos = null, $servicios = null){
+     $total = 0;
+     if($manoObra!=null){
+        $total = $total + $manoObra;
+     }
+     if($repuestos!=null){
+    foreach ($repuestos as $repuesto){
+        $total = $total + $repuesto->precio; 
+    }
+}
+if($servicios!=null){
+foreach ($servicios as $servicio) {
+    $total = $total + $servicio->precio;
+}
+}
+    return $total;
+}
+
+
 ?>
