@@ -39,7 +39,8 @@ echo $this->Breadcrumbs->render();
         <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Usuario','required'))?>
     </div>
 
-    <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
+ <!--<i class="fa fa-calendar"> </i>-->
+ <?= $this->Form->button('buscar', array('div' => false, 'class' => 'fa fa-calendar btn btn-primary')); ?>
     <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
     <?= $this->Form->end(); ?>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
