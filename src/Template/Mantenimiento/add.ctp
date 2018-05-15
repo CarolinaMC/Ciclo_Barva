@@ -10,6 +10,8 @@
     <fieldset>
         <legend><?= __('Agregar Mantenimiento') ?></legend>
         <br>
+        <?=$this->Html->link(__('Agregar Bicicleta'),['controller' => 'Bicicleta','action' => 'add', $cliente_id],['class'=>'btn btn-sm btn-success']) ?>
+        <br>
         <?php
 
          if($boleta_id==null && $nombre==null){

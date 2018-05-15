@@ -45,6 +45,10 @@ class BoletaTable extends Table
             'foreignKey' => 'usuario_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->hasMany('Mantenimiento', [
+            'foreignKey' => 'boleta_id'
+        ]);
     }
 
     /**

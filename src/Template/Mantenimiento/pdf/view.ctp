@@ -1,13 +1,19 @@
 <div >
-    <?= $this->Html->image("ciclo.jpg", [
-          "alt" => "Logo", 'class'=>'logo', 'label'=>'Ciclo Barva'
-          ]);?>
+    <h1>
+        Ciclo Barva / / Tel: 4033 4647
+    </h1>
 <h2>Mantenimento # <?= $this->Number->format($mantenimiento->id) ?></h2>
     <dl>
        
         <dt><?= __('Cliente') ?></dt>
         <dd>
-            <?= $nombre ?>
+            <?= $cliente['nombre'].' '.$cliente['primer_ape'].' '.$cliente['segundo_ape'] ?>
+            &nbsp;
+        </dd>
+
+        <dt><?= __('Bicicleta') ?></dt>
+        <dd>
+            <?= $mantenimiento->bicicletum->marca_nombre . "  "  . $mantenimiento->bicicletum->color . "  " . $mantenimiento->bicicletum->tamano ?>
             &nbsp;
         </dd>
 
@@ -58,7 +64,7 @@
         </table>
         <?php endif; ?>
     </div>
-    <div><h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?></h3></div>
+    <div><h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?> colones</h3></div>
     </dl>
 </div>
 

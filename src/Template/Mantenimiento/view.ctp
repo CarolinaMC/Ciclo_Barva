@@ -5,8 +5,12 @@
  */
 ?>
 <div class="mantenimiento view large-12 medium-8 columns content">
-    <h3>Mantenimiento # <?= h($mantenimiento->id) ?> / <?= h($nombre) ?></h3>
+    <h3>Mantenimiento # <?= h($mantenimiento->id) ?> / <?= $this->Html->link(h($cliente['nombre']).' '.h($cliente['primer_ape']).' '.h($cliente['segundo_ape']),['controller' => 'Cliente', 'action' => 'view', $cliente['id']]) ?></h3>
     <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Bicicleta') ?></th>
+            <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->marca_nombre . "  "  . $mantenimiento->bicicletum->color . "  " . $mantenimiento->bicicletum->tamano, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
+        </tr>
         <tr>
             <th scope="row"><?= __('Garantia') ?></th>
             <td><?= h($mantenimiento->garantia) ?></td>
@@ -32,13 +36,13 @@
 
     </div>
     <div>
-        <br><?= $this->Html->link(__('Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, $bici_id, '_ext' => 'pdf'],['class'=>'btn btn-sm btn-success']); ?></div>
+        <br><?= $this->Html->link(__('Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, '_ext' => 'pdf'],['class'=>'btn btn-sm btn-success']); ?></div>
     <table>
         <tr>
             <td>
     <div class="related">
         <h4><?= __('Repuestos') ?></h4>
-        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id, $bici_id],['class'=>'btn btn-sm btn-info']) ?>
+        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($repuestos)): ?>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
@@ -51,7 +55,7 @@
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->precio) ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantrepuesto', 'action' => 'delete', $repuesto->mantrepuesto['id']], ['confirm' => __('Estas seguro que quieres quitar el repuesto # {0}?', $repuesto->descripcion), 'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantrepuesto', 'action' => 'delete', $repuesto->mantrepuesto['id'], $mantenimiento->id], ['confirm' => __('Estas seguro que quieres quitar el repuesto # {0}?', $repuesto->descripcion), 'class'=>'btn btn-sm btn-danger']) ?>
                 </tr>
             <?php endforeach; ?>
         </table>
@@ -60,7 +64,7 @@
 </td><td>
     <div class="related">
         <h4><?= __('Servicios') ?></h4>
-         <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id, $bici_id],['class'=>'btn btn-sm btn-info']) ?>
+         <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($servicios)): ?>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>
@@ -73,7 +77,7 @@
                 <td><?= h($servicio->descripcion) ?></td>
                 <td><?= h($servicio->precio) ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantservicio', 'action' => 'delete', $servicio->mantservicio['id']], ['confirm' => __('Estas seguro que quieres quitar el servicio # {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Form->postLink(__('Quitar'), ['controller' => 'Mantservicio', 'action' => 'delete', $servicio->mantservicio['id'], $mantenimiento->id], ['confirm' => __('Estas seguro que quieres quitar el servicio # {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -83,7 +87,7 @@
 </td>
 </tr>
     </table>
-    <h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?></h3>
+    <h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?> colones</h3>
 </div>
 
 <?php function prioridad($pri){
