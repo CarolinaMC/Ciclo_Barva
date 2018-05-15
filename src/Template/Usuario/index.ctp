@@ -12,7 +12,7 @@
 
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two" >
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -20,8 +20,8 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -31,18 +31,26 @@ echo $this->Breadcrumbs->render();
 <div class="usuario index large-12 medium-8 content"> 
 
 
-    <h3><?= __('Usuarios') ?></h3>
-    
-    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>
-
-    <div class="form-group"> 
-        <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Usuario','required'))?>
+    <h3><?= __('Usuarios') ?></h3>  
+    <div class="form-group">
+        <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>   
+        <table class ="horizontal-table" cellpadding="0" cellspacing="0">
+        <tr>
+        <th>
+        <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar usuario por cédula o nombre','required'))?>
+        </th>
+        <th>
+        <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary' )); ?>
+        </th>
+        </tr>
+        </table>
     </div>
-
- <!--<i class="fa fa-calendar"> </i>-->
- <?= $this->Form->button('buscar', array('div' => false, 'class' => 'fa fa-calendar btn btn-primary')); ?>
-    <?= $this->Html->link(__('Agregar Usuario'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
+    
+ 
+    <?= $this->Html->link(__('   Agregar Usuario'), ['action' => 'add'],['class'=>' fa fa-user-plus btn btn-lg btn-success']) ?>
     <?= $this->Form->end(); ?>
+    <div><br></div>
+    <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr >
@@ -63,19 +71,20 @@ echo $this->Breadcrumbs->render();
                 <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
                 <td class="actions" >
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $usuario->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->Html->Link(__('Eliminar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->link(__(''), ['action' => 'edit', $usuario->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
+                    <?= $this->Html->Link(__(''), ['action' => 'delete', $usuario->id], ['confirm' => __('Estas seguro que quieres eliminar al usuario  {0}?', $usuario->nombre),'class'=>' fa fa-trash-o btn btn-lg btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
     <div class="paginator">
         <div class="pagination">
             <?= $this->Paginator->prev('< anterior') ?>
             <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
             <?= $this->Paginator->next('siguiente >') ?>
-        </div>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+       
+</div>
+</div>
 </div>

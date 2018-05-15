@@ -12,7 +12,7 @@
 });
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -20,8 +20,8 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -31,13 +31,26 @@ echo $this->Breadcrumbs->render();
   <div class="">
 <div class="cliente index large-12 medium-8 content">
     <h3><?= __('Clientes') ?></h3>
+
+
     <div class="form-group">
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
-<?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar Cliente', 'required'))?>
+        <table class ="horizontal-table" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>
+                <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar cliente por nombre o número de teléfono', 'required'))?>
+                </th>
+                <th>
+                <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary')); ?>
+                 </th>
+            </tr>
+        </table>
     </div>
-    <?= $this->Form->button('buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
+   
+    <?= $this->Html->link(__('   Agregar Cliente'), ['action' => 'add'],['class'=>' fa fa-user-plus btn btn-lg btn-success']) ?>
     <?= $this->Form->end(); ?>
-    <?= $this->Html->link(__('Agregar Cliente'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
+    <div><br></div>
+    <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -60,22 +73,20 @@ echo $this->Breadcrumbs->render();
                 <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $cliente->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->html->Link(__('Eliminar'), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'btn btn-sm btn-danger']) ?>
-                    <!-- poner aqui en accion una direccion al add de bicicleta  -->
+                    <?= $this->Html->link(__(''), ['action' => 'edit', $cliente->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
+                    <?= $this->html->Link(__(''), ['action' => 'delete', $cliente->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $cliente->nombre),'class'=>'fa fa-trash-o btn btn-lg btn-danger']) ?>
+                     <!--<?= $this->Html->link(__(''), ['controller' => 'Bicicleta','action' => 'add'],['class'=>'fa fa-plus fa fa-bicycle btn btn-lg btn-success']) ?>-->
                 </td>
             </tr >
             <?php endforeach; ?>
         </tbody>
     </table>
-
+</div>
     <div class="paginator">
         <div class="pagination">
             <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers(['before'=>'','after'=>''] ) ?>
             <?= $this->Paginator->next(__('siguiente') . ' >') ?>
         </div>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
-</div>
 </div>

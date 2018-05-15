@@ -5,7 +5,7 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -14,15 +14,16 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="cliente view large-12 medium-8 columns content">
-    <h3><?= h($cliente->nombre) ?></h3>
+<div class="cliente view large-8 medium-8 columns content">
+    <h4 class=""><legend><?= __('Detalle del cliente') ?></legend></h4>
+    <h3 class="heading"><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Cedula') ?></th>
@@ -57,9 +58,7 @@ echo $this->Breadcrumbs->render();
             <td><?= h($cliente->direccion) ?></td>
         </tr>
     </table>
-    
-    <h3> Bicicletas perteneciantes al cliente </h3>
-
-    <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
+    <h4 class=""><legend><?= __('Mantenimientos de bicicletas') ?></legend></h4>
+    <?=$this->Html->link(__('  Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'btn btn-sm btn-success  fa fa-bicycle']) ?>
 
 </div>

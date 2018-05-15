@@ -12,7 +12,7 @@ use App\Controller\AppController;
  */
 class BicicletaController extends AppController
 {
-
+ var $paginate = array('limit'=>5,'order'=>array('tamano'));
     /**
      * Index method
      *
@@ -40,7 +40,8 @@ class BicicletaController extends AppController
         $this->paginate = [
             'contain' => ['Cliente', 'Marca']
         ];
-        $bicicleta = $this->paginate($this->Bicicleta);
+ 
+         $bicicleta = $this->paginate($this->Bicicleta,['order'=>['Bicicleta.tamano'=>'asc']]);
 
         $this->set(compact('bicicleta',$bicicleta));
     }

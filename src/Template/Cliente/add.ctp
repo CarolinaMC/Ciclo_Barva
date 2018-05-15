@@ -49,7 +49,7 @@ function validaL(e){
 
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -58,8 +58,8 @@ function validaL(e){
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -73,22 +73,22 @@ echo $this->Breadcrumbs->render();
             echo $this->Form->control('extranjero',array('type'=>'checkbox','id'=>'extranjero')); ?>
   <table>
     <tr>
-          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaEx(event)')); ?> </td>
+          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaEx(event)','placeholder' => "Ingrese la cédula")); ?> </td>
             
-          <td> <?php echo $this->Form->control('nombre',array('type'=>'text', 'onkeypress'=>'return validaL(event)' )); ?> </td>
+          <td> <?php echo $this->Form->control('nombre',array('type'=>'text', 'onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras"  )); ?> </td>
             </tr>
 <tr>
-        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text', 'onkeypress'=>'return validaL(event)')); ?> </td>
+        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text', 'onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras" )); ?> </td>
 
-        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td> 
+        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text','onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras"  ));?> </td> 
     </tr>
         <tr>
-         <td> <?php echo $this->Form->control('alias',array('type'=>'text', 'onkeypress'=>'return validaL(event)'));?> </td>
+         <td> <?php echo $this->Form->control('alias',array('type'=>'text'));?> </td>
             
-           <td> <?php echo $this->Form->control('telefono',array('type'=>'text','minlength'=>'8','maxlength'=>'8','onkeypress'=>'return validaN(event)')); ?> </td> 
+           <td> <?php echo $this->Form->control('telefono',array('type'=>'text','minlength'=>'8','onkeypress'=>'return validaN(event)','placeholder' => "Ingrese solo números")); ?> </td> 
        </tr>
             <tr>
-                <td> <?php echo $this->Form->control('email',array('type'=>'text', 'placeholder' => "@"));?> </td>
+                <td> <?php echo $this->Form->control('email',array('type'=>'text', 'placeholder' => "Ejemplo: elena93@gmail.com"));?> </td>
 
             <td><?php echo $this->Form->control('direccion',array('placeholder'=>"Ingrese una dirección física"));
         ?></td>

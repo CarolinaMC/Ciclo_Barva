@@ -80,13 +80,10 @@ class ClienteTable extends Table
         $validator
             ->scalar('alias')
             ->maxLength('alias', 20)
-            ->requirePresence('alias', 'create')
-            ->notEmpty('alias');
-
+            ->allowEmpty('alias','NULL');
         $validator
             ->scalar('direccion')
-            ->requirePresence('direccion', 'create')
-            ->notEmpty('direccion');
+            ->allowEmpty('direccion','NULL');
 
         $validator
             ->integer('telefono')

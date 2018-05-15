@@ -33,7 +33,7 @@ function validaL(e){
 </script>
 
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -42,8 +42,8 @@ function validaL(e){
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -52,25 +52,25 @@ echo $this->Breadcrumbs->render();
 <div class="usuario form large-12 medium-8 columns content">
     <?= $this->Form->create($usuario) ?>
     <fieldset>
-        <legend><?= __('Agregar Usuario') ?></legend>
+        <legend><?= __('Editar Usuario') ?></legend>
         <?php?>
         <table>
     <tr>
-          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaEx(event)')); ?> </td>
+          <td> <?php echo $this->Form->control('cedula',array('type'=>'text','minlength'=>'9','maxlength'=>'9', 'onkeypress'=>'return validaEx(event)', 'readonly')); ?> </td>
             
-          <td> <?php echo $this->Form->control('nombre',array('type'=>'text','onkeypress'=>'return validaL(event)' )); ?> </td>
+          <td> <?php echo $this->Form->control('nombre',array('type'=>'text','onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras"  )); ?> </td>
             </tr>
 <tr>
-        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text', 'onkeypress'=>'return validaL(event)')); ?> </td>
+        <td> <?php echo $this->Form->control('primer_ape',array('type'=>'text', 'onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras" )); ?> </td>
 
-        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td> 
+        <td> <?php echo $this->Form->control('segundo_ape',array('type'=>'text','onkeypress'=>'return validaL(event)','placeholder' => "Ingrese solo letras"  ));?> </td> 
     </tr>
             <tr>
                 <td> <?php echo $this->Form->control('puesto', ['options' => ['administrador' =>'Administrador', 'dependiente' =>'Dependiente','mecanico' =>'Mecánico']]);?> </td>
             </tr>
             
             <tr>
-                <td> <?php echo $this->Form->control('password',array('type'=>'text','minlength'=>'6','maxlength'=>'20')); ?> </td> 
+                <td> <?php echo $this->Form->control('password',array('type'=>'password','minlength'=>'6','maxlength'=>'20','placeholder' => "Ingrese mínimo 6 caracteres")); ?> </td> 
             </tr>
             
         </table>
