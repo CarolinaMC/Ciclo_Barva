@@ -1,6 +1,7 @@
 <div >
+
     <h1>
-        Ciclo Barva / / Tel: 4033 4647
+        Ciclo Barva | | Tel: 4033 4647
     </h1>
 <h2>Mantenimento # <?= $this->Number->format($mantenimiento->id) ?></h2>
     <dl>
