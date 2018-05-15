@@ -43,19 +43,19 @@ echo $this->Breadcrumbs->render();
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('cliente_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tamano') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('color') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('marca_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('color') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tamano') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($bicicleta as $bicicletum): ?>
             <tr onclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;" >
-                <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>
-                <td><?= h($bicicletum->tamano) ?></td>
-                <td><?= h($bicicletum->color) ?></td>             
+                <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>            
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
+                <td><?= h($bicicletum->color) ?></td> 
+                <td><?= h($bicicletum->tamano) ?></td>
                <td class="actions">
                     <?= $this->Html->link(__(''), ['action' => 'edit', $bicicletum->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
                     <?= $this->Html->Link(__(''), ['action' => 'delete', $bicicletum->id], ['confirm' => __('Estas seguro que quieres eliminar la bicicleta  {0} del cliente {1}?', $bicicletum->color, $bicicletum->cliente->nombre),'class'=>'fa fa-trash-o btn btn-lg btn-danger']) ?>

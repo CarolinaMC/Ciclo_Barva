@@ -61,7 +61,7 @@ function llenarAutoCompleteClienteBici(data) {
     var opcions = {
         data ,
         getValue: function(element) {
-	                return element.telefono.toString();
+	                return element.telefono.toString() + "  " + element.nombre;
                   },
 
         list: {
@@ -73,7 +73,7 @@ function llenarAutoCompleteClienteBici(data) {
             type: "description",
             fields: {
                 description: function(element) {
-	                return element.nombre + " - " + element.alias;
+	                return element.primer_ape + " - " + element.alias;
                   }
             }
         },
@@ -161,7 +161,7 @@ function llenarAutoCompleteBoleta(data) {
             type: "description",
             fields: {
                 description: function(element) {
-                  return element.cliente.nombre + " - " + element.clente.telefono;
+                  return element.cliente.nombre + " - " + element.cliente.telefono;
                   }
             }
         },

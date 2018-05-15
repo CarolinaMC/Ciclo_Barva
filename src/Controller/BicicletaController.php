@@ -67,21 +67,27 @@ class BicicletaController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($cliente_id = null)
     {
         $bicicletum = $this->Bicicleta->newEntity();
         if ($this->request->is('post')) {
             $bicicletum = $this->Bicicleta->patchEntity($bicicletum, $this->request->getData());
             $bici_json = json_decode(json_encode($this->request->getData()));
-
-            $opc = array('conditions' => array('Cliente.telefono' => $bici_json->cliente_id));
+            if($cliente_id==null){
+           // $opc = array('conditions' => array('Cliente.telefono' => $bici_json->cliente_id));
+            $porciones = explode(" ", $bici_json->cliente_id);
+            $opc=array('conditions' => array('Cliente.telefono' => $porciones[0]));
             $clientes = $this->Bicicleta->Cliente->find('all', $opc);
+            $bicicletum->cliente_id = $clientes->first()->id;
+        }
+        else{
+            $bicicletum->cliente_id = $cliente_id;
+        }
 
             $opciones = array('conditions' => array('Marca.nombre' => $bici_json->marca_id));
             $marcas = $this->Bicicleta->Marca->find('all', $opciones);
 
 
-            $bicicletum->cliente_id = $clientes->first()->id;
             $bicicletum->marca_id = $marcas->first()->id;
             $bicicletum->marca_nombre = $marcas->first()->nombre;
 
@@ -98,6 +104,8 @@ class BicicletaController extends AppController
         $this->set(compact('bicicletum', 'cliente', 'marca'));
         $this->set('clientes', json_encode($cliente));
         $this->set('marcas', json_encode($marca));
+        $this->set('cliente_id', json_encode($cliente_id));
+        
     }
 
     /**

@@ -64,7 +64,7 @@ class MantrepuestoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-   public function add($mantenimiento_id=null, $bici_id = null)
+   public function add($mantenimiento_id=null)
     {
         //echo($mantenimiento_id);
         $mantrepuesto = $this->Mantrepuesto->newEntity();
@@ -90,7 +90,7 @@ class MantrepuestoController extends AppController
         $this->set(compact('mantrepuesto'));
         $this->set('mantenimiento', $mantenimiento_id);
         $this->set('repuestos',$repuestos);
-        $this->set('bici_id', $bici_id);
+        
 
 
     }
@@ -128,16 +128,16 @@ class MantrepuestoController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete($id = null, $mantenimiento_id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $mantrepuesto = $this->Mantrepuesto->get($id);
         if ($this->Mantrepuesto->delete($mantrepuesto)) {
-            $this->Flash->success(__('The mantrepuesto has been deleted.'));
+            $this->Flash->success(__('Se elimino el repuesto correctamente del mantenimiento.'));
         } else {
-            $this->Flash->error(__('The mantrepuesto could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El repuesto no pudo ser eliminado del mantenimiento. Por favor, trate de nuevo.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Mantenimiento', 'action' => 'view', $mantenimiento_id]);
     }
 }

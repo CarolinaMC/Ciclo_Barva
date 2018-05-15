@@ -85,6 +85,50 @@ echo $this->Breadcrumbs->render();
 
     <button type="button" class="btn btn-success" onclick="nuevo_mantenimiento('<?php echo($boletum->cliente->nombre) ?>','<?php echo($boletum->id) ?>', '<?php echo($boletum->cliente->id) ?>')" >Nuevo Mantenimiento</button>
 </div>
+<?php if (!empty($boletum->mantenimiento)): ?>
+ <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th scope="col"><?= $this->Paginator->sort('garantia') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('prioridad') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($boletum->mantenimiento as $mantenimiento): ?>
+            <tr ondblclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
+                <td><?= h($mantenimiento->garantia) ?></td>
+                <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarP', $mantenimiento->id])) ?>
+
+                <?= $this->Form->control('prioridad',array('label'=> false , 'name'=> 'prioridad', 'onchange' => "this.form.submit()", 'options'=>array(
+                    '4'=>'Baja',
+                    '3'=>'Media',
+                    '2'=>'Alta',
+                    '1'=>'Urgente'
+
+                ))); ?>
+                <?= $this->Form->end(); ?>
+                </td>
+                <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarE', $mantenimiento->id])) ?>
+              <?php      
+                 echo $this->Form->control('estado',array('label'=> false , 'name'=> 'estado', 'onchange' => "this.form.submit()",'options'=>array(
+                    'espera'=>'Espera',
+                    'reparando'=>'Reparando',
+                    'reparada'=>'Reparada',
+                    'entregada'=>'Entregada'
+
+                ))); ?>
+                <?= $this->Form->end(); ?>
+                </td>
+                <td><?= $mantenimiento->descripcion ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php else: ?>
+    <h3> La boleta no posee mantenimientos asignados </h3>
+    <?php endif; ?>
 </div>
 
 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
