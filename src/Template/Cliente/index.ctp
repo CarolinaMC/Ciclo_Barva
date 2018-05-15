@@ -15,7 +15,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de clientes', 'url' => ['controller' => 'Cliente', 'action' => 'index']],
 ]);
     
@@ -54,18 +54,18 @@ echo $this->Breadcrumbs->render();
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cédula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('alias') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('telefono') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('teléfono') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/cliente/view/' +  <?= $cliente->id ?>;" >
+            <tr ondblclick = "document.location = '/Ciclo_Barva/cliente/view/' +  <?= $cliente->id ?>;" >
                 <td><?= h($cliente->cedula) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>

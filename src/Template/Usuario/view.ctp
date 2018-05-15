@@ -8,7 +8,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de usuarios', 'url' => ['controller' => 'Usuario', 'action' => 'index']],
     ['title' => 'Ver usuario', 'url' => ['controller' => 'Usuario', 'action' => 'view',$usuario->id]]
 ]);
@@ -28,7 +28,7 @@ echo $this->Breadcrumbs->render();
     
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Cedula') ?></th>
+            <th scope="row"><?= __('Cédula') ?></th>
             <td><?= h($usuario->cedula) ?></td>
         </tr>
         <tr>
@@ -36,11 +36,11 @@ echo $this->Breadcrumbs->render();
             <td><?= h($usuario->nombre) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Primer Ape') ?></th>
+            <th scope="row"><?= __('Primer Apellido') ?></th>
             <td><?= h($usuario->primer_ape) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Segundo Ape') ?></th>
+            <th scope="row"><?= __('Segundo Apellido') ?></th>
             <td><?= h($usuario->segundo_ape) ?></td>
         </tr>
         <tr>

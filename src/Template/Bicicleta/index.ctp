@@ -8,7 +8,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de bicicletas', 'url' => ['controller' => 'Bicicleta', 'action' => 'index']],
 ]);
     
@@ -42,16 +42,16 @@ echo $this->Breadcrumbs->render();
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('cliente_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('marca_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cliente') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('marca') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('color') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('tamano') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tamaño') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($bicicleta as $bicicletum): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;" >
+            <tr ondblclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;" >
                 <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>            
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
                 <td><?= h($bicicletum->color) ?></td> 

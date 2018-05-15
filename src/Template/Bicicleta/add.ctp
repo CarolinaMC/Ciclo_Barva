@@ -8,7 +8,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de bicicletas', 'url' => ['controller' => 'Bicicleta', 'action' => 'index']],
     ['title' => 'Agregar bicicleta', 'url' => ['controller' => 'Bicicleta', 'action' => 'add']]
 ]);
@@ -29,19 +29,19 @@ echo $this->Breadcrumbs->render();
         <table class="table">
             <?php if($cliente_id=='null'){  ?>
             <tr>
-                <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?> </td>
+                <td> <?php echo $this->Form->control('cliente_id', array('div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?> </td>
                 </tr>
             <?php } ?>
             <tr>
                 <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => 'Ingrese la marca', 'required', 'type' => 'text'));?> </td> 
 
-                <td> <?php echo $this->Form->control('tamano', ['options' => ['12' =>'12', '16' =>'16','20' =>'20','24' =>'24', '26' =>'26','27.5' =>'27.5','28' =>'28', '29' =>'29']]);?> </td>
+                <td> <?php echo $this->Form->control('tamano', ['label' =>'Tamaño','options' => ['12' =>'12', '16' =>'16','20' =>'20','24' =>'24', '26' =>'26','27.5' =>'27.5','28' =>'28', '29' =>'29']]);?> </td>
             </tr>
            
             <tr>
                 <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)', 'placeholder' => 'Ingrese un color representativo' )); ?> </td>
                 
-                <td><?php echo $this->Form->control('descripcion',array('placeholder'=>"Ingrese caracteristicas de la bicicleta"));?></td>
+                <td><?php echo $this->Form->control('descripcion',array('label' =>'Descripción','placeholder'=>"Ingrese caracteristicas de la bicicleta"));?></td>
             </tr>
         </table>
 

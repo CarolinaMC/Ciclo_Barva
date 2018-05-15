@@ -15,7 +15,7 @@
 <div class="breadcrumbs-two" >
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de usuarios', 'url' => ['controller' => 'Usuario', 'action' => 'index']]
 ]);
     
@@ -54,7 +54,7 @@ echo $this->Breadcrumbs->render();
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr >
-                <th scope="col"><?= $this->Paginator->sort('cedula') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('cédula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
@@ -64,7 +64,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($usuario as $usuario): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/usuario/view/' +  <?= $usuario->id ?>;">
+            <tr ondblclick = "document.location = '/Ciclo_Barva/usuario/view/' +  <?= $usuario->id ?>;">
                 <td><?= h($usuario->cedula) ?></td>
                 <td><?= h($usuario->nombre) ?></td>
                 <td><?= h($usuario->primer_ape) ?></td>

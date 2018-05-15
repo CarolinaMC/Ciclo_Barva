@@ -8,7 +8,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de clientes', 'url' => ['controller' => 'Cliente', 'action' => 'index']],
     ['title' => 'Ver cliente', 'url' => ['controller' => 'Cliente', 'action' => 'view',$cliente->id]]
 ]);
@@ -26,7 +26,7 @@ echo $this->Breadcrumbs->render();
     <h3 class="heading"><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Cedula') ?></th>
+            <th scope="row"><?= __('Cédula') ?></th>
             <td><?= h($cliente->cedula) ?></td>
         </tr>
         <tr>
@@ -46,7 +46,7 @@ echo $this->Breadcrumbs->render();
             <td><?= h($cliente->alias) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Telefono') ?></th>
+            <th scope="row"><?= __('Teléfono') ?></th>
             <td><?= h($cliente->telefono) ?></td>
         </tr>
         <tr>
@@ -54,13 +54,13 @@ echo $this->Breadcrumbs->render();
             <td><?= h($cliente->email) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Direccion física') ?></th>
+            <th scope="row"><?= __('Dirección física') ?></th>
             <td><?= h($cliente->direccion) ?></td>
         </tr>
     </table>
      <?=$this->Html->link(__(' Agregar bicicleta'),['controller' => 'Bicicleta','action' => 'add', $cliente->id],['class'=>'fa fa-plus btn  btn-lg btn-success']) ?>
      <?php if (!empty($cliente->bicicleta)): ?>
-            <?=$this->Html->link(__(' Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>' fa fa-bicycle btn btn-lg btn-info']) ?>
+            <?=$this->Html->link(__(' Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'   fa fa-wrench btn btn-lg btn-info']) ?>
      <div><br></div>
     <h4 class=""><legend><?= __('Lista de bicicletas') ?>
     </legend>

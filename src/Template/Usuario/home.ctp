@@ -2,7 +2,7 @@
 <div><br></div>
 <div class="breadcrumbs-two">
 	<?php $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
 ]);
 
 $this->Breadcrumbs->templates([
