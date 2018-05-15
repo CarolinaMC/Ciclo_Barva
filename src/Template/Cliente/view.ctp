@@ -58,14 +58,14 @@ echo $this->Breadcrumbs->render();
             <td><?= h($cliente->direccion) ?></td>
         </tr>
     </table>
-    <h4 class=""><legend><?= __('Mantenimientos de bicicletas') ?></legend></h4>
-    <?=$this->Html->link(__('  Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'btn btn-sm btn-success  fa fa-bicycle']) ?>
-    <?=$this->Html->link(__('Agregar Bicicleta'),['controller' => 'Bicicleta','action' => 'add', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
-
-    <?php if (!empty($cliente->bicicleta)): ?>
-     <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'btn btn-sm btn-info']) ?>
-     <br>
-    <h3> Bicicletas perteneciantes al cliente </h3>
+     <?=$this->Html->link(__(' Agregar bicicleta'),['controller' => 'Bicicleta','action' => 'add', $cliente->id],['class'=>'fa fa-plus btn  btn-lg btn-success']) ?>
+     <?php if (!empty($cliente->bicicleta)): ?>
+            <?=$this->Html->link(__(' Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>' fa fa-bicycle btn btn-lg btn-info']) ?>
+     <div><br></div>
+    <h4 class=""><legend><?= __('Lista de bicicletas') ?>
+    </legend>
+</h4>
+     <div><br></div>
 <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -86,6 +86,6 @@ echo $this->Breadcrumbs->render();
         </tbody>
     </table>
 <?php else: ?>
-    <h3> El cliente no posee bicicletas registradas </h3>
+    <h5> El cliente no posee bicicletas registradas </h5>
     <?php endif; ?>
 </div>
