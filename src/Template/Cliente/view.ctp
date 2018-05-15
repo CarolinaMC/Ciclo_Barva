@@ -86,6 +86,7 @@ echo $this->Breadcrumbs->render();
         </tbody>
     </table>
 <?php else: ?>
+     <div><br></div>
     <h5> El cliente no posee bicicletas registradas </h5>
     <?php endif; ?>
 </div>
