@@ -64,7 +64,7 @@ class MantservicioController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add($mantenimiento_id = null, $bici_id = null)
+    public function add($mantenimiento_id = null)
     {
         $mantservicio = $this->Mantservicio->newEntity();
         if(!$mantenimiento_id == null){
@@ -89,7 +89,7 @@ class MantservicioController extends AppController
         $this->set(compact('mantservicio'));
         $this->set('mantenimiento', $mantenimiento_id);
         $this->set('servicios',$servicios);
-        $this->set('bici_id',$bici_id);
+        
 
     }
 
@@ -126,17 +126,17 @@ class MantservicioController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete($id = null, $mantenimiento_id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $mantservicio = $this->Mantservicio->get($id);
         if ($this->Mantservicio->delete($mantservicio)) {
-            $this->Flash->success(__('The mantservicio has been deleted.'));
+            $this->Flash->success(__('Se elimino el servicio correctamente del mantenimiento.'));
         } else {
-            $this->Flash->error(__('The mantservicio could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El servicio no pudo ser eliminado del mantenimiento. Por favor, trate de nuevo.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Mantenimiento', 'action' => 'view', $mantenimiento_id]);
     }
 
 }

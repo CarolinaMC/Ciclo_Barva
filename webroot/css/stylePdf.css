@@ -5,7 +5,10 @@ h1, h2, h3, h4 {
 }
 
 .logo{
-    width: 53px;
+    background-repeat: no-repeat;
+    background-image: url(../img/logo2.png);
+    width: 125px;
+    height: 125px;
     z-index: 1000;
 }
 

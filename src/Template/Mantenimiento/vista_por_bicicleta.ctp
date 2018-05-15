@@ -1,6 +1,8 @@
 <div class="mantenimiento index large-12 medium-8 columns content">
     <h3>
-        <?= __('Mantenimientos de bicicleta') ?>
+        <?= __('Mantenimientos de bicicleta') ?><?php foreach ($nombre as $nombre):?>
+        <?= $nombre->descripcion;?> - <?= $nombre->marca_nombre; ?>
+        <?php endforeach;?>
         
     </h3>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
@@ -40,8 +42,8 @@
                 ))); ?>
                 <?= $this->Form->end(); ?>
                 </td>
-                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->marca_nombre, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
-                <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
+                <td><?=$this->Html->link($mantenimiento->bicicleta_id, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicleta_id])?></td>
+                <td><?= $this->Html->link($mantenimiento->boleta_id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boleta_id]); ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>  
                                   </td>

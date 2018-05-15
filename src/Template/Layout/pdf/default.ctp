@@ -9,8 +9,10 @@
 </head>
 <body>
     <div id="container">
+        <div class="logo"></div>
         <div id="content">
             <?= $this->fetch('content') ?>
+
         </div>
     </div>
 </body>

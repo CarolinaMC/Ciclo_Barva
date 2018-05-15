@@ -5,7 +5,7 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -14,15 +14,18 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="usuario view large-12 medium-8 columns content">
+<div class="usuario view large-8 medium-6 columns content">
+
+    <h4 class=""><legend><?= __('Detalle del usuario') ?></legend></h4>
     <h3 class="heading"><?= h($usuario->nombre) ?></h3>
+    
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Cedula') ?></th>
@@ -43,10 +46,6 @@ echo $this->Breadcrumbs->render();
         <tr>
             <th scope="row"><?= __('Puesto') ?></th>
             <td><?= h($usuario->puesto) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($usuario->password) ?></td>
         </tr>
     </table>
 </div>

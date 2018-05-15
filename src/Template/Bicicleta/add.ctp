@@ -5,7 +5,7 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -14,8 +14,8 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -26,23 +26,21 @@ echo $this->Breadcrumbs->render();
     <fieldset>
         <legend><?= __('Agregar Bicicleta') ?></legend>
         <?php?>
-        <table <table class="table">
+        <table class="table">
+            <?php if($cliente_id=='null'){  ?>
             <tr>
-                <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => 'tel Cliente', 'required', 'type' => 'text')); ?> </td>
-            </tr>
+                <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?> </td>
+                </tr>
+            <?php } ?>
             <tr>
-                <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => ' Marca', 'required', 'type' => 'text'));?> </td> 
-            </tr>
-
-            <tr>
+                <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => 'Ingrese la marca', 'required', 'type' => 'text'));?> </td> 
 
                 <td> <?php echo $this->Form->control('tamano', ['options' => ['12' =>'12', '16' =>'16','20' =>'20','24' =>'24', '26' =>'26','27.5' =>'27.5','28' =>'28', '29' =>'29']]);?> </td>
-
             </tr>
+           
             <tr>
-                <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)' )); ?> </td>
-            </tr>
-            <tr>
+                <td> <?php echo $this->Form->control('color',array('type'=>'text', 'onkeypress'=>'return validaL(event)', 'placeholder' => 'Ingrese un color representativo' )); ?> </td>
+                
                 <td><?php echo $this->Form->control('descripcion',array('placeholder'=>"Ingrese caracteristicas de la bicicleta"));?></td>
             </tr>
         </table>

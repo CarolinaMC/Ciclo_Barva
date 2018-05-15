@@ -36,8 +36,7 @@ class MantenimientoController extends AppController
         return parent::isAuthorized($user);
     }
     
-    
-public function vistaPorBicicleta($id=null){
+  public function vistaPorBicicleta($id=null){
 
      $mantenimiento = $this->Mantenimiento->get($id, [
              'contain' => []
@@ -50,6 +49,7 @@ public function vistaPorBicicleta($id=null){
             ->select(['estado'])
             ->select(['descripcion'])
             ->select(['bicicleta_id'])
+            ->select(['boleta_id'])
             ->from(['Bicicleta'])
             ->from(['Mantenimiento'])
             ->where('Mantenimiento.bicicleta_id ='.$id);
@@ -58,8 +58,21 @@ public function vistaPorBicicleta($id=null){
          $this->paginate = [
             'contain' => ['Bicicleta', 'Boleta']
         ];
+
+
+            
+
+            $nombre=$this->Mantenimiento->Boleta->Cliente->Bicicleta->find('all')
+        
+            ->select(['descripcion'])
+            ->select(['marca_nombre'])
+            ->from(['Bicicleta'])
+            ->where('id = '.$id);
+
+
        
         $this->set(compact('mantenimiento',$mantenimiento));
+        $this->set('nombre',$nombre);
 
 }
 
@@ -83,13 +96,26 @@ public function vistaPorBicicleta($id=null){
             ->where('Mantenimiento.boleta_id = Boleta.id')
             ->where('Boleta.cliente_id='.$id);
 
+            $nombre=$this->Mantenimiento->Boleta->Cliente->find('all')
+            ->select(['nombre'])
+            ->select(['id'])
+            ->from(['Cliente'])
+            ->where('id = '.$id);
 
-         $this->paginate = [
+            $bici=$this->Mantenimiento->Boleta->Cliente->Bicicleta->find('all')
+            ->select(['descripcion'])
+            ->select(['marca_nombre'])
+            ->select(['id'])
+            ->from(['Bicicleta'])
+            ->where('cliente_id = '.$nombre->id);
+
+             $this->paginate = [
             'contain' => ['Bicicleta', 'Boleta']
         ];
-        
-        
+
+                
         $this->set(compact('mantenimiento',$mantenimiento));
+        $this->set('nombre',$nombre);
 }
 
     public function index()
@@ -157,11 +183,11 @@ public function vistaPorBicicleta($id=null){
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null, $bici_id = null)
+    public function view($id = null)
     {
         
         $mantenimiento = $this->Mantenimiento->get($id, [
-            'contain' => []
+            'contain' => ['Bicicleta']
         ]);
         
         $this->viewBuilder()->options([
@@ -196,17 +222,20 @@ public function vistaPorBicicleta($id=null){
             $this->loadModel('Cliente'); 
             $cliente = $this->Cliente->Bicicleta->find('all')
             ->select(['cliente.nombre'])
+            ->select(['cliente.primer_ape'])
+            ->select(['cliente.segundo_ape'])
+            ->select(['cliente.id'])
             ->join([
                             'table' => 'cliente',
                             'alias' => 'cliente',
-                            'conditions' => ['bicicleta.id' => $bici_id ,'bicicleta.cliente_id = cliente.id']
+                            'conditions' => ['bicicleta.id' => $mantenimiento->bicicletum->id ,'bicicleta.cliente_id = cliente.id']
                           ]);
 
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set(compact('repuestos',$repuestos));
         $this->set(compact('servicios',$servicios));
-        $this->set('nombre',$cliente->first()->cliente['nombre']);
-        $this->set(compact('bici_id',$bici_id));
+        $this->set('cliente',$cliente->first()->cliente);
+        
         
         
     }
@@ -264,11 +293,13 @@ public function vistaPorBicicleta($id=null){
     }
 
     $clientes=$this->Mantenimiento->Boleta->find('all',array('contain' => 'Cliente'));
+
         $this->set('clientes', json_encode($clientes));
         $this->set(compact('mantenimiento'));
         $this->set('bicicletas', json_encode($bicicleta));
         $this->set('boleta_id',$boleta_id);
         $this->set('nombre',$cliente_nombre);
+        $this->set('cliente_id',$cliente_id);
     }
 
     /**

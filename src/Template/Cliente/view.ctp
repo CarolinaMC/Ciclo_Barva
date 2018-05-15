@@ -5,7 +5,7 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -14,15 +14,16 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="cliente view large-12 medium-8 columns content">
-    <h3><?= h($cliente->nombre) ?></h3>
+<div class="cliente view large-8 medium-8 columns content">
+    <h4 class=""><legend><?= __('Detalle del cliente') ?></legend></h4>
+    <h3 class="heading"><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Cedula') ?></th>
@@ -57,9 +58,35 @@ echo $this->Breadcrumbs->render();
             <td><?= h($cliente->direccion) ?></td>
         </tr>
     </table>
-    
-    <h3> Bicicletas perteneciantes al cliente </h3>
-
-    <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>'btn btn-sm btn-success']) ?>
-
+     <?=$this->Html->link(__(' Agregar bicicleta'),['controller' => 'Bicicleta','action' => 'add', $cliente->id],['class'=>'fa fa-plus btn  btn-lg btn-success']) ?>
+     <?php if (!empty($cliente->bicicleta)): ?>
+            <?=$this->Html->link(__(' Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorCliente', $cliente->id],['class'=>' fa fa-bicycle btn btn-lg btn-info']) ?>
+     <div><br></div>
+    <h4 class=""><legend><?= __('Lista de bicicletas') ?>
+    </legend>
+</h4>
+     <div><br></div>
+<table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th scope="col"><?= $this->Paginator->sort('marca_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('color') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('tamano') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($cliente->bicicleta as $bicicletum): ?>
+            <tr ondblclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;">
+                <td><?= $bicicletum->marca_nombre ?></td>
+                <td><?= h($bicicletum->color) ?></td>
+                <td><?= h($bicicletum->tamano) ?></td>
+             
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else: ?>
+     <div><br></div>
+    <h5> El cliente no posee bicicletas registradas </h5>
+    <?php endif; ?>
 </div>

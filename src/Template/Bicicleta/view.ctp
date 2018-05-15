@@ -5,7 +5,7 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -14,8 +14,8 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -49,8 +49,5 @@ echo $this->Breadcrumbs->render();
             <td><?= $this->Number->format($bicicletum->id) ?></td>
         </tr>
     </table>
-    <!-- <div class="row">
-        <h4><?= __('Descripcion') ?></h4>
-        <?= $this->Text->autoParagraph(h($bicicletum->descripcion)); ?>
-    </div> -->
+    <?=$this->Html->link(__('Mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorBicicleta', $bicicletum->id],['class'=>'btn btn-sm btn-info']); ?>
 </div>

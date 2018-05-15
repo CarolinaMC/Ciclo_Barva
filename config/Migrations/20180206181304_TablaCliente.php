@@ -44,7 +44,7 @@ class TablaCliente extends AbstractMigration
         ])
         ->addColumn('telefono','string', [
             'default' => null ,
-            'limit' => 10,
+            'limit' => 20,
             'null' => false,
         ])
         ->addColumn('email','string', [

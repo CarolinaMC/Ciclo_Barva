@@ -85,7 +85,7 @@ class BicicletaTable extends Table
             ->maxLength('marca_nombre', 255)
             ->requirePresence('marca_nombre', 'create')
             ->notEmpty('marca_nombre');
-
+            
         return $validator;
     }
 
