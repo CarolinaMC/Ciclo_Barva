@@ -27,7 +27,7 @@ echo $this->Breadcrumbs->render();
         <legend><?= __('Agregar Bicicleta') ?></legend>
         <?php?>
         <table class="table">
-             <?php if($cliente_id=='null'){  ?>
+            <?php if($cliente_id=='null'){  ?>
             <tr>
                 <td> <?php echo $this->Form->control('cliente_id', array( 'div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?> </td>
                 </tr>
