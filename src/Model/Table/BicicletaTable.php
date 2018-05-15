@@ -77,14 +77,21 @@ class BicicletaTable extends Table
 
         $validator
             ->scalar('descripcion')
-            ->requirePresence('descripcion', 'create')
-            ->notEmpty('descripcion');
+             ->allowEmpty('descripcion','NULL');;
 
         $validator
             ->scalar('marca_nombre')
             ->maxLength('marca_nombre', 255)
             ->requirePresence('marca_nombre', 'create')
             ->notEmpty('marca_nombre');
+
+        $validator
+            ->scalar('cliente_id')
+            ->notEmpty('cliente_id');
+
+        $validator
+            ->scalar('marca_id')
+            ->notEmpty('marca_id');
             
         return $validator;
     }
