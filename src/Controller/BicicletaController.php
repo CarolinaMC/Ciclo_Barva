@@ -120,7 +120,7 @@ class BicicletaController extends AppController
     public function edit($id = null)
     {
         $bicicletum = $this->Bicicleta->get($id, [
-            'contain' => []
+            'contain' => ['Cliente', 'Marca']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $bicicletum = $this->Bicicleta->patchEntity($bicicletum, $this->request->getData());
