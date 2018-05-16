@@ -21,7 +21,7 @@
 <div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de boletas', 'url' => ['controller' => 'Boleta', 'action' => 'index']],
      ['title' => 'Ver boleta', 'url' => ['controller' => 'Boleta', 'action' => 'view',$boletum->id]],
 ]);

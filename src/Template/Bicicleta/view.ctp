@@ -48,6 +48,4 @@ echo $this->Breadcrumbs->render();
         
     </table>
     <div><br></div>
-    <h4 class=""><legend><?= __('Mantenimientos de la bicicleta') ?></legend></h4>
-    <?=$this->Html->link(__('    Ver mantenimientos'),['controller' => 'Mantenimiento', 'action' => 'vistaPorBicicleta', $bicicletum->id],['class'=>'   fa fa-wrench btn btn-lg btn-info']); ?>
 </div>

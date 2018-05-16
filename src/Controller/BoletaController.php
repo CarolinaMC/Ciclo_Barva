@@ -62,6 +62,10 @@ class BoletaController extends AppController
      */
     public function add($nombre = null, $cliente_id = null, $usuario_id = null)
     {
+        $this->loadModel('Cliente');
+        $cliente = $this->paginate($this->Cliente,['limit'=>3]);
+         $this->Flash->error(__('falta paginación'));
+
         $boletum = $this->Boleta->newEntity();
         if(!($cliente_id == null && $usuario_id == null)){
         if ($this->request->is(['post', 'get'])) {
