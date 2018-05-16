@@ -14,7 +14,17 @@
 
 
 <!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+<style>
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+
+.calen{
+  position: relative;
+  top: -28px;
+}
+  }
+}
+
+</style>
 
 
 <div><br></div>
@@ -45,12 +55,12 @@ echo $this->Breadcrumbs->render();
           <div class="row">
               <div class="col-lg-4 col-md-6 col-sm-12">
               <?=  $this->Form->create($boletum, array('type' => 'POST', 'class'=>"form-horizontal", 'url' => ['action' => 'asinarFechaEntrega', h($boletum->id)])) ?>
-                <th>
-                  <label class="control-label col-lg-12  for="fecha_salida" style="">Cambiar fecha de salida:</label>
+                <th >
+                  <label class="control-label col-lg-12 calen for="fecha_salida" style="">Cambiar fecha de salida:</label>
                 </th>
                 <td>
                   <div class="col-md-12">
-                    <div class="input-group">
+                    <div class="input-group calen">
                       <div class="input-group-addon ">
                         <i class="fa fa-calendar btn btn-lg btn-danger"></i>
                       </div>
