@@ -87,6 +87,7 @@ class ClienteTable extends Table
 
         $validator
             ->integer('telefono')
+            ->maxLength('telefono', 8)
             ->requirePresence('telefono', 'create')
             ->notEmpty('telefono');
 
