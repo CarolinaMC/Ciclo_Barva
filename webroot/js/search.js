@@ -174,12 +174,38 @@ function llenarAutoCompleteBoleta(data) {
     $("#boleta_id").easyAutocomplete(opcions);
 }
 
+function llenarAutoCompleteBiciCliente(data) {
+  data = JSON.parse(data);
+    var opcions = {
+        data ,
+        getValue: function(element) {
+                  return element.id.toString() + " " + element.marca_nombre ;
+                  },
+
+        all: {
+            match: {
+                enabled: true
+            }
+         },
+        template: {
+            type: "description",
+            fields: {
+                description: function(element) {
+                  return element.color + " - " + element.tamano + " - " + element.cliente.nombre;
+                  }
+            }
+        },
+        theme: "dark-light"
+//gris oscuro
+    };
+    $("#buscar").easyAutocomplete(opcions);
+}
+
 function nuevo_mantenimiento(cliente_nombre, boleta_id, cliente_id){
   return location.href = '/Ciclo_Barva/mantenimiento/add/' + cliente_nombre + '/' + boleta_id + '/' + cliente_id;
 }
 
 function llenarAutoCompleteRepuesto(data) {
-  alert("si entro");
   data = JSON.parse(data);
     var opcions = {
         data ,

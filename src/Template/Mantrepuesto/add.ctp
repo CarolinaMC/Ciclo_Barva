@@ -25,7 +25,7 @@ echo $this->Breadcrumbs->render();
     
     <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
 
-    <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros','Todas' =>'Todas' ]]);?>
+    <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos', 'Accesorios'=> 'Accesorios', 'Otros' =>'Otros','Todas' =>'Todas' ]]);?>
     <br>
     <button type='button' class='btn btn-sm btn-success' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > Buscar </button> 
     
