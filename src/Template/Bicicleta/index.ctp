@@ -67,9 +67,9 @@ echo $this->Breadcrumbs->render();
 </div>
      <div class="paginator">
         <div class="pagination">
-            <?= $this->Paginator->prev('< anterior') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
-            <?= $this->Paginator->next('siguiente >') ?>     
+            <?= $this->Paginator->next('>') ?>     
         </div>
     </div>
 </div>

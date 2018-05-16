@@ -86,6 +86,10 @@ class RepuestoTable extends Table
             ->requirePresence('marca_nombre', 'create')
             ->notEmpty('marca_nombre');
 
+        $validator
+            ->scalar('marca_id')
+            ->notEmpty('marca_id');
+
         return $validator;
     }
 

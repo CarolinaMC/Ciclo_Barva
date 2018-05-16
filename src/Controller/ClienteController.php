@@ -11,7 +11,7 @@ class ClienteController extends AppController
 {
 	public $helpers = array('Html', 'Form' );  
 
-    var $paginate = array('limit'=>5,'order'=>array('nombre'));
+    var $paginate = array('limit'=>7,'order'=>array('nombre'));
 
 
     public function isAuthorized($user){
