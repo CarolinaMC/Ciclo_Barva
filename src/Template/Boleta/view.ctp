@@ -18,7 +18,7 @@
 
 
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -27,49 +27,50 @@
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 echo $this->Breadcrumbs->render();
     ?>
 </div>
 
 
-<div class="boleta view large-9 medium-8 columns content">
-    <h3>Boleta # <?= h($boletum->id) ?></h3>
-          <div class="bootstrap-iso">
- <div class="container-fluid">
+<div class="boleta view large-8 medium-8 columns content">
+  <h4 class=""><legend><?= __('Detalle de la boleta') ?> #<?= h($boletum->id) ?></legend></h4>
   <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-        <?=  $this->Form->create($boletum, array('type' => 'POST', 'class'=>"form-horizontal", 'url' => ['action' => 'asinarFechaEntrega', h($boletum->id)])) ?>
-     <div class="form-group ">
-      <label class="control-label col-sm-2  for="fecha_salida">
-       Fecha Entrega 
-      </label>
-      <div class="col-sm-10">
-       <div class="input-group">
-        <div class="input-group-addon">
-         <i class="fa fa-calendar">
-         </i>
+  <table class="vertical-table">
+    <tr>
+      <div class="bootstrap-iso">
+        <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+              <?=  $this->Form->create($boletum, array('type' => 'POST', 'class'=>"form-horizontal", 'url' => ['action' => 'asinarFechaEntrega', h($boletum->id)])) ?>
+                <th>
+                  <label class="control-label col-lg-12  for="fecha_salida" style="">Cambiar fecha de salida:</label>
+                </th>
+                <td>
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <div class="input-group-addon ">
+                        <i class="fa fa-calendar btn btn-lg btn-danger"></i>
+                      </div>
+                      <?= $this->Form->control('fecha_salida',array('label'=> false , 'name'=> 'fecha_salida' ,'id'=>'fecha_salida', 'placeholder'=>"DD/MM/YYYY", 'type'=>"text", 'onchange' => "this.form.submit()")); ?>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                      <input name="_honey" style="display:none" type="text"/>
+                    </div>
+                  </div>
+                  <?= $this->Form->end(); ?>
+                </td>
+              </div>
+            </div>
+          </div>
         </div>
-        <?= $this->Form->control('fecha_salida',array('label'=> false , 'name'=> 'fecha_salida' ,'id'=>'fecha_salida', 'placeholder'=>"DD/MM/YYYY", 'type'=>"text", 'onchange' => "this.form.submit()")); ?>
-       </div>
-      </div>
-      <div class="form-group">
-      <div class="col-sm-10 col-sm-offset-2">
-       <input name="_honey" style="display:none" type="text"/>
-       
-      </div>
-     </div>
-     </div>
-    <?= $this->Form->end(); ?>
-   </div>
-  </div>
- </div>
-</div>
-<div class="row">
-    <table class="vertical-table">
-        <tr>
+      </tr>
+
+      <tr>
             <th scope="row"><?= __('Cliente') ?></th>
             <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>
         </tr>
@@ -81,10 +82,16 @@ echo $this->Breadcrumbs->render();
             <th scope="row"><?= __('Fecha Entrada') ?></th>
             <td><?= h($boletum->fecha_entrada) ?></td>
         </tr>
-    </table>
+        <tr>
+            <th scope="row"><?= __('Fecha Salida') ?></th>
+            <td><?= h($boletum->fecha_salida) ?></td>
+        </tr>
+  </table>
+  </div>
+  <div><br></div>
+  <h4 class=""><legend><?= __('Mantenimientos de la boleta') ?></legend></h4>
+  <button type="button" class=" fa fa-gears btn btn-lg btn-success" onclick="nuevo_mantenimiento('<?php echo($boletum->cliente->nombre) ?>','<?php echo($boletum->id) ?>', '<?php echo($boletum->cliente->id) ?>')" > Nuevo Mantenimiento</button>
 
-    <button type="button" class="btn btn-success" onclick="nuevo_mantenimiento('<?php echo($boletum->cliente->nombre) ?>','<?php echo($boletum->id) ?>', '<?php echo($boletum->cliente->id) ?>')" >Nuevo Mantenimiento</button>
-</div>
 <?php if (!empty($boletum->mantenimiento)): ?>
  <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
@@ -127,8 +134,10 @@ echo $this->Breadcrumbs->render();
         </tbody>
     </table>
     <?php else: ?>
-    <h3> La boleta no posee mantenimientos asignados </h3>
+    <div><br></div>
+    <h5> La boleta no posee mantenimientos asignados </h5>
     <?php endif; ?>
+</div>
 </div>
 
 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->

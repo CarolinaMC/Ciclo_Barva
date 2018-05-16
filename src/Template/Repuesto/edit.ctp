@@ -60,6 +60,8 @@ echo $this->Breadcrumbs->render();
                 <td> <?php echo $this->Form->control('estado', ['options' => ['Disponible' =>'Disponible', 'Agotado' =>'Agotado']]);?> </td>
             </tr>
             <tr>
+                <td> <?php echo $this->Form->control('Marca', array( 'value'=>[$repuesto->marca->nombre],'type' => 'text','readonly'));?> </td> 
+
                 <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)','placeholder' => 'Ingrese solo números')); ?> </td> 
             </tr>          
         </table>
