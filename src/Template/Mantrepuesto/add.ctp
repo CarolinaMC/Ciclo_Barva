@@ -9,8 +9,8 @@
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
-    ['title' => 'Mantenimiento', 'url' => ['controller' => 'Mantenimiento','action' => 'view',$mantrepuesto->mantenimiento_id]],
-    ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',]]
+    ['title' => 'Mantenimiento', 'url' => ['controller' => 'Mantenimiento','action' => 'view',$mantenimiento]],
+    ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',$mantenimiento]]
 ]);
     
 $this->Breadcrumbs->templates([
@@ -39,8 +39,8 @@ echo $this->Breadcrumbs->render();
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('categoria') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Descripción') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Categoría') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('marca') ?></th>

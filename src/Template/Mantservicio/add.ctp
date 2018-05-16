@@ -5,18 +5,19 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
-    ['title' => 'Lista de mantenimiento de servicios', 'url' => ['action' => 'index']],
-    ['title' => 'Agregar servicio', 'url' => ['action' => 'add']]
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+   ['title' => 'Mantenimiento', 'url' => ['controller' => 'Mantenimiento','action' => 'view',$mantenimiento]],
+    ['title' => 'Agregar servicio al mantenimiento', 'url' => ['action' => 'add',$mantenimiento]]
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
+
 
 echo $this->Breadcrumbs->render();
     ?>
@@ -24,13 +25,13 @@ echo $this->Breadcrumbs->render();
 <div class="mantrepuesto form large-12 medium-8 columns content">
     
     <legend><?= __('Seleccione servicios para mantenimiento') ?></legend>
-
-<?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'btn btn-sm btn-info']) ?>
-
+<h4></h4>
+<?= $this->Html->link(__('Regresar a mantenimiento'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'fa fa-check-square-o btn btn-lg btn-info']) ?>
+<br><br>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Descripción') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
                 
                 <th scope="col" class="actions"><?= __('Seleccione') ?></th>
