@@ -110,6 +110,9 @@ function comfirmar(nombre, cliente_id, usuario_id){
 		return false;
 	}
 }
+   function buscarCategoria(mantenimiento = null){
+  return location.href = '/Ciclo_Barva/mantrepuesto/add/' + mantenimiento + '/' + $('#categoria').val();
+}
 
 function llenarAutoCompleteBici(data) {
   if(data.length>3){

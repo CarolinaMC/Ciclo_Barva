@@ -42,7 +42,7 @@
             <td>
     <div class="related">
         <h4><?= __('Repuestos') ?></h4>
-        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
+        <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id, 'Todas'],['class'=>'btn btn-sm btn-info']) ?>
         <?php if (!empty($repuestos)): ?>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
             <tr>

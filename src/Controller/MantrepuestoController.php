@@ -64,9 +64,17 @@ class MantrepuestoController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-   public function add($mantenimiento_id=null)
+   public function add($mantenimiento_id=null, $categoria = null)
     {
-        //echo($mantenimiento_id);
+        $this->loadModel('Repuesto');
+        if($categoria == 'Todas'){
+        $repuestos = $this->paginate($this->Repuesto,
+        ['limit'=>5, 'contain'=>['Marca']]);
+    }
+    else{
+        $repuestos = $this->paginate($this->Repuesto,
+        ['limit'=>5, 'contain'=>['Marca'], 'conditions' => ['repuesto.categoria' => $categoria ]]);
+}
         $mantrepuesto = $this->Mantrepuesto->newEntity();
         if(!$mantenimiento_id == null){
             if ($this->request->is(['post'])) {
@@ -84,7 +92,7 @@ class MantrepuestoController extends AppController
             }
             }
         }
-        $repuestos = $this->Mantrepuesto->Repuesto->find('all', array('contain' => ['Marca']));
+        //$repuestos = $this->Mantrepuesto->Repuesto->find('all', array('contain' => ['Marca']));
        // $mantenimiento = $this->Mantrepuesto->Mantenimiento->find('all');
 
         $this->set(compact('mantrepuesto'));

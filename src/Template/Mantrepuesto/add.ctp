@@ -25,6 +25,10 @@ echo $this->Breadcrumbs->render();
     
     <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
 
+    <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros','Todas' =>'Todas' ]]);?>
+    <br>
+    <button type='button' class='btn btn-sm btn-success' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > Buscar </button> 
+    
     <?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'btn btn-sm btn-info']) ?>
 
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
@@ -50,7 +54,7 @@ echo $this->Breadcrumbs->render();
                 <td><?= $repuesto->has('marca') ? $this->Html->link(h($repuesto->marca_nombre), ['controller' => 'Marca', 'action' => 'view', h($repuesto->marca_id)]) : '' ?></td>
                 
                 <td class="actions">
-                    <?= $this->Form->create($mantrepuesto, array('type' => 'POST',  'url' => ['action' => 'add', $mantenimiento])) ?>
+                    <?= $this->Form->create($mantrepuesto, array('type' => 'POST',  'url' => ['action' => 'add', $mantenimiento, 'Todas'])) ?>
                     <?= $this->Form->control('repuesto',array('label'=> false , 'name'=> 'repuesto', 'type'=>'checkbox', 'value' => $repuesto->id, 'onclick' => "this.form.submit()")); ?>
                 <?= $this->Form->end(); ?>
                 </td>
@@ -58,4 +62,13 @@ echo $this->Breadcrumbs->render();
             <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="paginator">
+        <div class="pagination">
+            <?= $this->Paginator->prev('< ' . __('')) ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>''] ) ?>
+            <?= $this->Paginator->next(__('') . ' >') ?>
+        </div>
+    </div>
 </div>
+
+
