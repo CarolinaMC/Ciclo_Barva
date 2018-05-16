@@ -32,17 +32,17 @@ function validaL(e){
 }
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de repuestos', 'url' => ['action' => 'index']],
     ['title' => 'Eidtar repuesto', 'url' => ['action' => 'edit',$repuesto->id]]
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -51,23 +51,16 @@ echo $this->Breadcrumbs->render();
 <div class="repuesto form large-12 medium-8 columns content">
     <?= $this->Form->create($repuesto) ?>
     <fieldset>
-        <legend><?= __('Edit Repuesto') ?></legend>
+        <legend><?= __('Editar Repuesto') ?></legend>
         <?php
         ?>
-        <table>
+        <table  class="table">
             <tr>
-                <td> <?php echo $this->Form->control('descripcion',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td> 
-            </tr>
-             <tr>
-                <td> <?php echo $this->Form->control('categoria', ['options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisores' =>'Trasmisores','Aro' =>'Aro', 'Neumaticos' =>'Neumaticos','otros' =>'otros']]);?> </td>
-             <tr>
-            <td> <?php echo $this->Form->control('marca_id',['options' => $marca]);?> </td> 
-            </tr>
-            <tr>
+                <td> <?php echo $this->Form->control('descripcion',array('label' =>'Descripción','type'=>'text','placeholder' => 'Ingrese una descripción del repuesto','readonly'));?> </td>
                 <td> <?php echo $this->Form->control('estado', ['options' => ['Disponible' =>'Disponible', 'Agotado' =>'Agotado']]);?> </td>
             </tr>
             <tr>
-                <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)')); ?> </td> 
+                <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)','placeholder' => 'Ingrese solo números')); ?> </td> 
             </tr>          
         </table>
     </fieldset>

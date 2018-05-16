@@ -79,7 +79,7 @@ echo $this->Breadcrumbs->render();
         <tr>
          <td> <?php echo $this->Form->control('alias',array('type'=>'text'));?> </td>
             
-           <td> <?php echo $this->Form->control('telefono',array('label' =>'Teléfono','type'=>'text','minlength'=>'8','onkeypress'=>'return validaN(event)','placeholder' => "Ingrese solo números")); ?> </td> 
+           <td> <?php echo $this->Form->control('telefono',array('label' =>'Teléfono','type'=>'text','minlength'=>'8','maxlength'=>'8','onkeypress'=>'return validaN(event)','placeholder' => "Ingrese solo números")); ?> </td> 
        </tr>
             <tr>
                 <td> <?php echo $this->Form->control('email',array('type'=>'text','placeholder' => "Ejemplo: elena93@gmail.com"));?> </td>

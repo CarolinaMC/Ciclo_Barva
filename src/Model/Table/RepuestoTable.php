@@ -60,7 +60,7 @@ class RepuestoTable extends Table
 
         $validator
             ->scalar('descripcion')
-            ->maxLength('descripcion', 20)
+            ->maxLength('descripcion', 100)
             ->requirePresence('descripcion', 'create')
             ->notEmpty('descripcion');
 
@@ -85,6 +85,10 @@ class RepuestoTable extends Table
             ->maxLength('marca_nombre', 255)
             ->requirePresence('marca_nombre', 'create')
             ->notEmpty('marca_nombre');
+
+        $validator
+            ->scalar('marca_id')
+            ->notEmpty('marca_id');
 
         return $validator;
     }

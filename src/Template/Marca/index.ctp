@@ -5,24 +5,28 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de marcas', 'url' => ['action' => 'index']],
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
     ?>
 </div>
 <div class="marca index large-12 medium-8 columns content">
-    <h3><?= __('Marca') ?>
-        <?= $this->Html->link(__('Agregar Marca'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?></h3>
+    <h3><?= __('Marcas') ?></h3>
+    <h4></h4>
+     <?= $this->Html->link(__(' Agregar marca'), ['action' => 'add'],['class'=>'fa fa-plus btn btn-lg btn-success']) ?>
+      <?= $this->Form->end(); ?>
+    <div><br></div>
+    <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -33,25 +37,23 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($marca as $marca): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/marca/view/' +  <?= $marca->id ?>;">
+            <tr ondblclick = "document.location = '/Ciclo_Barva/marca/view/' +  <?= $marca->id ?>;">
                 <td><?= h($marca->nombre) ?></td>
                 <td><?= h($marca->tipo) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $marca->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $marca->id], ['confirm' => __('Estas seguro que quieres eliminar la marca  {0}?', $marca->nombre),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->link(__(''), ['action' => 'edit', $marca->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
+                    <?= $this->Form->postLink(__(''), ['action' => 'delete', $marca->id], ['confirm' => __('Estas seguro que quieres eliminar la marca  {0}?', $marca->nombre),'class'=>'fa fa-trash-o btn btn-lg btn-danger']) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-     <div class="paginator">
+</div>
+      <div class="paginator">
         <div class="pagination">
-            <?= $this->Paginator->first('<< ' . __('primero')) ?>
-            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
-            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
+            <?= $this->Paginator->prev('<') ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
+            <?= $this->Paginator->next('>') ?>     
         </div>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

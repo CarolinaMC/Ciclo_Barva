@@ -34,7 +34,7 @@ class ServicioController extends AppController
     
     public function index()
     {
-        $servicios = $this->paginate($this->Servicio);
+        $servicios = $this->paginate($this->Servicio,['limit'=>7,'order'=>['Servicio.descripcion'=>'asc']]);
         $this->set('servicio',$servicios);
     }
 

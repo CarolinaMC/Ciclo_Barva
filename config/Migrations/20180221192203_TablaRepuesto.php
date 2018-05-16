@@ -15,7 +15,7 @@ class TablaRepuesto extends AbstractMigration
         $table = $this->table('Repuesto');
         $table->addColumn('descripcion','string', [
             'default' => null ,
-            'limit' => 20,
+            'limit' => 100,
             'null' => false,
         ])
         ->addColumn('categoria','string', [

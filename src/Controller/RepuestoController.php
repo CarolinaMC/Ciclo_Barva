@@ -4,14 +4,16 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Repuesto Controller
+ * Marca Controller
  *
+ *
+ * @method \App\Model\Entity\Marca[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class RepuestoController extends AppController
 {
 	public $helpers = array('Html', 'Form' );  
 
-    var $paginate = array('limit'=>5,'order'=>array('categoria'));
+    var $paginate = array('limit'=>7,'order'=>array('categoria'));
     /**
      * Index method
      *
@@ -37,7 +39,7 @@ class RepuestoController extends AppController
         $this->paginate = [
             'contain' => ['Marca']
         ];
-        $repuesto = $this->paginate($this->Repuesto);
+        $repuesto = $this->paginate($this->Repuesto,['limit'=>7,'order'=>['Repuesto.categoria'=>'asc']]);
 
         $this->set(compact('repuesto'),$repuesto);
     }

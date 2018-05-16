@@ -5,31 +5,35 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de servicios', 'url' => ['action' => 'index']],
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
     ?>
 </div>
 <div class="servicio index large-12 medium-8 columns content">
-    <h3><?= __('Servicio') ?>
+    <h3><?= __('Servicio') ?></h3>
+    <h4></h4>
         <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
-        <?= $this->Html->link(__('Agregar Servicio'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>       
+        <?= $this->Html->link(__('  Agregar servicio'), ['action' => 'add'],['class'=>'fa fa-plus btn btn-lg btn-success']) ?>       
         <?php endif; ?>
-    </h3>
-    <table cellpadding="0" cellspacing="0">
+    
+    <div><br></div>  
+<div class="table-responsive">
+
+    <table class ="table table-striped table-hover"  cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('descripcion') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('descripción') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
                  <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
@@ -38,14 +42,14 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($servicio as $servicio): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/servicio/view/' +  <?= $servicio->id ?>;">
+            <tr ondblclick  = "document.location = '/Ciclo_Barva/servicio/view/' +  <?= $servicio->id ?>;">
                 <td><?= h($servicio->descripcion) ?></td>
                 <td><?= $this->Number->format($servicio->precio) ?></td>
                 <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
                 <td class="actions">
                     
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $servicio->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio  {0}?', $servicio->descripcion),'class'=>'btn btn-sm btn-danger']) ?>
+                    <?= $this->Html->link(__(''), ['action' => 'edit', $servicio->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
+                    <?= $this->Form->postLink(__(''), ['action' => 'delete', $servicio->id], ['confirm' => __('Estas seguro que quieres eliminar el servicio  {0}?', $servicio->descripcion),'class'=>'fa fa-trash-o btn btn-lg btn-danger']) ?>
                 
                 </td>
             <?php endif; ?>
@@ -55,12 +59,9 @@ echo $this->Breadcrumbs->render();
     </table>
     <div class="paginator">
         <div class="pagination">
-           <?= $this->Paginator->first('<< ' . __('primero')) ?>
-            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
-            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
+            <?= $this->Paginator->prev('<') ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
+            <?= $this->Paginator->next('>') ?>     
         </div>
-        <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>

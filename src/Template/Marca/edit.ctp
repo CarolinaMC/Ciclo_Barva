@@ -19,17 +19,17 @@ function validaL(e){
 }
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de marcas', 'url' => ['action' => 'index']],
     ['title' => 'Editar marca', 'url' => ['action' => 'edit',$marca->id]]
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -43,13 +43,11 @@ echo $this->Breadcrumbs->render();
         ?>
          <table>
             <tr>
-                <td> <?php echo $this->Form->control('nombre',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td> 
-            </tr>
-            <tr>
+                <td> <?php echo $this->Form->control('nombre',array('type'=>'text','onkeypress'=>'return validaL(event)' ,'placeholder' => 'Ingrese solo letras'));?> </td> 
                 <td> <?php echo $this->Form->control('tipo', ['options' => ['ambos' =>'Ambos', 'marco' =>'De bicicleta','repuesto' =>'De repuesto']]);?> </td>
-            </tr>          
+            </tr> 
         </table>
     </fieldset>
-   <?= $this->Form->button(__('Editar')) ?>
+   <?= $this->Form->button('Editar',array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>

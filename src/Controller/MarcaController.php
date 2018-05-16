@@ -13,7 +13,7 @@ class MarcaController extends AppController
 {
 public $helpers = array('Html', 'Form' );  
 
-    var $paginate = array('limit'=>5,'order'=>array('nombre'));
+    var $paginate = array('limit'=>7,'order'=>array('nombre'));
     /**
      * Index method
      *
@@ -31,7 +31,7 @@ public $helpers = array('Html', 'Form' );
     
     public function index()
     {
-        $marca = $this->paginate($this->Marca);
+        $marca = $this->paginate($this->Marca,['limit'=>7,'order'=>['Marca.nombre'=>'asc']]);
 
         $this->set('marca',$marca);
     }

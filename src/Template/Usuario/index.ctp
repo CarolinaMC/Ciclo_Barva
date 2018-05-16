@@ -45,8 +45,7 @@ echo $this->Breadcrumbs->render();
         </tr>
         </table>
     </div>
-    
- 
+
     <?= $this->Html->link(__('   Agregar Usuario'), ['action' => 'add'],['class'=>' fa fa-user-plus btn btn-lg btn-success']) ?>
     <?= $this->Form->end(); ?>
     <div><br></div>
@@ -81,9 +80,9 @@ echo $this->Breadcrumbs->render();
 </div>
     <div class="paginator">
         <div class="pagination">
-            <?= $this->Paginator->prev('< anterior') ?>
+            <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
-            <?= $this->Paginator->next('siguiente >') ?>
+            <?= $this->Paginator->next('>') ?>
        
 </div>
 </div>
