@@ -32,7 +32,7 @@ function validaL(e){
 }
 </script>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
     ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
@@ -41,8 +41,8 @@ function validaL(e){
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -56,13 +56,12 @@ echo $this->Breadcrumbs->render();
         ?>
         <table>
             <tr>
-                <td> <?php echo $this->Form->control('descripcion',array('type'=>'text','onkeypress'=>'return validaL(event)' ));?> </td> 
+                <td> <?php echo $this->Form->control('descripcion',array('label' =>'Descripción','type'=>'text','onkeypress'=>'return validaL(event)','placeholder' => 'Ingrese solo letras' ));?> </td> 
+                 <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)','placeholder' => 'Ingrese solo números')); ?> </td> 
             </tr>
-            <tr>
-                <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)')); ?> </td> 
-            </tr>          
+         
         </table>
     </fieldset>
-    <?= $this->Form->button('Editar'array('div' => false, 'class' => 'btn btn-primary')) ?>
+    <?= $this->Form->button('Editar',array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>

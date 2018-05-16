@@ -31,7 +31,7 @@ public $helpers = array('Html', 'Form' );
     
     public function index()
     {
-        $marca = $this->paginate($this->Marca);
+        $marca = $this->paginate($this->Marca,['limit'=>7,'order'=>['Marca.nombre'=>'asc']]);
 
         $this->set('marca',$marca);
     }

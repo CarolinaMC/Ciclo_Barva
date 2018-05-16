@@ -39,7 +39,7 @@ class RepuestoController extends AppController
         $this->paginate = [
             'contain' => ['Marca']
         ];
-        $repuesto = $this->paginate($this->Repuesto,['limit'=>7,'order'=>['Bicicleta.tamano'=>'asc']]);
+        $repuesto = $this->paginate($this->Repuesto,['limit'=>7,'order'=>['Repuesto.categoria'=>'asc']]);
 
         $this->set(compact('repuesto'),$repuesto);
     }

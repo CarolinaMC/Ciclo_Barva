@@ -15,7 +15,7 @@ class TablaServicio extends AbstractMigration
         $table = $this->table('Servicio');
         $table->addColumn('descripcion','string', [
             'default' => null ,
-            'limit' => 20,
+            'limit' => 100,
             'null' => false,
         ])
         ->addColumn('precio','integer', [

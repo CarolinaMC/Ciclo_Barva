@@ -56,17 +56,11 @@ echo $this->Breadcrumbs->render();
         ?>
         <table  class="table">
             <tr>
-                <td> <?php echo $this->Form->control('descripcion',array('label' =>'Descripción','type'=>'text','placeholder' => 'Ingrese una descripción del repuesto'));?> </td>
-
-                <td> <?php echo $this->Form->control('marca_id',['options' => $marca]);?> </td>
-            </tr>
-             <tr>
-                <td> <?php echo $this->Form->control('categoria', ['options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisores' =>'Trasmisores','Aro' =>'Aro', 'Neumaticos' =>'Neumaticos','otros' =>'otros']]);?> </td>
-
+                <td> <?php echo $this->Form->control('descripcion',array('label' =>'Descripción','type'=>'text','placeholder' => 'Ingrese una descripción del repuesto','readonly'));?> </td>
                 <td> <?php echo $this->Form->control('estado', ['options' => ['Disponible' =>'Disponible', 'Agotado' =>'Agotado']]);?> </td>
             </tr>
             <tr>
-                <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)')); ?> </td> 
+                <td> <?php echo $this->Form->control('precio',array('type'=>'text','onkeypress'=>'return validaN(event)','placeholder' => 'Ingrese solo números')); ?> </td> 
             </tr>          
         </table>
     </fieldset>

@@ -44,7 +44,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($repuesto as $repuesto): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
+            <tr ondblclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->categoria) ?></td>
                 <td><?= h($repuesto->estado) ?></td>
