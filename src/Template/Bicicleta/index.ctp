@@ -73,3 +73,10 @@ echo $this->Breadcrumbs->render();
         </div>
     </div>
 </div>
+
+<script>
+    
+    $(document).ready(function(){
+    llenarAutoCompleteBiciCliente('<?php echo $bicicletas ?>');
+});
+</script>

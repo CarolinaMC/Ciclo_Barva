@@ -69,11 +69,11 @@ class MantrepuestoController extends AppController
         $this->loadModel('Repuesto');
         if($categoria == 'Todas'){
         $repuestos = $this->paginate($this->Repuesto,
-        ['limit'=>5, 'contain'=>['Marca']]);
+        ['limit'=>7, 'contain'=>['Marca']]);
     }
     else{
         $repuestos = $this->paginate($this->Repuesto,
-        ['limit'=>5, 'contain'=>['Marca'], 'conditions' => ['repuesto.categoria' => $categoria ]]);
+        ['limit'=>7, 'contain'=>['Marca'], 'conditions' => ['repuesto.categoria' => $categoria ]]);
 }
         $mantrepuesto = $this->Mantrepuesto->newEntity();
         if(!$mantenimiento_id == null){

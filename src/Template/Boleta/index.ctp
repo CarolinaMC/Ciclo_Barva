@@ -39,7 +39,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($boleta as $boletum): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
+            <tr ondblclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
                  <td><?= h($boletum->id)?></td>
                 <td><?= h($boletum->fecha_entrada) ?></td>
                 <td><?= h($boletum->fecha_salida) ?></td>
