@@ -90,7 +90,7 @@ class BoletaController extends AppController
     }
     
 
-         $clientes = $this->Boleta->Cliente->find('all');
+         $clientes = $this->paginate($this->Boleta->Cliente->find('all'),['order'=>['nombre','primer_ape','segundo_ape']]);
         $this->set('cliente',$clientes);
          $this->set('clientes', json_encode($clientes));
         $this->set(compact('boletum'));

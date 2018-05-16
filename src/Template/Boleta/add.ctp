@@ -50,7 +50,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
-            <tr onclick = "comfirmar('<?php echo($cliente->nombre) ?>' , '<?php echo($cliente->id) ?>', '<?php echo($current_user['id']) ?>' )"; >
+            <tr ondblclick = "comfirmar('<?php echo($cliente->nombre) ?>' , '<?php echo($cliente->id) ?>', '<?php echo($current_user['id']) ?>' )"; >
                 <td><?= h($cliente->telefono) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>

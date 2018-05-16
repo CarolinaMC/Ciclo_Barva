@@ -36,7 +36,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($boleta as $boletum): ?>
-            <tr onclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
+            <tr ondblclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
                 <td><?= h($boletum->fecha_entrada) ?></td>
                 <td><?= h($boletum->fecha_salida) ?></td>
                 <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>
