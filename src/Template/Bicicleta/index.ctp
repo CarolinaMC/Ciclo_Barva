@@ -24,7 +24,7 @@ echo $this->Breadcrumbs->render();
     <h3><?= __('Bicicleta') ?></h3>  
     <div class="form-group">
         <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>   
-        <table class ="horizontal-table" cellpadding="0" cellspacing="0">
+        <table class ="" cellpadding="0" cellspacing="0">
         <tr>
         <th>
         <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar bicicleta por cliente o color','required'))?>

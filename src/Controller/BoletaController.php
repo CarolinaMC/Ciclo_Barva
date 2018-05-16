@@ -63,8 +63,8 @@ class BoletaController extends AppController
     public function add($nombre = null, $cliente_id = null, $usuario_id = null)
     {
         $this->loadModel('Cliente');
-        $cliente = $this->paginate($this->Cliente,['limit'=>3]);
-         $this->Flash->error(__('falta paginación'));
+        /*$cliente = $this->paginate($this->Cliente,['limit'=>3]);
+         $this->Flash->error(__('falta paginación'));*/
 
         $boletum = $this->Boleta->newEntity();
         if(!($cliente_id == null && $usuario_id == null)){
@@ -145,21 +145,27 @@ class BoletaController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-       public function buscar(){
+        public function buscar(){
 
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
-            
-            $opciones=array('conditions' => array('Cliente.telefono' => $buscar));
+            $porciones = explode(" ", $buscar);
+            $opciones=array('conditions' => array('Cliente.telefono' => $porciones[0]));
+            //echo($porciones[0]);
             $clientes = $this->Boleta->Cliente->find('all', $opciones);
-            echo($clientes->first()->id);
             
-        
-                return $this->redirect(['controller' => 'cliente', 'action' => 'view', $clientes->first()->id]); 
+        if(!empty($clientes->first()->id)){
+                return $this->redirect(array('controller' => 'cliente','action' => 'view', $clientes->first()->id));
+                }
+                else{
+                    //return $this->redirect(array('action' => 'view', $clientes->first()->id));
+                    $this->Flash->error(__('Valor no enconcontrado. Intente de nuevo.'));
+                    return $this->redirect(array('action' => 'index'));
+                } 
 
-         }
-        }
+    }
+}
 
       public function asinarFechaEntrega($id = null){
 //echo($_POST['fecha_salida']);

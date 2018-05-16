@@ -5,17 +5,17 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
-    ['title' => 'Lista de repuestos del mantenimiento', 'url' => ['action' => 'index']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Mantenimiento', 'url' => ['controller' => 'Mantenimiento','action' => 'view',$mantrepuesto->mantenimiento_id]],
     ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',]]
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
 
 echo $this->Breadcrumbs->render();
@@ -23,14 +23,19 @@ echo $this->Breadcrumbs->render();
 </div>
 <div class="mantrepuesto form large-12 medium-8 columns content">
     
-    <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
-
-    <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros','Todas' =>'Todas' ]]);?>
-    <br>
-    <button type='button' class='btn btn-sm btn-success' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > Buscar </button> 
+    <legend><?= __('Seleccione la categoría del repuestos para mantenimiento') ?></legend>
+ 
+<div class="form-group">
+    <table class ="" cellpadding="0" cellspacing="0">
+    <tr>
+        <th><?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros','Todas' =>'Todas' ]]);?></th>
+        <th><button type='button' class='fa fa-search btn btn-lg btn-primary' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > </button> </th>
+    </tr>
+    </table>
+</div>
     
-    <?= $this->Html->link(__('Listo'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>'btn btn-sm btn-info']) ?>
-
+    <?= $this->Html->link(__(' Regresar a mantenimiento'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>' fa fa-check-square-o btn btn-lg btn-info']) ?>
+<br><br>
         <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>

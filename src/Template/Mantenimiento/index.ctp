@@ -25,15 +25,16 @@ echo $this->Breadcrumbs->render();
     <h4></h4>
         <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'  fa fa-wrench btn btn-lg btn-success']) ?>
      <?= $this->Form->end(); ?>
+     <div><br></div>
+     <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('garantia') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('garantía') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('prioridad') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bicicleta_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('boleta_id') ?></th>
-                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -64,22 +65,17 @@ echo $this->Breadcrumbs->render();
                 </td>
                 <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->marca_nombre . "  "  . $mantenimiento->bicicletum->color . "  " . $mantenimiento->bicicletum->tamano, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>  
-                                  </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
+</div>
+   <div class="paginator">
         <div class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->prev('<') ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
+            <?= $this->Paginator->next('>') ?>     
         </div>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
 

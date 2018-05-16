@@ -33,19 +33,17 @@ echo $this->Breadcrumbs->render();
 <div class="cliente index large-12 medium-8 content">
     <h4 class=""><legend><?= __('Seleccione un cliente para crear la boleta') ?></legend></h4>
     
-    <div class="form-group">
-        <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
-
+   <div class="form-group">
+    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
         <table class ="horizontal-table" cellpadding="0" cellspacing="0">
-        <tr>
-        <th>
-        <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar cliente teléfono o nombre','required'))?>
-        </th>
-        <th>
-        <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary' )); ?>
-        <?= $this->Form->end(); ?>
-        </th>
-        </tr>
+            <tr>
+                <th>
+                <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar cliente por nombre o número de teléfono', 'required'))?>
+                </th>
+                <th>
+                <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary')); ?>
+                 </th>
+            </tr>
         </table>
     </div>
     
