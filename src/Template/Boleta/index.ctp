@@ -29,6 +29,7 @@ echo $this->Breadcrumbs->render();
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr >
+                 <th scope="col"><?= $this->Paginator->sort('# Boleta') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Fecha de registro') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fecha_salida') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('cliente_id') ?></th>
@@ -39,6 +40,7 @@ echo $this->Breadcrumbs->render();
         <tbody>
             <?php foreach ($boleta as $boletum): ?>
             <tr onclick = "document.location = '/Ciclo_Barva/boleta/view/' +  <?= $boletum->id ?>;">
+                 <td><?= h($boletum->id)?></td>
                 <td><?= h($boletum->fecha_entrada) ?></td>
                 <td><?= h($boletum->fecha_salida) ?></td>
                 <td><?= $boletum->has('cliente') ? $this->Html->link($boletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $boletum->cliente->id]) : '' ?></td>

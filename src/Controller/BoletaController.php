@@ -33,7 +33,7 @@ class BoletaController extends AppController
             'contain' => ['Usuario', 'Cliente']
         ];
 
-         $boleta = $this->paginate($this->Boleta,['limit'=>7,'order'=>['Boleta.fecha_entrada'=>'asc']]);
+         $boleta = $this->paginate($this->Boleta,['limit'=>7,'order'=>['Boleta.id'=>'asc']]);
 
 
         $this->set(compact('boleta'));
