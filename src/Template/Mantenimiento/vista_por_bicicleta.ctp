@@ -2,7 +2,7 @@
     <h3>
         <?= __('Mantenimientos de bicicleta') ?><?php foreach ($nombre as $nombre):?>
         
-        <?=$this->Html->link($nombre->marca_nombre .' - '.  $nombre->descripcion, ['controller' => 'Bicicleta', 'action' => 'view', $nombre->id])?>
+        <?=$this->Html->link($nombre->marca_nombre .' - '.  $nombre->color .' - '. $nombre->tamano, ['controller' => 'Bicicleta', 'action' => 'view', $nombre->id])?>
        
         <?php endforeach;?>
         

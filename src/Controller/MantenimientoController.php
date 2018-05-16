@@ -51,7 +51,8 @@ class MantenimientoController extends AppController
 
             $nombre=$this->Mantenimiento->Boleta->Cliente->Bicicleta->find('all')
         
-            ->select(['descripcion'])
+            ->select(['color'])
+            ->select(['tamano'])
             ->select(['id'])
             ->select(['marca_nombre'])
             ->from(['Bicicleta'])
