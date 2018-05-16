@@ -132,7 +132,7 @@ class MantenimientoController extends AppController
             $fecha_actual = date("Y-m-d",time());
             $fecha_salida= date($mantenimiento->boletum->fecha_salida);
 
-            if($fecha_actual >= $fecha_salida ){$this->Flash->error('La bicicleta color '.$mantenimiento->bicicletum->color.' se encuentra atrasada.');}
+            if($fecha_actual >= $fecha_salida && $mantenimiento->estado != 'entregada'){$this->Flash->error('La bicicleta color '.$mantenimiento->bicicletum->color.' se encuentra atrasada.');}
 
         endforeach;
 
@@ -152,7 +152,7 @@ class MantenimientoController extends AppController
             $fecha_actual = date("Y-m-d",time());
             $fecha_salida= date($mantenimiento->boletum->fecha_salida);
 
-            if($fecha_actual >= $fecha_salida ){$this->Flash->error('La bicicleta color '.$mantenimiento->bicicletum->color.' se encuentra atrasada.');}
+            if($fecha_actual >= $fecha_salida && $mantenimiento->estado != 'entregada' ){$this->Flash->error('La bicicleta color '.$mantenimiento->bicicletum->color.' se encuentra atrasada.');}
 
         endforeach;
     }
