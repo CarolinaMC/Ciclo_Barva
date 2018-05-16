@@ -29,7 +29,7 @@ echo $this->Breadcrumbs->render();
         <table class="table">
             <?php if($cliente_id=='null'){  ?>
             <tr>
-                <td> <?php echo $this->Form->control('cliente_id', array('div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?> </td>
+            <?php echo $this->Form->control('cliente_id', array('div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?>
                 </tr>
             <?php } ?>
             <tr>

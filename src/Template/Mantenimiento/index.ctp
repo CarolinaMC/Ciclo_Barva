@@ -4,13 +4,27 @@
  * @var \App\Model\Entity\Mantenimiento[]|\Cake\Collection\CollectionInterface $mantenimiento
  */
 ?>
+<div class="breadcrumbs-two">
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de mantenimientos', 'url' => ['action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
+]);
 
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
 
 <div class="mantenimiento index large-12 medium-8 columns content">
-    <h3>
-        <?= __('Mantenimiento') ?>
-        <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
-    </h3>
+    <h3><?= __('Mantenimientos') ?></h3>
+    <h4></h4>
+        <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'  fa fa-wrench btn btn-lg btn-success']) ?>
+     <?= $this->Form->end(); ?>
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>

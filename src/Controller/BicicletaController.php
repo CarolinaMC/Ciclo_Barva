@@ -46,6 +46,7 @@ class BicicletaController extends AppController
          $bicicleta = $this->paginate($this->Bicicleta,['limit'=>7,'order'=>['Bicicleta.tamano'=>'asc']]);
 
         $this->set(compact('bicicleta',$bicicleta));
+        $this->set('bicicletas', json_encode($bicicleta));
     }
 
     /**
@@ -120,7 +121,7 @@ class BicicletaController extends AppController
     public function edit($id = null)
     {
         $bicicletum = $this->Bicicleta->get($id, [
-            'contain' => []
+            'contain' => ['Cliente', 'Marca']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $bicicletum = $this->Bicicleta->patchEntity($bicicletum, $this->request->getData());
@@ -164,4 +165,27 @@ class BicicletaController extends AppController
 
         $this->set('bicicletum', $bicicletum);
     }
+
+        public function buscar(){
+
+        $buscar = null;
+        if(!empty($this->request->query['buscar'])){
+            $buscar = $this->request->query['buscar'];
+            $porciones = explode(" ", $buscar);
+            $opciones=array('conditions' => array('Bicicleta.id' => $porciones[0]));
+            //echo($porciones[0]);
+            $bicis = $this->Bicicleta->find('all', $opciones);
+            
+            
+        if(!empty($bicis->first())){
+                return $this->redirect(array('action' => 'view', $bicis->first()->id));
+                }
+                else{
+                    //return $this->redirect(array('action' => 'view', $clientes->first()->id));
+                    $this->Flash->error(__('Valor no enconcontrado. Intente de nuevo.'));
+                    return $this->redirect(array('action' => 'index'));
+                } 
+
+    }
+}
 }

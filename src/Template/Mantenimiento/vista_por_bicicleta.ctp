@@ -1,7 +1,9 @@
 <div class="mantenimiento index large-12 medium-8 columns content">
     <h3>
         <?= __('Mantenimientos de bicicleta') ?><?php foreach ($nombre as $nombre):?>
-        <?= $nombre->descripcion;?> - <?= $nombre->marca_nombre; ?>
+        
+        <?=$this->Html->link($nombre->marca_nombre .' - '.  $nombre->color .' - '. $nombre->tamano, ['controller' => 'Bicicleta', 'action' => 'view', $nombre->id])?>
+       
         <?php endforeach;?>
         
     </h3>

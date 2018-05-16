@@ -5,41 +5,37 @@
  */
 ?>
 <div><br></div>
-<div>
+<div class="breadcrumbs-two">
     <?php 
     $this->Breadcrumbs->add([
-    ['title' => 'Pagina Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Lista de boletas', 'url' => ['controller' => 'Boleta', 'action' => 'index']],
     ['title' => 'Editar boleta', 'url' => ['controller' => 'Boleta', 'action' => 'edit',$boletum->id]]
 ]);
     
 $this->Breadcrumbs->templates([
-    'wrapper' => '<ol class="breadcrumbs">{{content}}</ol>',
-     'item' => '<li><a href="{{url}}">{{title}}</a></li>',
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
 ]);
+
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $boletum->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $boletum->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Boleta'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Cliente'), ['controller' => 'Cliente', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Cliente'), ['controller' => 'Cliente', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Usuario'), ['controller' => 'Usuario', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Usuario'), ['controller' => 'Usuario', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="boleta form large-9 medium-8 columns content">
+
+<div class="boleta form large-12 medium-8 columns content">
     <?= $this->Form->create($boletum) ?>
     <fieldset>
-        <legend><?= __('Edit Boletum') ?></legend>
+         <legend><?= __('Editar Bicicleta') ?></legend>
+
+         <table>
+            <tr>
+                <td> <?php echo $this->Form->control('Fecha de entrada', array('value'=>[$boletum->fecha_entrada],'type' => 'text','readonly')); ?> </td>
+                </tr>
+
+                 <td> <?php echo $this->Form->control('fecha_salida', array('value'=>[$boletum->fecha_entrada],'type' => 'text','readonly')); ?> </td>
+                </tr>
+
+            <tr>
         <?php
             echo $this->Form->control('fecha_entrada');
             echo $this->Form->control('fecha_salida');

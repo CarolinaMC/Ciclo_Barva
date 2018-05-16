@@ -33,7 +33,7 @@ class BoletaController extends AppController
             'contain' => ['Usuario', 'Cliente']
         ];
 
-         $boleta = $this->paginate($this->Boleta,['limit'=>7,'order'=>['Boleta.fecha_entrada'=>'asc']]);
+         $boleta = $this->paginate($this->Boleta,['limit'=>7,'order'=>['Boleta.id'=>'asc']]);
 
 
         $this->set(compact('boleta'));
@@ -62,6 +62,10 @@ class BoletaController extends AppController
      */
     public function add($nombre = null, $cliente_id = null, $usuario_id = null)
     {
+        $this->loadModel('Cliente');
+        $cliente = $this->paginate($this->Cliente,['limit'=>3]);
+         $this->Flash->error(__('falta paginación'));
+
         $boletum = $this->Boleta->newEntity();
         if(!($cliente_id == null && $usuario_id == null)){
         if ($this->request->is(['post', 'get'])) {

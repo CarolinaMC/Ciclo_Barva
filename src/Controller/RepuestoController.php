@@ -100,7 +100,7 @@ class RepuestoController extends AppController
     public function edit($id = null)
     {
         $repuesto = $this->Repuesto->get($id, [
-            'contain' => []
+            'contain' => ['Marca']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $repuesto = $this->Repuesto->patchEntity($repuesto, $this->request->getData());

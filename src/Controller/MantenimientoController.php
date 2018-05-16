@@ -36,35 +36,24 @@ class MantenimientoController extends AppController
         return parent::isAuthorized($user);
     }
     
+     
   public function vistaPorBicicleta($id=null){
 
-     $mantenimiento = $this->Mantenimiento->get($id, [
-             'contain' => []
-        ]);
-
-            $mantenimiento = $this->Mantenimiento->find('all')
+        $mantenimiento = $this->Mantenimiento->find('all')
             ->select(['id'])
             ->select(['garantia'])
-            ->select(['prioridad'])
             ->select(['estado'])
             ->select(['descripcion'])
-            ->select(['bicicleta_id'])
             ->select(['boleta_id'])
-            ->from(['Bicicleta'])
+            ->select(['bicicleta_id'])            
             ->from(['Mantenimiento'])
-            ->where('Mantenimiento.bicicleta_id ='.$id);
-
-
-         $this->paginate = [
-            'contain' => ['Bicicleta', 'Boleta']
-        ];
-
-
-            
+            ->where(['bicicleta_id = '.$id]);        
 
             $nombre=$this->Mantenimiento->Boleta->Cliente->Bicicleta->find('all')
         
-            ->select(['descripcion'])
+            ->select(['color'])
+            ->select(['tamano'])
+            ->select(['id'])
             ->select(['marca_nombre'])
             ->from(['Bicicleta'])
             ->where('id = '.$id);
@@ -76,14 +65,9 @@ class MantenimientoController extends AppController
 
 }
 
-    
     public function vistaPorCliente($id=null){
 
-        $mantenimiento = $this->Mantenimiento->get($id, [
-             'contain' => []
-        ]);
-
-            $mantenimiento = $this->Mantenimiento->find('all')
+         $mantenimiento = $this->Mantenimiento->find('all')
             ->select(['id'])
             ->select(['garantia'])
             ->select(['prioridad'])
@@ -102,21 +86,25 @@ class MantenimientoController extends AppController
             ->from(['Cliente'])
             ->where('id = '.$id);
 
+            $ide=$this->$nombre=$this->Mantenimiento->Boleta->Cliente->find('all')
+            ->select(['id'])
+            ->from(['Cliente'])
+            ->where('id = '.$id);
+
             $bici=$this->Mantenimiento->Boleta->Cliente->Bicicleta->find('all')
             ->select(['descripcion'])
             ->select(['marca_nombre'])
             ->select(['id'])
             ->from(['Bicicleta'])
-            ->where('cliente_id = '.$nombre->id);
+            ->where('cliente_id = '.$ide);
 
-             $this->paginate = [
-            'contain' => ['Bicicleta', 'Boleta']
-        ];
+
 
                 
         $this->set(compact('mantenimiento',$mantenimiento));
         $this->set('nombre',$nombre);
 }
+
 
     public function index()
     {
