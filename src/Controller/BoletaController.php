@@ -17,13 +17,16 @@ class BoletaController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+    var $usuarioplease=null;
     public function isAuthorized($user){
+        $this->usuarioplease = $user['id'];
         if(isset($user['puesto']) and $user['puesto']==='dependiente'){
             if(in_array($this->request->action, ['add','edit','view','index'])){
                 return true;
             }
 
         }
+         
         return parent::isAuthorized($user);
     }
     
@@ -146,17 +149,16 @@ class BoletaController extends AppController
     }
 
         public function buscar(){
-
         $buscar = null;
         if(!empty($this->request->query['buscar'])){
             $buscar = $this->request->query['buscar'];
             $porciones = explode(" ", $buscar);
             $opciones=array('conditions' => array('Cliente.telefono' => $porciones[0]));
-            //echo($porciones[0]);
+
             $clientes = $this->Boleta->Cliente->find('all', $opciones);
             
         if(!empty($clientes->first()->id)){
-                return $this->redirect(array('controller' => 'cliente','action' => 'view', $clientes->first()->id));
+                return $this->redirect(array('action' => 'add', $clientes->first()->nombre,$clientes->first()->id,$this->usuarioplease));
                 }
                 else{
                     //return $this->redirect(array('action' => 'view', $clientes->first()->id));
@@ -184,7 +186,6 @@ class BoletaController extends AppController
          return $this->redirect(['action' => 'view',  $id]);
     }
 
-    return $this->redirect(['action' => 'view',  $id]);
-
+    return $this->redirect(['action' =>'view',  $id]);
 }
 }

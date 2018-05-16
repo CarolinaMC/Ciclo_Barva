@@ -10,7 +10,7 @@
     $this->Breadcrumbs->add([
     ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
     ['title' => 'Mantenimiento', 'url' => ['controller' => 'Mantenimiento','action' => 'view',$mantenimiento]],
-    ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',$mantenimiento]]
+    ['title' => 'Agregar repuesto al mantenimiento', 'url' => ['action' => 'add',$mantenimiento,'Todas']]
 ]);
     
 $this->Breadcrumbs->templates([
@@ -22,8 +22,6 @@ echo $this->Breadcrumbs->render();
     ?>
 </div>
 <div class="mantrepuesto form large-12 medium-8 columns content">
-    
-<<<<<<< HEAD
     <legend><?= __('Seleccione la categoría del repuestos para mantenimiento') ?></legend>
  
 <div class="form-group">
@@ -34,13 +32,12 @@ echo $this->Breadcrumbs->render();
     </tr>
     </table>
 </div>
-=======
+
     <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
 
     <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos', 'Accesorios'=> 'Accesorios', 'Otros' =>'Otros','Todas' =>'Todas' ]]);?>
     <br>
     <button type='button' class='btn btn-sm btn-success' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > Buscar </button> 
->>>>>>> origin/master
     
     <?= $this->Html->link(__(' Regresar a mantenimiento'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>' fa fa-check-square-o btn btn-lg btn-info']) ?>
 <br><br>

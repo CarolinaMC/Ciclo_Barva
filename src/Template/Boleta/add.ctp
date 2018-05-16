@@ -5,7 +5,7 @@
  */
 ?>
 
-
+<?php if(isset($current_user)): ?>
 <script>
     
     $(document).ready(function(){
@@ -34,7 +34,8 @@ echo $this->Breadcrumbs->render();
     <h4 class=""><legend><?= __('Seleccione un cliente para crear la boleta') ?></legend></h4>
     
    <div class="form-group">
-    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
+
+        <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
         <table class ="horizontal-table" cellpadding="0" cellspacing="0">
             <tr>
                 <th>
@@ -82,3 +83,4 @@ echo $this->Breadcrumbs->render();
         </div>
     </div> 
 </div>
+<?php endif; ?>
