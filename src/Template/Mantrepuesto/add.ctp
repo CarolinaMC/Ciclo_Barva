@@ -27,7 +27,7 @@ echo $this->Breadcrumbs->render();
 <div class="form-group">
     <table class ="" cellpadding="0" cellspacing="0">
     <tr>
-        <th><?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros','Todas' =>'Todas' ]]);?></th>
+        <th><?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Horquillas' =>'Horquillas','Trasmisiones' =>'Trasmisores','Aros' =>'Aros', 'Llantas' =>'Llantas', 'Accesorios' =>'Accesorios','Otros' =>'Otros','Todas' =>'Todas' ]]);?></th>
         <th><button type='button' class='fa fa-search btn btn-lg btn-primary' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > </button> </th>
     </tr>
     </table>

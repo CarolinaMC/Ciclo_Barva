@@ -31,7 +31,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     <?= $this->Html->meta('icon') ?>
-    
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
@@ -70,12 +69,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class=" col-lg-2 col-md-1 col-sm-1">
         </div>
         </div>
-        </div> 
-
-        
-
-        <footer>
-        </footer>
+        </div>
+        <?= $this->element('footer')?>
+         <?= $this->Flash->render() ?> 
+                      
+                  
     </div>
 </body>
 </html>

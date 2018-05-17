@@ -62,7 +62,7 @@ echo $this->Breadcrumbs->render();
             </tr> 
         
              <tr>
-                <td> <?php echo $this->Form->control('categoria', ['label' =>'Categoría','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisores','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos','Otros' =>'Otros']]);?> </td>
+                <td> <?php echo $this->Form->control('categoria', ['label' =>'Categoría','options' => ['Frenos' =>'Frenos', 'Marcos' =>'Marcos', 'Horquillas' =>'Horquillas','Trasmisiones' =>'Trasmisores','Aros' =>'Aros', 'Llantas' =>'Llantas', 'Accesorios' =>'Accesorios','Otros' =>'Otros']]);?> </td>
 
                  <td> <?php echo $this->Form->control('estado', ['options' => ['Disponible' =>'Disponible', 'Agotado' =>'Agotado']]);?> </td>
                    
