@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="marca view large-8 medium-8 columns content">
+    <div class="marca view  content">
     <h4 class=""><legend><?= __('Detalle de la marca') ?></legend></h4>
     <h3><?= h($marca->nombre) ?></h3>
     <table class="vertical-table">

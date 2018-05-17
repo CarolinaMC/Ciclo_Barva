@@ -30,23 +30,23 @@ echo $this->Breadcrumbs->render();
     ?>
 </div>
 
-<div class="cliente index large-12 medium-8 content">
+<div class="cliente index content">
     <h4 class=""><legend><?= __('Seleccione un cliente para crear la boleta') ?></legend></h4>
     
    <div class="form-group">
 
         <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
         <table class ="horizontal-table" cellpadding="0" cellspacing="0">
-            <tr>
-                <th>
+            <div class="row">  
+        <div class=" col-lg-6 col-md-10 col-sm-12">
                 <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar cliente por nombre o número de teléfono', 'required'))?>
-                </th>
-                <th>
+                </div>
+        <div class=" col-lg-6 col-md-2 col-sm-12">
                 <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary')); ?>
-                 </th>
-            </tr>
-        </table>
+                </div>
     </div>
+    </div>
+    <br>
     
     <?= $this->Html->link(__('Agregar Cliente'), ['controller' => 'Cliente','action' => 'add'],['class'=>'fa fa-user-plus btn btn-lg btn-success']) ?>
      <?= $this->Form->end(); ?>

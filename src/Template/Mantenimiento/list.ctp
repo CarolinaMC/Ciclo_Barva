@@ -6,7 +6,7 @@
  * @var \App\Model\Entity\Mantenimiento[]|\Cake\Collection\CollectionInterface $mantenimiento
  */
 ?>
-<div class="mantenimiento index large-12 medium-8 columns content">
+<div>
     <h3>
         <?= __('Mantenimiento por prioridad') ?>
     </h3>

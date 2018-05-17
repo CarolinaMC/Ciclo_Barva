@@ -17,7 +17,7 @@
  * @var \App\Model\Entity\Mantenimiento[]|\Cake\Collection\CollectionInterface $mantenimiento
  */
 ?>
-<div class="mantenimiento index large-12 medium-8 columns content">
+<div>
     <h3>
         <?= __('Mantenimientos de cliente:   ') ?> <?php foreach ($nombre as $nombre):?>
         <?= $this->Html->link(__($nombre->nombre), ['controller'=>'Cliente', 'action' => 'view', $nombre->id]) ?>

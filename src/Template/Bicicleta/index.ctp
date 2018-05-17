@@ -20,20 +20,19 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="bicicleta index large-12 medium-8 columns content">
+<br>
+    <div>
     <h3><?= __('Bicicleta') ?></h3>  
     <div class="form-group">
         <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>   
-        <table class ="" cellpadding="0" cellspacing="0">
-        <tr>
-        <th>
+        <div class="row">  
+        <div class=" col-lg-6 col-md-10 col-sm-12">
         <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar bicicleta por cliente o color','required'))?>
-        </th>
-        <th>
+        </div>
+        <div class=" col-lg-6 col-md-2 col-sm-12">
         <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary' )); ?>
-        </th>
-        </tr>
-        </table>
+        </div>
+    </div>
     </div>
         <?= $this->Html->link(__(' Agregar Bicicleta'), ['action' => 'add'],['class'=>'fa fa-user-plus btn btn-lg btn-success']) ?>  
          <?= $this->Form->end(); ?>
@@ -73,6 +72,7 @@ echo $this->Breadcrumbs->render();
         </div>
     </div>
 </div>
+
 
 <script>
     

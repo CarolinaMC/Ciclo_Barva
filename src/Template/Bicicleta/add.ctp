@@ -21,17 +21,19 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="bicicleta form large-12 medium-8 columns content">
+<br>
+    <div>
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
         <legend><?= __('Agregar Bicicleta') ?></legend>
         <?php?>
-        <table class="table">
+        
             <?php if($cliente_id=='null'){  ?>
-            <tr>
+            
             <?php echo $this->Form->control('cliente_id', array('div' => false, 'id' => 'cliente_id', 'placeholder' => 'Ingrese el telefono del cliente', 'required', 'type' => 'text')); ?>
-                </tr>
+                
             <?php } ?>
+            <table class="table">
             <tr>
                 <td> <?php echo $this->Form->control('marca_id', array( 'div' => false, 'id' => 'marca_id', 'placeholder' => 'Ingrese la marca', 'required', 'type' => 'text'));?> </td> 
 
@@ -49,6 +51,7 @@ echo $this->Breadcrumbs->render();
     <?= $this->Form->button('Agregar',array('div' => false, 'class' => 'btn btn-primary')) ?>
     <?= $this->Form->end() ?>
 </div>
+
 
 <script>
         $(document).ready(function(){

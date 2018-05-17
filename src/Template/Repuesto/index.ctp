@@ -20,7 +20,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="repuesto index large-12 medium-8 columns content">
+<br>
+<div >
     <h3><?= __('Repuesto') ?></h3>
     <h4></h4>
     <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
@@ -34,7 +35,6 @@ echo $this->Breadcrumbs->render();
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('descripción') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('categoría') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('marca') ?></th>
                  <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
@@ -47,7 +47,6 @@ echo $this->Breadcrumbs->render();
             <tr ondblclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->categoria) ?></td>
-                <td><?= h($repuesto->estado) ?></td>
                 <td><?= $this->Number->format($repuesto->precio) ?></td>
                 <td><?= $repuesto->has('marca') ? $this->Html->link($repuesto->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $repuesto->marca->id]) : '' ?></td>
                 <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>
@@ -71,3 +70,5 @@ echo $this->Breadcrumbs->render();
         </div>
     </div>
 </div>
+</div>
+

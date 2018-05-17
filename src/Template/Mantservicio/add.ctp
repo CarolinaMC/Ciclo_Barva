@@ -22,7 +22,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="mantrepuesto form large-12 medium-8 columns content">
+<div>
     
     <legend><?= __('Seleccione servicios para mantenimiento') ?></legend>
 <h4></h4>

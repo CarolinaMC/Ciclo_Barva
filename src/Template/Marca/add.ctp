@@ -34,7 +34,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="marca form large-12 medium-8 columns content">
+<br>
+    <div>
     <?= $this->Form->create($marca) ?>
     <fieldset>
         <legend><?= __('Agregar Marca') ?></legend>

@@ -20,7 +20,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="servicio index large-12 medium-8 columns content">
+<br>
+<div>
     <h3><?= __('Servicio') ?></h3>
     <h4></h4>
         <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>

@@ -19,7 +19,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="boleta index large-12 medium-8 columns content">
+<br>
+<div>
     <h3><?= __('Boleta') ?></h3>
     <h4></h4>
     <?= $this->Html->link(__(' Agregar boleta'), ['action' => 'add'],['class'=>'fa fa-plus btn btn-lg btn-success']) ?>  

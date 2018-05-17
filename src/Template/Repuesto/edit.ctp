@@ -48,7 +48,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="repuesto form large-12 medium-8 columns content">
+<br>
+<div >
     <?= $this->Form->create($repuesto) ?>
     <fieldset>
         <legend><?= __('Editar Repuesto') ?></legend>

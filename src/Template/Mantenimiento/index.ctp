@@ -19,8 +19,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-
-<div class="mantenimiento index large-12 medium-8 columns content">
+<br>
+<div >
     <h3><?= __('Mantenimientos') ?></h3>
     <h4></h4>
     

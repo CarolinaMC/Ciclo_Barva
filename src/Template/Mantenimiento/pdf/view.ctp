@@ -65,7 +65,7 @@
         </table>
         <?php endif; ?>
     </div>
-    <div><h3>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?> colones</h3></div>
+    <div><h3>Total : <i class="btn btn-lg">    &#8353</i><?= " ".total($mantenimiento->manoObra,$repuestos,$servicios)?></h3></div>
     </dl>
 </div>
 

@@ -45,7 +45,7 @@ echo $this->Breadcrumbs->render();
 </div>
 
 
-<div class="boleta view large-8 medium-8 columns content">
+<div class="boleta view content">
   <h4 class=""><legend><?= __('Detalle de la boleta') ?> #<?= h($boletum->id) ?></legend></h4>
   <div class="row">
   <table class="vertical-table">

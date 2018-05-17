@@ -27,36 +27,29 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-
-<div class="usuario index large-12 medium-8 content"> 
-
-
-    <h3><?= __('Usuarios') ?></h3>  
-    <div class="form-group">
-        <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>   
-        <table class ="horizontal-table" cellpadding="0" cellspacing="0">
-        <tr>
-        <th>
+<br>
+<div>
+    <h3><?= __('Usuarios') ?></h3>
+    <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?>   
+    <div class="row">  
+        <div class=" col-lg-6 col-md-10 col-sm-12">
         <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar usuario por cédula o nombre','required'))?>
-        </th>
-        <th>
+        </div>
+        <div class=" col-lg-6 col-md-2 col-sm-12">
         <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary' )); ?>
-        </th>
-        </tr>
-        </table>
+        </div>
     </div>
+    <div><br></div>
 
     <?= $this->Html->link(__('   Agregar Usuario'), ['action' => 'add'],['class'=>' fa fa-user-plus btn btn-lg btn-success']) ?>
     <?= $this->Form->end(); ?>
     <div><br></div>
-    <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr >
                 <th scope="col"><?= $this->Paginator->sort('cédula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('puesto') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
@@ -67,7 +60,6 @@ echo $this->Breadcrumbs->render();
                 <td><?= h($usuario->cedula) ?></td>
                 <td><?= h($usuario->nombre) ?></td>
                 <td><?= h($usuario->primer_ape) ?></td>
-                <td><?= h($usuario->segundo_ape) ?></td>
                 <td><?= h($usuario->puesto) ?></td>
                 <td class="actions" >
                     <?= $this->Html->link(__(''), ['action' => 'edit', $usuario->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>
@@ -77,13 +69,15 @@ echo $this->Breadcrumbs->render();
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
+
     <div class="paginator">
         <div class="pagination">
             <?= $this->Paginator->prev('<') ?>
             <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
             <?= $this->Paginator->next('>') ?>
        
-</div>
-</div>
-</div>
+         </div>
+     </div>
+   </div>
+
+

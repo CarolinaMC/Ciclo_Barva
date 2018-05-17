@@ -50,7 +50,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="usuario form large-12 medium-8 columns content">
+<br>
+<div>
     <?= $this->Form->create($usuario) ?>
     <fieldset>
         <legend><?= __('Agregar Usuario') ?></legend>
@@ -68,9 +69,7 @@ echo $this->Breadcrumbs->render();
     </tr>
             <tr>
                 <td> <?php echo $this->Form->control('puesto', ['options' => ['administrador' =>'Administrador', 'dependiente' =>'Dependiente','mecanico' =>'Mecánico']]);?> </td>
-            </tr>
             
-            <tr>
                 <td> <?php echo $this->Form->control('password',array('type'=>'text','minlength'=>'6','maxlength'=>'20','placeholder' => "Ingrese mínimo 6 caracteres")); ?> </td> 
             </tr>
             

@@ -21,18 +21,18 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-
-<div class="mantenimiento view large-12 medium-8 columns content">
+<br>
     <h3>Mantenimiento #<i><?= h($mantenimiento->id)?></i><i class="fa fa-user btn btn-lg"></i><?= $this->Html->link(h($cliente['nombre']).' '.h($cliente['primer_ape']).' '.h($cliente['segundo_ape']),['controller' => 'Cliente', 'action' => 'view', $cliente['id']]) ?></h3>
     <h4></h4>
-        <table class="vertical-table">
-        <tr>
-            <th><?= $this->Html->link(__(' Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, '_ext' => 'pdf'],['class'=>'fa fa-file-pdf-o btn btn-lg btn-success']); ?></th>
-            <td>
+        <div class="row">
+        <div class=" col-lg-6 col-md-12 col-sm-12">
+            <?= $this->Html->link(__(' Descargar Mantenimiento en PDF'), ['action' => 'view', $mantenimiento->id, '_ext' => 'pdf'],['class'=>'fa fa-file-pdf-o btn btn-lg btn-success']); ?>
+            </div>
+            
+        <div class=" col-lg-6 col-md-12 col-sm-12">
                  <h5>Total : <?= total($mantenimiento->manoObra,$repuestos,$servicios)?> colones</h5>
-            </td>
-        </tr>
- </table>
+            </div>
+        </div>
     <div><br></div>
 <h5>Detalle</h5>
     <div class="table-responsive">
@@ -55,7 +55,7 @@ echo $this->Breadcrumbs->render();
         </tr>
         <tr>
             <th scope="row"><?= __('Costo mano de obra') ?></th>
-            <td><i class="btn btn-lg">    &#8353</i></i><?= h($mantenimiento->manoObra) ?></td>
+            <td><i class="btn btn-lg">    &#8353</i><?= h($mantenimiento->manoObra) ?></td>
         </tr>
     </table>
 </div>
@@ -67,22 +67,24 @@ echo $this->Breadcrumbs->render();
     </div>
     <br><br>
     <h4></h4>
-    <table>
-        <tr>
-            <td>
+
+    
+      <div class="row">
+        <div class=" col-lg-6 col-md-12 col-sm-12">
+ 
                 <div class="related">
                     <h4><?= __('Repuestos') ?></h4>
                     <?= $this->Html->link(__('Solicitar Repuesto'), ['controller' => 'Mantrepuesto','action' => 'add', $mantenimiento->id, 'Todas'],['class'=>'btn btn-sm btn-info']) ?>
                     <?php if (!empty($repuestos)): ?>
                     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
                         <tr>
-                            <th scope="col"><?= __('Descripción') ?></th>
+                            <th scope="col" colspan="2"><?= __('Descripción') ?></th>
                             <th scope="col"><?= __('Precio') ?></th>
                             <th scope="col" class="actions"><?= __('Acción') ?></th>
                              </tr>
                         <?php foreach ($repuestos as $repuesto): ?>
                         <tr>
-                            <td><?= h($repuesto->descripcion) ?></td>
+                            <td colspan="2"><?= h($repuesto->descripcion) ?></td>
                             <td><?= h($repuesto->precio) ?></td>
                             <td class="actions">
                                 <?= $this->Form->postLink(__(''), ['controller' => 'Mantrepuesto', 'action' => 'delete', $repuesto->mantrepuesto['id'], $mantenimiento->id], ['confirm' => __('Estas seguro que quieres quitar el repuesto # {0}?', $repuesto->descripcion), 'class'=>' fa fa-close btn btn-lg btn-danger']) ?>
@@ -91,21 +93,22 @@ echo $this->Breadcrumbs->render();
                     </table>
                     <?php endif; ?>
                 </div>
-            </td>
-            <td>
+            </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+
                 <div class="related">
                     <h4><?= __('Servicios') ?></h4>
                      <?= $this->Html->link(__('Seleccionar Servicio'), ['controller' => 'Mantservicio','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-info']) ?>
                     <?php if (!empty($servicios)): ?>
                     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
                         <tr>
-                            <th scope="col"><?= __('Descripción') ?></th>
+                            <th scope="col" colspan="2"><?= __('Descripción') ?></th>
                             <th scope="col"><?= __('precio') ?></th>
                             <th scope="col" class="actions"><?= __('Acción') ?></th>
                         </tr>
                         <?php foreach ($servicios as $servicio): ?>
                         <tr>
-                            <td><?= h($servicio->descripcion) ?></td>
+                            <td colspan="2"><?= h($servicio->descripcion) ?></td>
                             <td><?= h($servicio->precio) ?></td>
                             <td class="actions">
                                 <?= $this->Form->postLink(__(''), ['controller' => 'Mantservicio', 'action' => 'delete', $servicio->mantservicio['id'], $mantenimiento->id], ['confirm' => __('Estas seguro que quieres quitar el servicio # {0}?', $servicio->descripcion),'class'=>'fa fa-close btn btn-lg btn-danger']) ?>
@@ -115,9 +118,8 @@ echo $this->Breadcrumbs->render();
                     </table>
                     <?php endif; ?>
                 </div>
-            </td>
-        </tr>
-    </table>
+            </div>
+          
 </div>
 
 <?php function prioridad($pri){

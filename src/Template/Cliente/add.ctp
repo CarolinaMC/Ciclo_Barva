@@ -65,7 +65,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="cliente form large-12 medium-8 columns content">
+<br>
+ <div>
     <?= $this->Form->create($cliente) ?>
     <fieldset>
         <legend><?= __('Agregar Cliente') ?></legend>

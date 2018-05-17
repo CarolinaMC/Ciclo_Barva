@@ -21,7 +21,8 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
 ?>
 </div>
-<div class="bicicleta form large-12 medium-8 columns content">
+<br>
+    <div>
     <?= $this->Form->create($bicicletum) ?>
     <fieldset>
          <legend><?= __('Editar Bicicleta') ?></legend>

@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="servicio view large-8 medium-8 columns content">
+<div class="servicio view content">
     <h4 class=""><legend><?= __('Detalle del servicio') ?></legend></h4>
     <h3><?= h($servicio->descripcion) ?></h3>
     <table class="vertical-table">

@@ -26,26 +26,22 @@ $this->Breadcrumbs->templates([
 
 echo $this->Breadcrumbs->render();
     ?>
-</div>
-</script> 
-  <div class="">
-<div class="cliente index large-12 medium-8 content">
+</div> 
+ <br>
+<div >
     <h3><?= __('Clientes') ?></h3>
 
 
-    <div class="form-group">
     <?= $this->Form->create('buscar', array('type' => 'GET',  'url' => ['action' => 'buscar'])) ?> 
-        <table class ="horizontal-table" cellpadding="0" cellspacing="0">
-            <tr>
-                <th>
+        <div class="row">  
+        <div class=" col-lg-6 col-md-10 col-sm-12">
                 <?php echo $this->Form->input('buscar', array('label' => false, 'div' => false, 'id' => 'buscar', 'class' => 'form-control buscar', 'placeholder' => 'Buscar cliente por nombre o número de teléfono', 'required'))?>
-                </th>
-                <th>
+                </div>
+        <div class=" col-lg-6 col-md-2 col-sm-12 ">
                 <?= $this->Form->button('', array('div' => false, 'class' => 'fa fa-search btn btn-lg btn-primary')); ?>
-                 </th>
-            </tr>
-        </table>
+                 </div>
     </div>
+    <br>
    
     <?= $this->Html->link(__('   Agregar Cliente'), ['action' => 'add'],['class'=>' fa fa-user-plus btn btn-lg btn-success']) ?>
     <?= $this->Form->end(); ?>
@@ -54,11 +50,9 @@ echo $this->Breadcrumbs->render();
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('cédula') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nombre') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('primer_apellido') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('segundo_apellido') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('alias') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('teléfono') ?></th>
                 <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
@@ -66,11 +60,9 @@ echo $this->Breadcrumbs->render();
         <tbody>
             <?php foreach ($cliente as $cliente): ?>
             <tr ondblclick = "document.location = '/Ciclo_Barva/cliente/view/' +  <?= $cliente->id ?>;" >
-                <td><?= h($cliente->cedula) ?></td>
                 <td><?= h($cliente->nombre) ?></td>
                 <td><?= h($cliente->primer_ape) ?></td>
                 <td><?= h($cliente->segundo_ape) ?></td>
-                <td><?= h($cliente->alias) ?></td>
                 <td><?= h($cliente->telefono) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__(''), ['action' => 'edit', $cliente->id],['class'=>'fa fa-pencil btn btn-lg btn-primary']) ?>

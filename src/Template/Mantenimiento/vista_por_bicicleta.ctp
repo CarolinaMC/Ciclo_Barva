@@ -1,4 +1,4 @@
-<div class="mantenimiento index large-12 medium-8 columns content">
+<div>
     <h3>
         <?= __('Mantenimientos de bicicleta') ?><?php foreach ($nombre as $nombre):?>
         

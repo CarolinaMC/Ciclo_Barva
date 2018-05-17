@@ -21,8 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="usuario view large-8 medium-6 columns content">
-
+<div class="usuario view content">
     <h4 class=""><legend><?= __('Detalle del usuario') ?></legend></h4>
     <h3 class="heading"><?= h($usuario->nombre) ?></h3>
     
@@ -49,3 +48,4 @@ echo $this->Breadcrumbs->render();
         </tr>
     </table>
 </div>
+

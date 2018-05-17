@@ -60,8 +60,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="contenedor1">
         <?= $this->element('menu1')?>
          <?= $this->Flash->render() ?>
-        <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+              <div class=" col-lg-2 col-md-1 col-sm-1">
+              </div>
+              <div class=" col-lg-10 col-md-11 col-sm-11">
             <?= $this->fetch('content') ?>
+        </div>
+        <div class=" col-lg-2 col-md-1 col-sm-1">
+        </div>
+        </div>
         </div> 
 
         

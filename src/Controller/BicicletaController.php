@@ -121,16 +121,16 @@ class BicicletaController extends AppController
     public function edit($id = null)
     {
         $bicicletum = $this->Bicicleta->get($id, [
-            'contain' => []
+            'contain' => ['Cliente', 'Marca']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $bicicletum = $this->Bicicleta->patchEntity($bicicletum, $this->request->getData());
             if ($this->Bicicleta->save($bicicletum)) {
-                $this->Flash->success(__('The bicicletum has been saved.'));
+                $this->Flash->success(__('La bicicleta a sido editada correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The bicicletum could not be saved. Please, try again.'));
+            $this->Flash->error(__('No se pudo editar la bicicleta . Por favor, trate de nuevo.'));
         }
         $cliente = $this->Bicicleta->Cliente->find('list', ['limit' => 200]);
         $marca = $this->Bicicleta->Marca->find('list', ['limit' => 200]);

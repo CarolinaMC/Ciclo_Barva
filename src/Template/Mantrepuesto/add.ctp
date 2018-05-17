@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="mantrepuesto form large-12 medium-8 columns content">
+<div >
     <legend><?= __('Seleccione la categoría del repuestos para mantenimiento') ?></legend>
  
 <div class="form-group">
@@ -31,13 +31,7 @@ echo $this->Breadcrumbs->render();
         <th><button type='button' class='fa fa-search btn btn-lg btn-primary' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > </button> </th>
     </tr>
     </table>
-</div>
-
-    <legend><?= __('Seleccione repuestos para mantenimiento') ?></legend>
-
-    <?php echo $this->Form->control('categoria', ['label' =>false,'id'=>'categoria','options' => ['Frenos' =>'Frenos', 'Marco' =>'Marco','Trasmisiones' =>'Trasmisiones','Aros' =>'Aros', 'Neumáticos' =>'Neumáticos', 'Accesorios'=> 'Accesorios', 'Otros' =>'Otros','Todas' =>'Todas' ]]);?>
-    <br>
-    <button type='button' class='btn btn-sm btn-success' onclick="buscarCategoria('<?php echo($mantenimiento) ?>')" > Buscar </button> 
+</div> 
     
     <?= $this->Html->link(__(' Regresar a mantenimiento'), ['controller' => 'mantenimiento','action' => 'view', $mantenimiento],['class'=>' fa fa-check-square-o btn btn-lg btn-info']) ?>
 <br><br>
@@ -46,7 +40,6 @@ echo $this->Breadcrumbs->render();
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('Descripción') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('Categoría') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('precio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('marca') ?></th>
                 
@@ -59,7 +52,6 @@ echo $this->Breadcrumbs->render();
             <tr ondblclick = "document.location = '/Ciclo_Barva/repuesto/view/' +  <?= $repuesto->id ?>;">
                 <td><?= h($repuesto->descripcion) ?></td>
                 <td><?= h($repuesto->categoria) ?></td>
-                <td><?= h($repuesto->estado) ?></td>
                 <td><?= $this->Number->format($repuesto->precio) ?></td>
                 <td><?= $repuesto->has('marca') ? $this->Html->link(h($repuesto->marca_nombre), ['controller' => 'Marca', 'action' => 'view', h($repuesto->marca_id)]) : '' ?></td>
                 
