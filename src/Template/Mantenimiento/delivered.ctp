@@ -4,25 +4,43 @@
  * @var \App\Model\Entity\Mantenimiento[]|\Cake\Collection\CollectionInterface $mantenimiento
  */
 ?>
+<div class="breadcrumbs-two">
+    <?php 
+    $this->Breadcrumbs->add([
+    ['title' => 'Página Principal', 'url' => ['controller' => 'Usuario', 'action' => 'home']],
+    ['title' => 'Lista de mantenimientos', 'url' => ['action' => 'index']],
+]);
+    
+$this->Breadcrumbs->templates([
+    'wrapper' => '<dl class="">{{content}}</dl>',
+     'item' => '<dd><a href="{{url}}">{{title}}</a></dd>'
+]);
+
+echo $this->Breadcrumbs->render();
+    ?>
+</div>
+
 <div class="mantenimiento index large-12 medium-8 columns content">
-    <h3>
-        <?= __('Mantenimiento') ?>
-        <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'btn btn-sm btn-success']) ?>
-    </h3>
+    <h3><?= __('Mantenimientos') ?></h3>
+    <h4></h4>
+    
+        <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'  fa fa-wrench btn btn-lg btn-success']) ?>
+    
+     <div><br></div>
+     <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('garantia') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('garantía') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('prioridad') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estado') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('bicicleta_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('boleta_id') ?></th>
-                <th scope="col" class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($mantenimiento as $mantenimiento): ?>
-            <tr >
+            <tr ondblclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?>;">
                 <td><?= h($mantenimiento->garantia) ?></td>
                 <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarP', $mantenimiento->id])) ?>
 
@@ -44,27 +62,21 @@
                     'entregada'=>'Entregada'
 
                 ))); ?>
-
+                <?= $this->Form->end(); ?>
                 </td>
-                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->color, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
+                <td><?= $mantenimiento->has('bicicletum') ? $this->Html->link($mantenimiento->bicicletum->marca_nombre . "  "  . $mantenimiento->bicicletum->color . "  " . $mantenimiento->bicicletum->tamano, ['controller' => 'Bicicleta', 'action' => 'view', $mantenimiento->bicicletum->id]) : '' ?></td>
                 <td><?= $mantenimiento->has('boletum') ? $this->Html->link($mantenimiento->boletum->id, ['controller' => 'Boleta', 'action' => 'view', $mantenimiento->boletum->id]) : '' ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $mantenimiento->id],['class'=>'btn btn-sm btn-primary']) ?>
-                    <?= $this->html->Link('Eliminar', ['action' => 'delete', $mantenimiento->id], ['confirm' => __('Estas seguro que quieres eliminar al cliente  {0}?', $mantenimiento->id),'class'=>'btn btn-sm btn-danger']) ?>
-                    <?= $this->Html->link(__('Agregar repuesto'), ['controller'=>'Mantrepuesto','action' => 'add', $mantenimiento->id],['class'=>'btn btn-sm btn-success']) ?>                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
+</div>
+   <div class="paginator">
         <div class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->prev('<') ?>
+            <?= $this->Paginator->numbers(['before'=>'','after'=>'']); ?>
+            <?= $this->Paginator->next('>') ?>     
         </div>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
 
@@ -82,7 +94,6 @@
         return 'Baja';
     }
 }
-
 
 
  /*   function cambiarPriori($id){

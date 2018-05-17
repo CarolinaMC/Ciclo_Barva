@@ -23,8 +23,9 @@ echo $this->Breadcrumbs->render();
 <div class="mantenimiento index large-12 medium-8 columns content">
     <h3><?= __('Mantenimientos') ?></h3>
     <h4></h4>
+    
         <?= $this->Html->link(__('Agregar Mantenimiento'), ['action' => 'add'],['class'=>'  fa fa-wrench btn btn-lg btn-success']) ?>
-     <?= $this->Form->end(); ?>
+    
      <div><br></div>
      <div class="table-responsive">
     <table class ="table table-striped table-hover" cellpadding="0" cellspacing="0">

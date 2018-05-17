@@ -69,8 +69,7 @@ class MantenimientoTable extends Table
 
         $validator
             ->scalar('garantia')
-            ->requirePresence('garantia', 'create')
-            ->notEmpty('garantia');
+            ->allowEmpty('garantia','NULL');
 
         $validator
             ->scalar('prioridad')
@@ -83,13 +82,19 @@ class MantenimientoTable extends Table
             ->notEmpty('estado');
 
         $validator
-            ->scalar('descripcion')
-            ->requirePresence('descripcion', 'create')
-            ->notEmpty('descripcion');
+            ->scalar('manoObra')
+             ->allowEmpty('manoObra','NULL');
+
+        
+         $validator
+             ->numeric('boleta_id')
+             ->requirePresence('boleta_id', 'create');
 
          $validator
-             ->numeric('manoObra')
-             ->requirePresence('manoObra', 'create');
+             ->numeric('bicicleta_id')
+             ->requirePresence('bicicleta_id', 'create');
+         
+
 
         return $validator;
     }
