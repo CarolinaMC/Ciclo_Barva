@@ -21,7 +21,7 @@
         
 
         else{ ?>
-            <h3 style=display: inline-block;> Boleta # <?=$boleta_id ?> | | Cliente <?=$nombre ?> </h3> 
+            <h3 style=display: inline-block;> Boleta # <i><?=$boleta_id ?> </i><i class="fa fa-user btn btn-lg"></i><?= $this->Html->link(h($cliente['nombre']).' '.h($cliente['primer_ape']).' '.h($cliente['segundo_ape']),['controller' => 'Cliente', 'action' => 'view', $cliente['id']]) ?> </h3> 
             <div style = 'display:none' >
                 <?php
             echo $this->Form->control('boleta_id',['type'=>'text', 'id'=>'boleta_id', 'value' => $boleta_id]); ?>

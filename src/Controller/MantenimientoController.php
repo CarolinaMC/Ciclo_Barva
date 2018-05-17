@@ -274,6 +274,13 @@ class MantenimientoController extends AppController
             
         $opci = array('conditions' => array('Bicicleta.cliente_id' => $cliente_id));
         $bicicleta=$this->Mantenimiento->Bicicleta->find('all',$opci);
+        
+        $this->loadModel('Cliente');
+        $cliente = $this->Cliente->get($cliente_id, [
+            'contain' => []
+        ]);
+
+        $this->set('cliente', $cliente);
     }
     else{
 
