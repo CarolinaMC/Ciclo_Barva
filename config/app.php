@@ -238,6 +238,16 @@ return [
             'cacheMetadata' => true,
             'log' => false,
 
+            /* 'username' => 'id3040484_ciclo_barva',
+            'password' => 'ciclo',
+            'database' => 'id3040484_ciclo_barva',
+            'encoding' => 'utf8',
+            'timezone' => 'UTC',
+            'flags' => [],
+            'cacheMetadata' => true,
+            'log' => false,
+            */
+
             /**
              * Set identifier quoting to true if you are using reserved words or
              * special characters in your table or column names. Enabling this

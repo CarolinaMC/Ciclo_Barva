@@ -6,6 +6,14 @@
     color: white;
     text-align: center;
 }
+
+#una{
+    background-repeat: no-repeat;
+    background-image: url(../Ciclo_Barva/webroot/img/una.png);
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
 </style>
 <br>
 <br>
@@ -13,12 +21,15 @@
 
     <!--Footer Links-->
     <div class="container text-center text-md-center">
+        <br>
+        <br>
         <div class="row">
 
             <!--First column-->
             <div class="col-md-4 col-sm-12">
-                <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Una</h5>
-                <p>Este sistema web fue donado por Estudiantes de la Universidad Nacional de Costa Rica. </p>
+                <br>
+                <div id="una" class = "container text-center text-md-center"></div>
+             <!--   <p>Este sistema web fue donado por Estudiantes de la Universidad Nacional de Costa Rica. </p>-->
             </div>
             <!--/.First column-->
 
