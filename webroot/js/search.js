@@ -104,14 +104,14 @@ function llenarAutoCompleteMarca(data) {
 
 function comfirmar(nombre, cliente_id, usuario_id){
 	if(confirm("Estas seguro que quiere crear una boleta de reparacion al cliente " + nombre)){
-		return location.href = '/Ciclo_Barva/boleta/add/' + nombre + '/' + cliente_id + '/' + usuario_id ;
+		return location.href = 'boleta/add/' + nombre + '/' + cliente_id + '/' + usuario_id ;
 	}
 	else{
 		return false;
 	}
 }
    function buscarCategoria(mantenimiento = null){
-  return location.href = '/Ciclo_Barva/mantrepuesto/add/' + mantenimiento + '/' + $('#categoria').val();
+  return location.href = 'mantrepuesto/add/' + mantenimiento + '/' + $('#categoria').val();
 }
 
 function llenarAutoCompleteBici(data) {
@@ -202,7 +202,7 @@ function llenarAutoCompleteBiciCliente(data) {
 }
 
 function nuevo_mantenimiento(cliente_nombre, boleta_id, cliente_id){
-  return location.href = '/Ciclo_Barva/mantenimiento/add/' + cliente_nombre + '/' + boleta_id + '/' + cliente_id;
+  return location.href = 'mantenimiento/add/' + cliente_nombre + '/' + boleta_id + '/' + cliente_id;
 }
 
 function llenarAutoCompleteRepuesto(data) {

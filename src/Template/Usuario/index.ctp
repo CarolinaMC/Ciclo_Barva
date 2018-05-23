@@ -56,7 +56,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($usuario as $usuario): ?>
-            <tr ondblclick = "document.location = '/Ciclo_Barva/usuario/view/' +  <?= $usuario->id ?>;">
+            <tr ondblclick = "document.location = 'usuario/view/' +  <?= $usuario->id ?>;">
                 <td><?= h($usuario->cedula) ?></td>
                 <td><?= h($usuario->nombre) ?></td>
                 <td><?= h($usuario->primer_ape) ?></td>

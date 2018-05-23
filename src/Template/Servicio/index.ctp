@@ -43,7 +43,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($servicio as $servicio): ?>
-            <tr ondblclick  = "document.location = '/Ciclo_Barva/servicio/view/' +  <?= $servicio->id ?>;">
+            <tr ondblclick  = "document.location = 'servicio/view/' +  <?= $servicio->id ?>;">
                 <td><?= h($servicio->descripcion) ?></td>
                 <td><?= $this->Number->format($servicio->precio) ?></td>
                 <?php if(isset($current_user['puesto']) and $current_user['puesto']!=='mecanico'):?>

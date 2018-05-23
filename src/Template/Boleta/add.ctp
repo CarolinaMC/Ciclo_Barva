@@ -30,7 +30,7 @@ echo $this->Breadcrumbs->render();
     ?>
 </div>
 
-<div class="cliente index content">
+<div class="cliente index ">
     <h4 class=""><legend><?= __('Seleccione un cliente para crear la boleta') ?></legend></h4>
     
    <div class="form-group">

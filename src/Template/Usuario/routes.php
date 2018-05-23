@@ -106,8 +106,6 @@ Router::scope('/', function (RouteBuilder $routes) {
  */
 Plugin::routes();
 
-
-
 Router::scope('/mantenimiento', function ($routes) {
     $routes->extensions('pdf');
     $routes->connect('/index/*', ['controller' => 'Mantenimiento', 'action' => 'index']);

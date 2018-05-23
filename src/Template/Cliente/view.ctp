@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-    <div class="cliente view  content">
+    <div class="">
     <h4 class=""><legend><?= __('Detalle del cliente') ?></legend></h4>
     <h3 class="heading"><?= h($cliente->nombre) ?></h3>
     <table class="vertical-table">

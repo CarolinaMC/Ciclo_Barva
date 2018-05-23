@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-    <div class="bicicleta view  content">
+    <div class="">
     <h4 class=""><legend><?= __('Detalle de la bicicleta') ?></legend></h4>
     <h3><?= h($bicicletum->color) ?></h3>
     <table class="vertical-table">

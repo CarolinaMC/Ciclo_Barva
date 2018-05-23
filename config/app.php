@@ -238,7 +238,7 @@ return [
             'cacheMetadata' => true,
             'log' => false,
 
-            /* 'username' => 'id3040484_ciclo_barva',
+           /* 'username' => 'id3040484_ciclo_barva',
             'password' => 'ciclo',
             'database' => 'id3040484_ciclo_barva',
             'encoding' => 'utf8',

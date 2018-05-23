@@ -50,7 +50,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($bicicleta as $bicicletum): ?>
-            <tr ondblclick = "document.location = '/Ciclo_Barva/bicicleta/view/' +  <?= $bicicletum->id ?>;" >
+            <tr ondblclick = "document.location = 'bicicleta/view/' +  <?= $bicicletum->id ?>;" >
                 <td><?= $bicicletum->has('cliente') ? $this->Html->link($bicicletum->cliente->nombre, ['controller' => 'Cliente', 'action' => 'view', $bicicletum->cliente->id]) : '' ?></td>            
                 <td><?= $bicicletum->has('marca') ? $this->Html->link($bicicletum->marca->nombre, ['controller' => 'Marca', 'action' => 'view', $bicicletum->marca->id]) : '' ?></td>
                 <td><?= h($bicicletum->color) ?></td> 

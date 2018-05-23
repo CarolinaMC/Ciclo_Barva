@@ -21,7 +21,7 @@ $this->Breadcrumbs->templates([
 echo $this->Breadcrumbs->render();
     ?>
 </div>
-<div class="usuario view content">
+<div >
     <h4 class=""><legend><?= __('Detalle del usuario') ?></legend></h4>
     <h3 class="heading"><?= h($usuario->nombre) ?></h3>
     

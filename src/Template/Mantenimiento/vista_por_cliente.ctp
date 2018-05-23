@@ -39,7 +39,7 @@
             <?php foreach ($mantenimiento as $mantenimiento): ?>
             	
             	
-            <tr ondblclick = "document.location = '/Ciclo_Barva/mantenimiento/view/' +  <?= $mantenimiento->id ?> ;">
+            <tr ondblclick = "document.location = 'mantenimiento/view/' +  <?= $mantenimiento->id ?> ;">
                 <td><?= h($mantenimiento->garantia) ?></td>
                 <td><?=  $this->Form->create($mantenimiento, array('type' => 'POST',  'url' => ['action' => 'cambiarP', $mantenimiento->id])) ?>
 

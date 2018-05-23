@@ -38,7 +38,7 @@ echo $this->Breadcrumbs->render();
         </thead>
         <tbody>
             <?php foreach ($marca as $marca): ?>
-            <tr ondblclick = "document.location = '/Ciclo_Barva/marca/view/' +  <?= $marca->id ?>;">
+            <tr ondblclick = "document.location = 'marca/view/' +  <?= $marca->id ?>;">
                 <td><?= h($marca->nombre) ?></td>
                 <td><?= h($marca->tipo) ?></td>
                 <td class="actions">
